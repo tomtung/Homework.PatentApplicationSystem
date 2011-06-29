@@ -28,7 +28,7 @@ namespace Homework.PatentApplicationSystem.Model
         /// </summary>
         public static IEnumerable<CaseDoc> GetDocsOf(this ICaseDocManager manager, Case @case)
         {
-            return manager.GetDocsOf(@case.°¸¼þ±àºÅ);
+            return manager.GetDocsOf(@case.±àºÅ);
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Homework.PatentApplicationSystem.Model
         /// </summary>
         public static void AddDoc(this ICaseDocManager manager, Case @case, CaseDoc doc)
         {
-            manager.AddDoc(@case.°¸¼þ±àºÅ, doc);
+            manager.AddDoc(@case.±àºÅ, doc);
         }
     }
 }

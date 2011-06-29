@@ -43,11 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applicant.cs" />
     <Compile Include="Case.cs" />
     <Compile Include="CaseDoc.cs" />
     <Compile Include="CaseMessage.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerContact.cs" />
     <Compile Include="ICaseManager.cs" />
     <Compile Include="ICaseDocManager.cs" />
+    <Compile Include="Inventor.cs" />
     <Compile Include="IUserLoginService.cs" />
     <Compile Include="IUserSpecificService.cs" />
     <Compile Include="IUserSpecificServiceFactory.cs" />

@@ -7,6 +7,9 @@ namespace Homework.PatentApplicationSystem.Model
     /// </summary>
     public struct CaseDoc
     {
+        public string Filename { get; set; }
+        public string 客户号 { get; set; }
+
         /// <summary>
         /// The date and time when the file was uploaded.
         /// </summary>
