@@ -18,7 +18,7 @@ namespace Homework.PatentApplicationSystem.Model
     {
         public Tuple<LoginResult, User> Login(string userName, string password)
         {
-            LoginResult result;
+            LoginResult result = LoginResult.Successful;
             User user = null;
 
             switch (userName)
@@ -35,7 +35,7 @@ namespace Homework.PatentApplicationSystem.Model
                     break;
             }
 
-            return Tuple.Create(LoginResult.Successful, user);
+            return Tuple.Create(result, user);
         }
     }
 }
