@@ -6,37 +6,30 @@ namespace Homework.PatentApplicationSystem.Model
     public interface ICaseDocManager
     {
         /// <summary>
-        /// Get document files that are related to case with given ID.
+        /// 返回与<see cref="Case.编号"/>为<param name="案件编号" />的<see cref="Case"/>相关的所有<see cref="CaseDoc"/>。
         /// </summary>
-        IEnumerable<CaseDoc> GetDocsOf(Guid caseId);
+        IEnumerable<CaseDoc> GetDocsOf(Guid 案件编号);
         
         /// <summary>
-        /// Add document file <param name="doc"/> to related files of the case with ID <param name="caseId"/>
+        /// 保存路径为<see cref="CaseDoc.FilePath"/>的文件与案件编号为<see cref="CaseDoc.案件编号"/>的案件的关联。
         /// </summary>
-        void AddDoc(Guid caseId, CaseDoc doc);
+        void AddDoc(CaseDoc doc);
 
         /// <summary>
-        /// Remove document file <param name="doc"/> from related files of the case with ID <param name="caseId"/>
+        /// 解除路径为<see cref="CaseDoc.FilePath"/>的文件与案件编号为<see cref="CaseDoc.案件编号"/>的案件的关联。
+        /// 但实际文件并不会被删除。
         /// </summary>
-        void RemoveDoc(Guid caseId, CaseDoc doc);
+        void RemoveDoc(CaseDoc doc);
     }
 
     public static class CaseDocManagerHelper
     {
         /// <summary>
-        /// Get document files that are related to <param name="case"/>.
+        /// 返回与案件<param name="case" />相关的所有<see cref="CaseDoc"/>。
         /// </summary>
         public static IEnumerable<CaseDoc> GetDocsOf(this ICaseDocManager manager, Case @case)
         {
             return manager.GetDocsOf(@case.编号);
-        }
-
-        /// <summary>
-        /// Add document file <param name="doc"/> to related files of <param name="case"/>.
-        /// </summary>
-        public static void AddDoc(this ICaseDocManager manager, Case @case, CaseDoc doc)
-        {
-            manager.AddDoc(@case.编号, doc);
         }
     }
 }

@@ -3,12 +3,16 @@
 namespace Homework.PatentApplicationSystem.Model
 {
     /// <summary>
-    /// A document related to some case.
+    /// 表示案件与服务器上文件的关联关系。
     /// </summary>
     public struct CaseDoc
     {
-        public string Filename { get; set; }
-        public string 客户号 { get; set; }
+        /// <summary>
+        /// 显示给用户的文件名。
+        /// </summary>
+        public string FileName { get; set; }
+        
+        public Guid 案件编号 { get; set; }
 
         /// <summary>
         /// The date and time when the file was uploaded.
@@ -21,7 +25,7 @@ namespace Homework.PatentApplicationSystem.Model
         public string UploadUserName { get; set; }
 
         /// <summary>
-        /// Path of the upload file.
+        /// 文件在服务器上实际的存储路径。
         /// </summary>
         public string FilePath { get; set; }
     }
