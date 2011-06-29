@@ -4,22 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using Ninject;
+using Homework.PatentApplicationSystem.Model;
 
 namespace Homework.PatentApplicationSystem
 {
     public class Global : System.Web.HttpApplication
     {
-
+        public static IKernel Kernel = new StandardKernel();
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
+            PrepareKernel();
+        }
 
+        private static void PrepareKernel()
+        {
+            Kernel.Bind<IUserLoginService>().To<MockUserLoginService>().InSingletonScope();
         }
 
         void Application_End(object sender, EventArgs e)
         {
             //  Code that runs on application shutdown
-
         }
 
         void Application_Error(object sender, EventArgs e)
