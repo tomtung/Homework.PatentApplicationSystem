@@ -14,6 +14,7 @@ namespace Homework.PatentApplicationSystem.Model
         
         /// <summary>
         /// 保存案件<param name="case"/>的信息，并启动此案件流程。
+        /// <param name="case"/>的编号<see cref="Case.编号"/>将被忽略，新的编号会被自动生成并覆盖原值。
         /// </summary>
         void CreateCase(Case @case);
     }
