@@ -3,7 +3,7 @@
     /// <summary>
     /// 数据库辅助接口
     /// </summary>
-    public interface IDbHelper
+    internal public interface IDbHelper
     {
         /// <summary>
         /// 关闭字符串连接

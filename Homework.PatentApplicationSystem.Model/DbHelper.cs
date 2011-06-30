@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
+﻿using System.Data.SqlClient;
 
 namespace Homework.PatentApplicationSystem.Model
 {
     /// <summary>
     /// 数据库访问帮助类
     /// </summary>
-    class DbHelper:IDbHelper
+    internal class DbHelper:IDbHelper
     {
         public SqlCommand Command { get; set; }
 
