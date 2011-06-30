@@ -1,6 +1,6 @@
 namespace Homework.PatentApplicationSystem.Model.Workflow
 {
-    public static class BookmarkNames
+    internal static class BookmarkNames
     {
         public const string 立案 = "立案";
 
