@@ -1,9 +1,11 @@
-﻿namespace Homework.PatentApplicationSystem.Model
+﻿using System.Data.SqlClient;
+
+namespace Homework.PatentApplicationSystem.Model
 {
     /// <summary>
     /// 数据库辅助接口
     /// </summary>
-    internal public interface IDbHelper
+    public interface IDbHelper
     {
         /// <summary>
         /// 关闭字符串连接
@@ -17,5 +19,14 @@
         /// <param name="sqlString"></param>
         /// <returns></returns>
         int AddUpdateDelete(string sqlString);
+
+        /// <summary>
+        /// Select函数
+        /// 返回：SqlDataReader
+        /// </summary>
+        /// <param name="sqlString"></param>
+        /// <returns></returns>
+        SqlDataReader Select(string sqlString);
+
     }
 }

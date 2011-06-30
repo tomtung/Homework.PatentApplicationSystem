@@ -5,19 +5,21 @@ namespace Homework.PatentApplicationSystem.Model
     /// <summary>
     /// 数据库访问帮助类
     /// </summary>
-    internal class DbHelper:IDbHelper
+    public class DbHelper : IDbHelper
     {
         public SqlCommand Command { get; set; }
+        public SqlConnection Connection { get; set; }
 
         public DbHelper(string sqlString)
         {
-            var connection = new SqlConnection(sqlString);
-            Command = new SqlCommand {Connection = connection};
+            Connection = new SqlConnection(sqlString);
+            Connection.Open();
+            Command = new SqlCommand { Connection = this.Connection };
         }
 
         public void Close()
         {
-            Command.Connection.Close();
+            Connection.Close();
         }
 
 
@@ -26,6 +28,12 @@ namespace Homework.PatentApplicationSystem.Model
             Command.CommandText = sqlString;
             var rows = Command.ExecuteNonQuery();
             return rows;
+        }
+
+        public SqlDataReader Select(string sqlString)
+        {
+            Command.CommandText = sqlString;
+            return Command.ExecuteReader();
         }
     }
 }

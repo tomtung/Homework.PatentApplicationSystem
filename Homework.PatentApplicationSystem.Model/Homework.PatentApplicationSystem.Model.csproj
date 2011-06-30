@@ -47,6 +47,7 @@
     <Compile Include="Case.cs" />
     <Compile Include="CaseDoc.cs" />
     <Compile Include="CaseMessage.cs" />
+    <Compile Include="ClientInfoManager.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerContact.cs" />
     <Compile Include="DbHelper.cs" />
