@@ -29,12 +29,14 @@
                 </asp:LoginView>
             </div>
             <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                    </Items>
+                <asp:Menu ID="NavigationMenu" DataSourceID="SiteMapSrc" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" >
+<%--                    <DataBindings>
+                        <asp:MenuItemBinding DataMember="category" TextField="text" />
+                    </DataBindings>--%>
                 </asp:Menu>
+<%--                <asp:XmlDataSource ID="MenuSrc" DataFile="Menu.xml"  runat="server">
+                </asp:XmlDataSource>--%>
+                <asp:SiteMapDataSource ID="SiteMapSrc" ShowStartingNode="false" runat="server" /> 
             </div>
         </div>
         <div class="main">

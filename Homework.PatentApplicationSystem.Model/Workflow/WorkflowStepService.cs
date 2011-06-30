@@ -74,7 +74,8 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         public bool ContinueCase(Guid caseId, object value)
         {
-            throw new NotImplementedException();
+            var wfManager = GlobalKernel.Instance.Get<ICaseWorkflowManager>();
+            return wfManager.ResumeBookmark(caseId, BookmarkName, value);
         }
 
         #endregion
