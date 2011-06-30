@@ -8,10 +8,23 @@
         Log In
     </h2>
     <p>
-        Please enter your username and password.
-        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">Register</asp:HyperLink> if you don't have an account.
+        请输入用户名与密码, 如果没有请点击
+        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">Register</asp:HyperLink>来创建帐户
     </p>
-    <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
+        <asp:Label ID="lblUserName" Text="用户名" runat="server">
+        </asp:Label>
+        &nbsp; 
+        <asp:TextBox ID="txtUserName" runat="server" Width="128px"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblPWD" Text="密码" runat="server">
+        </asp:Label>
+        &nbsp;
+        <asp:TextBox ID="txtPWD" runat="server" Height="22px" Width="128px"></asp:TextBox>
+        <br />
+        &nbsp;
+        <asp:Button ID="btnOK" Text="确定" runat="server" Height="26px" 
+        onclick="btnOK_Click" />
+    <%--<asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
         <LayoutTemplate>
             <span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
@@ -45,5 +58,5 @@
                 </p>
             </div>
         </LayoutTemplate>
-    </asp:Login>
+    </asp:Login>--%>
 </asp:Content>

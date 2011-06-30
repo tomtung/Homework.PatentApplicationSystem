@@ -16,6 +16,15 @@ namespace Homework.PatentApplicationSystem
         {
             // Code that runs on application startup
             PrepareKernel();
+            string []  m_Roles = typeof(Role).GetEnumNames();
+            foreach (string role in m_Roles)
+            {
+                if (!Roles.RoleExists(role))
+                {
+                    Roles.CreateRole(role);
+                }
+            }
+
         }
 
         private static void PrepareKernel()
