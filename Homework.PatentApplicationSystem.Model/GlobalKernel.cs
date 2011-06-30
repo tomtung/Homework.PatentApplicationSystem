@@ -1,4 +1,4 @@
-﻿using Ninject;
+using Ninject;
 
 namespace Homework.PatentApplicationSystem.Model
 {
