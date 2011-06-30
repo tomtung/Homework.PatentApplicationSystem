@@ -47,11 +47,15 @@
     <Compile Include="Case.cs" />
     <Compile Include="CaseDoc.cs" />
     <Compile Include="CaseMessage.cs" />
+    <Compile Include="ClientInfoManager.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerContact.cs" />
+    <Compile Include="DbHelper.cs" />
+    <Compile Include="GlobalKernel.cs" />
     <Compile Include="ICaseManager.cs" />
     <Compile Include="ICaseDocManager.cs" />
     <Compile Include="IClientInfoManager.cs" />
+    <Compile Include="IDbHelper.cs" />
     <Compile Include="Inventor.cs" />
     <Compile Include="IUserLoginService.cs" />
     <Compile Include="IUserSpecificService.cs" />
