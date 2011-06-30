@@ -9,7 +9,7 @@ namespace Homework.PatentApplicationSystem.Model
     /// <summary>
     /// 数据库访问帮助类
     /// </summary>
-    class DbHelper
+    class DbHelper:IDbHelper
     {
         public SqlCommand Command { get; set; }
 
@@ -23,6 +23,7 @@ namespace Homework.PatentApplicationSystem.Model
         {
             Command.Connection.Close();
         }
+
 
         public int AddUpdateDelete(string sqlString)
         {
