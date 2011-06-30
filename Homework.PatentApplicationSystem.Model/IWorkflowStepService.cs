@@ -57,7 +57,7 @@ namespace Homework.PatentApplicationSystem.Model
         /// <returns></returns>
         public static bool ContinueCase(this IWorkflowStepService service, Case @case, object value)
         {
-            return service.ContinueCase(@case.°¸¼þ±àºÅ, value);
+            return service.ContinueCase(@case.±àºÅ, value);
         }
     }
 }
