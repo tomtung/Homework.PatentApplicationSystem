@@ -22,7 +22,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         ///     任务结果，作为可能影响案件流程的参数。
         ///     <example>如对于内审任务，传入true/false表示内审是否通过。</example>
         /// </param>
-        /// <returns></returns>
+        /// <returns>案件是否成功继续。</returns>
         bool ContinueCase(Guid caseId, object value);
     }
 
@@ -41,6 +41,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         /// 表示用户<see cref="IWorkflowStepService.User"/>已完成当前任务，案件流程可以继续。
         /// </summary>
         /// <param name="case">要继续的案件。</param>
+        /// <returns>案件是否成功继续。</returns>
         public static bool ContinueCase(this IWorkflowStepService service, Case @case)
         {
             return service.ContinueCase(@case, new object());
@@ -54,7 +55,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         ///     任务结果，作为可能影响案件流程的参数。
         ///     <example>如对于内审任务，传入true/false表示内审是否通过。</example>
         /// </param>
-        /// <returns></returns>
+        /// <returns>案件是否成功继续。</returns>
         public static bool ContinueCase(this IWorkflowStepService service, Case @case, object value)
         {
             return service.ContinueCase(@case.编号, value);
