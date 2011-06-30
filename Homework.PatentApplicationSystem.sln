@@ -6,6 +6,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.PatentApplicationSystem.Model", "Homework.PatentApplicationSystem.Model\Homework.PatentApplicationSystem.Model.csproj", "{0085AA20-3D1B-4421-B97C-9A8B3AA4B2D9}"
 EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Homework.PatentApplicationSystem.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

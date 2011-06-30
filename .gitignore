@@ -7,3 +7,4 @@
 /*.cache
 /TestResults/*
 *ReSharper*
+*.vs10x
