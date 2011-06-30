@@ -61,6 +61,7 @@
     <Compile Include="IUserSpecificServiceFactory.cs" />
     <Compile Include="Workflow\BookmarkNames.cs" />
     <Compile Include="Workflow\IBookmarkRecordManager.cs" />
+    <Compile Include="Workflow\ICaseWorkflowManager.cs" />
     <Compile Include="Workflow\IWorkflowStepService.cs" />
     <Compile Include="Workflow\I代理部主管流程服务.cs" />
     <Compile Include="Workflow\I代理部文员流程服务.cs" />
