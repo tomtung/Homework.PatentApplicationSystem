@@ -1,4 +1,4 @@
-namespace Homework.PatentApplicationSystem.Model
+namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     /// <summary>
     /// 包括办案员角色的流程控制服务，由角色需要处理的任务组成。

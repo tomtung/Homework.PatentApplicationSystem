@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Homework.PatentApplicationSystem.Model
+namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     /// <summary>
     /// 用于对用户<see cref="IWorkflowStepService.User"/>的某项任务进行流程控制。
