@@ -53,7 +53,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         {
             // 只有办案员存在被分案的情况
             if (User.Role != Role.办案员) return true;
-            var @case = GlobalKernel.Instance.Get<ICaseManager>().GetCaseById(caseId);
+            var @case = GlobalKernel.Instance.Get<ICaseInfoManager>().GetCaseById(caseId);
             switch (BookmarkName)
             {
                 case BookmarkNames.撰写五书:
