@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Homework.PatentApplicationSystem.Model
+﻿namespace Homework.PatentApplicationSystem.Model
 {
     /// <summary>
     /// 发明人信息
