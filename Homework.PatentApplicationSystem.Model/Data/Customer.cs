@@ -1,4 +1,4 @@
-﻿namespace Homework.PatentApplicationSystem.Model
+﻿namespace Homework.PatentApplicationSystem.Model.Data
 {
     public struct Customer
     {

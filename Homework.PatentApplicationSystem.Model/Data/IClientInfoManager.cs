@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 
-namespace Homework.PatentApplicationSystem.Model
+namespace Homework.PatentApplicationSystem.Model.Data
 {
     /// <summary>
-    /// ÉêÇëÈË¡¢·¢Ã÷ÈËºÍ¿Í»§¼°ÆäÁªÏµÈËµÄĞÅÏ¢¹ÜÀíÀàÊµÏÖ´Ë½Ó¿Ú¡£
+    /// ç”³è¯·äººã€å‘æ˜äººå’Œå®¢æˆ·åŠå…¶è”ç³»äººçš„ä¿¡æ¯ç®¡ç†ç±»å®ç°æ­¤æ¥å£ã€‚
     /// </summary>
     public interface IClientInfoManager
     {
@@ -11,24 +11,24 @@ namespace Homework.PatentApplicationSystem.Model
         void RemoveCustomer(Customer customer);
         void UpdateCustomer(Customer customer);
         IEnumerable<Customer> GetAllCustomers();
-        Customer GetCustomer(string ¿Í»§ºÅ);
+        Customer GetCustomer(string å®¢æˆ·å·);
 
         void AddCustomerContact(CustomerContact contact);
         void RemoveCustomerContact(CustomerContact contact);
         void UpdateCustomerContact(CustomerContact contact);
-        IEnumerable<CustomerContact> GetCustomerContacts(string ¿Í»§ºÅ);
+        IEnumerable<CustomerContact> GetCustomerContacts(string å®¢æˆ·å·);
 
         void AddApplicant(Applicant applicant);
         void RemoveApplicant(Applicant applicant);
         void UpdateApplicant(Applicant applicant);
         IEnumerable<Applicant> GetAllApplicants();
-        Applicant GetApplicant(string ÉêÇëÈËÖ¤¼şºÅ);
+        Applicant GetApplicant(string ç”³è¯·äººè¯ä»¶å·);
 
         void AddInventor(Inventor inventor);
         void RemoveInventor(Inventor inventor);
         void UpdateInventor(Inventor inventor);
         IEnumerable<Inventor> GetAllInventors();
-        Inventor GetInventor(string ·¢Ã÷ÈËÉí·İÖ¤ºÅÖ¤¼şºÅ);
+        Inventor GetInventor(string å‘æ˜äººèº«ä»½è¯å·è¯ä»¶å·);
     }
 
     public static class ClientInfoManagerHelper
@@ -36,7 +36,7 @@ namespace Homework.PatentApplicationSystem.Model
         public static IEnumerable<CustomerContact> GetCustomerContacts(this IClientInfoManager manager,
             Customer customer)
         {
-            return manager.GetCustomerContacts(customer.¿Í»§ºÅ);
+            return manager.GetCustomerContacts(customer.å®¢æˆ·å·);
         }
     }
 }

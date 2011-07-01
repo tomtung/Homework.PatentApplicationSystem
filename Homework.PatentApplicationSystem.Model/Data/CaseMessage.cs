@@ -1,24 +1,24 @@
-using System;
+ï»¿using System;
 
-namespace Homework.PatentApplicationSystem.Model
+namespace Homework.PatentApplicationSystem.Model.Data
 {
     /// <summary>
-    /// Ò»ÌõÄ³°ì°¸ÈËÔ±¶ÔÄ³°¸¼şµÄÁôÑÔĞÅÏ¢¡£
+    /// ä¸€æ¡æŸåŠæ¡ˆäººå‘˜å¯¹æŸæ¡ˆä»¶çš„ç•™è¨€ä¿¡æ¯ã€‚
     /// </summary>
     public struct CaseMessage
     {
         /// <summary>
-        /// ĞÅÏ¢ËùÊôµÄ°¸¼şµÄ±àºÅ¡£
+        /// ä¿¡æ¯æ‰€å±çš„æ¡ˆä»¶çš„ç¼–å·ã€‚
         /// </summary>
-        public Guid °¸¼ş±àºÅ { get; set; }
+        public Guid æ¡ˆä»¶ç¼–å· { get; set; }
 
         /// <summary>
-        /// ĞÅÏ¢ÄÚÈİ¡£
+        /// ä¿¡æ¯å†…å®¹ã€‚
         /// </summary>
         public string Content { get; set; }
 
         /// <summary>
-        /// ¸ÃÌõĞÅÏ¢·¢ËÍÕßµÄÓÃ»§Ãû¡£
+        /// è¯¥æ¡ä¿¡æ¯å‘é€è€…çš„ç”¨æˆ·åã€‚
         /// </summary>
         public string SenderUsername { get; set; }
     }

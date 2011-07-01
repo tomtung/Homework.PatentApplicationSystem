@@ -44,17 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applicant.cs" />
-    <Compile Include="Case.cs" />
-    <Compile Include="CaseDoc.cs" />
-    <Compile Include="CaseMessage.cs" />
-    <Compile Include="ClientInfoManager.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="CustomerContact.cs" />
+    <Compile Include="Data\Case.cs" />
+    <Compile Include="Data\CaseDoc.cs" />
+    <Compile Include="Data\CaseMessage.cs" />
+    <Compile Include="Data\ClientInfoManager.cs" />
+    <Compile Include="Data\Customer.cs" />
+    <Compile Include="Data\CustomerContact.cs" />
+    <Compile Include="Data\ICaseDocManager.cs" />
+    <Compile Include="Data\ICaseInfoManager.cs" />
+    <Compile Include="Data\IClientInfoManager.cs" />
+    <Compile Include="Data\Inventor.cs" />
     <Compile Include="DefaultNinjectModule.cs" />
-    <Compile Include="ICaseDocManager.cs" />
-    <Compile Include="ICaseInfoManager.cs" />
-    <Compile Include="IClientInfoManager.cs" />
-    <Compile Include="Inventor.cs" />
     <Compile Include="IUserLoginService.cs" />
     <Compile Include="IUserSpecificService.cs" />
     <Compile Include="IUserSpecificServiceFactory.cs" />

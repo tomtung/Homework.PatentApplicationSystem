@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Homework.PatentApplicationSystem.Model
+namespace Homework.PatentApplicationSystem.Model.Data
 {
     /// <summary>
     /// 案件信息。

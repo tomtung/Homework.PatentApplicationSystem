@@ -1,3 +1,5 @@
+using Homework.PatentApplicationSystem.Model.Data;
+
 using Ninject.Modules;
 
 namespace Homework.PatentApplicationSystem.Model

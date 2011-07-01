@@ -1,4 +1,4 @@
-﻿namespace Homework.PatentApplicationSystem.Model
+﻿namespace Homework.PatentApplicationSystem.Model.Data
 {
     /// <summary>
     /// 客户联系人信息

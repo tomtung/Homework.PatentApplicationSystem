@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Homework.PatentApplicationSystem.Model
+namespace Homework.PatentApplicationSystem.Model.Data
 {
     /// <summary>
     /// 表示案件与服务器上文件的关联关系。

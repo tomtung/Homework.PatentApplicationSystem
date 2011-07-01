@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 
+using Homework.PatentApplicationSystem.Model.Data;
+
 namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     /// <summary>

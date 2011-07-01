@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Homework.PatentApplicationSystem.Model.Data;
+
 namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     internal class WorkflowStepService : IWorkflowStepService
