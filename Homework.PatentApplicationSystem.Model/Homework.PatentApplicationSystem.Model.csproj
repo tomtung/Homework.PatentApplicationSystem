@@ -50,15 +50,15 @@
     <Compile Include="ClientInfoManager.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerContact.cs" />
-    <Compile Include="DbHelper.cs" />
+    <Compile Include="DefaultNinjectModule.cs" />
     <Compile Include="ICaseDocManager.cs" />
     <Compile Include="ICaseInfoManager.cs" />
     <Compile Include="IClientInfoManager.cs" />
-    <Compile Include="IDbHelper.cs" />
     <Compile Include="Inventor.cs" />
     <Compile Include="IUserLoginService.cs" />
     <Compile Include="IUserSpecificService.cs" />
     <Compile Include="IUserSpecificServiceFactory.cs" />
+    <Compile Include="SqlConnectionHelper.cs" />
     <Compile Include="Workflow\BookmarkNames.cs" />
     <Compile Include="Workflow\IBookmarkRecordManager.cs" />
     <Compile Include="Workflow\ICaseWorkflowManager.cs" />
