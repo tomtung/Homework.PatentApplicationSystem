@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.PatentApplicationS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.PatentApplicationSystem.Model", "Homework.PatentApplicationSystem.Model\Homework.PatentApplicationSystem.Model.csproj", "{0085AA20-3D1B-4421-B97C-9A8B3AA4B2D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.PatentApplicationSystem.Test", "Homework.PatentApplicationSystem.Test\Homework.PatentApplicationSystem.Test.csproj", "{64BA4064-7DFD-4151-9B7C-1835BD6C7DF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{0085AA20-3D1B-4421-B97C-9A8B3AA4B2D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0085AA20-3D1B-4421-B97C-9A8B3AA4B2D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0085AA20-3D1B-4421-B97C-9A8B3AA4B2D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64BA4064-7DFD-4151-9B7C-1835BD6C7DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64BA4064-7DFD-4151-9B7C-1835BD6C7DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64BA4064-7DFD-4151-9B7C-1835BD6C7DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64BA4064-7DFD-4151-9B7C-1835BD6C7DF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
