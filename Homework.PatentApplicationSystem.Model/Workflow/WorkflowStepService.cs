@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ninject;
 
 namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     internal class WorkflowStepService : IWorkflowStepService
     {
         private readonly string _bookmarkName;
+        private readonly IBookmarkRecordManager _bookmarkRecordManager;
+        private readonly ICaseInfoManager _caseInfoManager;
+        private readonly ICaseWorkflowManager _caseWorkflowManager;
         private readonly User _user;
 
-        /// <remark>
-        /// 假设：参数合法
-        /// </remark>
-        internal WorkflowStepService(User user, string bookmarkName)
+        internal WorkflowStepService(User user, string bookmarkName, IBookmarkRecordManager bookmarkRecordManager,
+            ICaseInfoManager caseInfoManager, ICaseWorkflowManager caseWorkflowManager)
         {
             _user = user;
             _bookmarkName = bookmarkName;
+            _caseInfoManager = caseInfoManager;
+            _bookmarkRecordManager = bookmarkRecordManager;
+            _caseWorkflowManager = caseWorkflowManager;
         }
 
         public string BookmarkName
@@ -39,10 +42,15 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         {
             get
             {
-                return GlobalKernel.Instance.Get<IBookmarkRecordManager>()
+                return _bookmarkRecordManager
                     .GetIdsOfAllCaseSuspendedAt(BookmarkName)
                     .Where(IsTaskAssignedToMe);
             }
+        }
+
+        public bool ContinueCase(Guid caseId, object value)
+        {
+            return _caseWorkflowManager.ResumeBookmark(caseId, BookmarkName, value);
         }
 
         /// <remarks>
@@ -52,8 +60,11 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         private bool IsTaskAssignedToMe(Guid caseId)
         {
             // 只有办案员存在被分案的情况
-            if (User.Role != Role.办案员) return true;
-            var @case = GlobalKernel.Instance.Get<ICaseInfoManager>().GetCaseById(caseId);
+            if (User.Role != Role.办案员)
+            {
+                return true;
+            }
+            Case @case = _caseInfoManager.GetCaseById(caseId);
             switch (BookmarkName)
             {
                 case BookmarkNames.撰写五书:
@@ -70,12 +81,6 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
                 default:
                     throw new NotSupportedException();
             }
-        }
-
-        public bool ContinueCase(Guid caseId, object value)
-        {
-            var wfManager = GlobalKernel.Instance.Get<ICaseWorkflowManager>();
-            return wfManager.ResumeBookmark(caseId, BookmarkName, value);
         }
 
         #endregion

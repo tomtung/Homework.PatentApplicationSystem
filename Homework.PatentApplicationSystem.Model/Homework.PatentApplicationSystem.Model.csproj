@@ -51,7 +51,6 @@
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerContact.cs" />
     <Compile Include="DbHelper.cs" />
-    <Compile Include="GlobalKernel.cs" />
     <Compile Include="ICaseDocManager.cs" />
     <Compile Include="ICaseInfoManager.cs" />
     <Compile Include="IClientInfoManager.cs" />

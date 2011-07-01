@@ -11,7 +11,7 @@ namespace Homework.PatentApplicationSystem.Model
         /// 显示给用户的文件名。
         /// </summary>
         public string FileName { get; set; }
-        
+
         public Guid 案件编号 { get; set; }
 
         /// <summary>

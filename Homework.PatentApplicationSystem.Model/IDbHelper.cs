@@ -27,6 +27,5 @@ namespace Homework.PatentApplicationSystem.Model
         /// <param name="sqlString"></param>
         /// <returns></returns>
         SqlDataReader Select(string sqlString);
-
     }
 }

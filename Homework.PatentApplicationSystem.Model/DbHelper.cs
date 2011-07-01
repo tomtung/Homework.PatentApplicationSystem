@@ -7,26 +7,27 @@ namespace Homework.PatentApplicationSystem.Model
     /// </summary>
     public class DbHelper : IDbHelper
     {
-        public SqlCommand Command { get; set; }
-        public SqlConnection Connection { get; set; }
-
         public DbHelper(string sqlString)
         {
             Connection = new SqlConnection(sqlString);
             Connection.Open();
-            Command = new SqlCommand { Connection = this.Connection };
+            Command = new SqlCommand {Connection = Connection};
         }
+
+        public SqlCommand Command { get; set; }
+        public SqlConnection Connection { get; set; }
+
+        #region IDbHelper Members
 
         public void Close()
         {
             Connection.Close();
         }
 
-
         public int AddUpdateDelete(string sqlString)
         {
             Command.CommandText = sqlString;
-            var rows = Command.ExecuteNonQuery();
+            int rows = Command.ExecuteNonQuery();
             return rows;
         }
 
@@ -35,5 +36,7 @@ namespace Homework.PatentApplicationSystem.Model
             Command.CommandText = sqlString;
             return Command.ExecuteReader();
         }
+
+        #endregion
     }
 }

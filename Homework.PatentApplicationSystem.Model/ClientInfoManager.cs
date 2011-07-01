@@ -1,27 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ninject;
 
 namespace Homework.PatentApplicationSystem.Model
 {
-    public class ClientInfoManager:IClientInfoManager
+    public class ClientInfoManager : IClientInfoManager
     {
-        private readonly IDbHelper _dbHelper = GlobalKernel.Instance.Get<IDbHelper>();
+        private readonly IDbHelper _dbHelper;
+
+        public ClientInfoManager(IDbHelper dbHelper)
+        {
+            _dbHelper = dbHelper;
+        }
+
+        #region IClientInfoManager Members
 
         /// <summary>
         /// 客户信息管理
         /// </summary>
         public void AddCustomer(Customer customer)
         {
-            var sqlString =
-                string.Format("insert into [客户] values('{0}','{1}','{2}','{3}')", 
-                customer.客户号, customer.类型, customer.地址, customer.邮编);
+            string sqlString =
+                string.Format("insert into [客户] values('{0}','{1}','{2}','{3}')",
+                    customer.客户号, customer.类型, customer.地址, customer.邮编);
             _dbHelper.AddUpdateDelete(sqlString);
         }
 
         public void RemoveCustomer(Customer customer)
         {
-            
         }
 
         public void UpdateCustomer(Customer customer)
@@ -108,5 +113,7 @@ namespace Homework.PatentApplicationSystem.Model
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }
