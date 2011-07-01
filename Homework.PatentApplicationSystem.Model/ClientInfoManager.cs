@@ -13,10 +13,10 @@ namespace Homework.PatentApplicationSystem.Model
         /// </summary>
         public void AddCustomer(Customer customer)
         {
-            var sqlString =
-                string.Format("insert into [客户] values('{0}','{1}','{2}','{3}')", 
-                customer.客户号, customer.类型, customer.地址, customer.邮编);
-            _dbHelper.AddUpdateDelete(sqlString);
+            //var sqlString =
+            //    string.Format("insert into [客户] values('{0}','{1}','{2}','{3}')", 
+            //    customer.客户号, customer.类型, customer.地址, customer.邮编);
+            //_dbHelper.AddUpdateDelete(sqlString);
         }
 
         public void RemoveCustomer(Customer customer)

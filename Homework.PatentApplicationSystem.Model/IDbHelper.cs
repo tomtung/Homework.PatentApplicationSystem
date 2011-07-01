@@ -13,12 +13,12 @@ namespace Homework.PatentApplicationSystem.Model
         void Close();
 
         /// <summary>
-        /// 增删改函数
+        /// 无返回值函数
         /// 返回:影响的行数
         /// </summary>
         /// <param name="sqlString"></param>
         /// <returns></returns>
-        int AddUpdateDelete(string sqlString);
+        int ExecuteNonQuery(string sqlString);
 
         /// <summary>
         /// Select函数
@@ -26,7 +26,7 @@ namespace Homework.PatentApplicationSystem.Model
         /// </summary>
         /// <param name="sqlString"></param>
         /// <returns></returns>
-        SqlDataReader Select(string sqlString);
+        SqlDataReader ExecuteQuery(string sqlString);
 
     }
 }
