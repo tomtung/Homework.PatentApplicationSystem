@@ -55,16 +55,13 @@
     <Compile Include="Data\IClientInfoManager.cs" />
     <Compile Include="Data\Inventor.cs" />
     <Compile Include="DefaultNinjectModule.cs" />
+    <Compile Include="ICaseWorkflowManager.cs" />
     <Compile Include="IUserLoginService.cs" />
     <Compile Include="IUserSpecificService.cs" />
     <Compile Include="SqlConnectionHelper.cs" />
     <Compile Include="TaskNames.cs" />
-    <Compile Include="Workflow\IBookmarkRecordManager.cs" />
-    <Compile Include="Workflow\ICaseWorkflowManager.cs" />
-    <Compile Include="Workflow\IWorkflowStepService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="Workflow\WorkflowStepService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

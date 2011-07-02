@@ -19,12 +19,12 @@ namespace Homework.PatentApplicationSystem.Model.Data
         {
             _connection.Open();
             var dictionary = new Dictionary<string, object>
-                                 {
-                                     {"客户号", customer.客户号},
-                                     {"类型", customer.类型},
-                                     {"地址",customer.地址},
-                                     {"邮编",customer.邮编}
-                                 };
+            {
+                {"客户号", customer.客户号},
+                {"类型", customer.类型},
+                {"地址", customer.地址},
+                {"邮编", customer.邮编}
+            };
             _connection.Insert("客户", dictionary);
             _connection.Close();
         }
@@ -40,12 +40,12 @@ namespace Homework.PatentApplicationSystem.Model.Data
         {
             _connection.Open();
             var dictionary = new Dictionary<string, object>
-                                 {
-                                     {"客户号", customer.客户号},
-                                     {"类型", customer.类型},
-                                     {"地址", customer.地址},
-                                     {"邮编", customer.邮编}
-                                 };
+            {
+                {"客户号", customer.客户号},
+                {"类型", customer.类型},
+                {"地址", customer.地址},
+                {"邮编", customer.邮编}
+            };
             _connection.Update("客户", new KeyValuePair<string, object>("客户号", customer.客户号), dictionary);
             _connection.Close();
         }
