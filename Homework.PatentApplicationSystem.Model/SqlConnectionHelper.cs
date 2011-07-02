@@ -57,7 +57,7 @@ namespace Homework.PatentApplicationSystem.Model
             IEnumerable<string> columns = keyValuePairs.Select(pair => pair.Key);
             string columnList = columns.ToCommaSeperatedList();
             string valuePlaceHolders = columns.Select(c => "@" + c).ToCommaSeperatedList();
-            string command = string.Format("INSERT INTO {0} ({1}) VALUES ({2})", tableName, columnList,
+            string command = string.Format("INSERT INTO [{0}] ({1}) VALUES ({2})", tableName, columnList,
                 valuePlaceHolders);
 
             IEnumerable<SqlParameter> parameters = keyValuePairs.Select(ToSqlParameter);
@@ -85,7 +85,7 @@ namespace Homework.PatentApplicationSystem.Model
             KeyValuePair<string, Object> condition, IEnumerable<KeyValuePair<string, Object>> keyValuePairs)
         {
             string updates = keyValuePairs.Select(p => string.Format("{0} = @{0}", p.Key)).ToCommaSeperatedList();
-            string command = string.Format("UPDATE {0} SET {1} WHERE {2} = @new{2}", tableName, updates, condition.Key);
+            string command = string.Format("UPDATE [{0}] SET {1} WHERE {2} = @new{2}", tableName, updates, condition.Key);
 
             IEnumerable<SqlParameter> parameters = new[] {new SqlParameter("@new" + condition.Key, condition.Value)}
                 .Concat(keyValuePairs.Select(ToSqlParameter));
@@ -102,13 +102,13 @@ namespace Homework.PatentApplicationSystem.Model
         public static SqlDataReader Select(this SqlConnection connection, string tableName,
             KeyValuePair<string, object> condition)
         {
-            string command = string.Format("SELECT * FROM {0} WHERE {1} = @{1}", tableName, condition.Key);
+            string command = string.Format("SELECT * FROM [{0}] WHERE {1} = @{1}", tableName, condition.Key);
             return connection.ExecuteReader(command, new[] {condition.ToSqlParameter()});
         }
 
         public static int Delete(this SqlConnection connection, string tableName, KeyValuePair<string, object> condition)
         {
-            string command = string.Format("DELETE FROM {0} WHERE {1} = @{1}", tableName, condition.Key);
+            string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1}", tableName, condition.Key);
             return connection.ExecuteNonQuery(command, new[] {condition.ToSqlParameter()});
         }
     }

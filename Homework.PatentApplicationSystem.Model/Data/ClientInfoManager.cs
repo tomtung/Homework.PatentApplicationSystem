@@ -17,17 +17,37 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public void AddCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            _connection.Open();
+            var dictionary = new Dictionary<string, object>
+                                 {
+                                     {"客户号", customer.客户号},
+                                     {"类型", customer.类型},
+                                     {"地址",customer.地址},
+                                     {"邮编",customer.邮编}
+                                 };
+            _connection.Insert("客户", dictionary);
+            _connection.Close();
         }
 
         public void RemoveCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            _connection.Open();
+            _connection.Delete("客户", new KeyValuePair<string, object>("客户号", customer.客户号));
+            _connection.Close();
         }
 
         public void UpdateCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            _connection.Open();
+            var dictionary = new Dictionary<string, object>
+                                 {
+                                     {"客户号", customer.客户号},
+                                     {"类型", customer.类型},
+                                     {"地址", customer.地址},
+                                     {"邮编", customer.邮编}
+                                 };
+            _connection.Update("客户", new KeyValuePair<string, object>("客户号", customer.客户号), dictionary);
+            _connection.Close();
         }
 
         public IEnumerable<Customer> GetAllCustomers()
