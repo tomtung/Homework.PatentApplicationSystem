@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Applicant.cs" />
     <Compile Include="CaseType.cs" />
+    <Compile Include="Data\CaseInfoManager.cs" />
     <Compile Include="Workflow\CaseWorkflowManager.cs" />
     <Compile Include="Data\Case.cs" />
     <Compile Include="Data\CaseDoc.cs" />
