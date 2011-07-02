@@ -11,7 +11,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
         void RemoveCustomer(Customer customer);
         void UpdateCustomer(Customer customer);
         IEnumerable<Customer> GetAllCustomers();
-        Customer GetCustomer(string 客户号);
+        Customer? GetCustomer(string 客户号);
 
         void AddCustomerContact(CustomerContact contact);
         void RemoveCustomerContact(CustomerContact contact);
@@ -22,13 +22,13 @@ namespace Homework.PatentApplicationSystem.Model.Data
         void RemoveApplicant(Applicant applicant);
         void UpdateApplicant(Applicant applicant);
         IEnumerable<Applicant> GetAllApplicants();
-        Applicant GetApplicant(string 申请人证件号);
+        Applicant? GetApplicant(string 证件号);
 
         void AddInventor(Inventor inventor);
         void RemoveInventor(Inventor inventor);
         void UpdateInventor(Inventor inventor);
         IEnumerable<Inventor> GetAllInventors();
-        Inventor GetInventor(string 发明人身份证号证件号);
+        Inventor? GetInventor(string 身份证号);
     }
 
     public static class ClientInfoManagerHelper

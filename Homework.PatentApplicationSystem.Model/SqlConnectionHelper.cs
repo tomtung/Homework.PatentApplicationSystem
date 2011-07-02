@@ -106,6 +106,11 @@ namespace Homework.PatentApplicationSystem.Model
             return connection.ExecuteReader(command, new[] {condition.ToSqlParameter()});
         }
 
+        public static SqlDataReader Select(this SqlConnection connection, string tableName)
+        {
+            return connection.ExecuteReader(string.Format("SELECT * FROM [{0}]", tableName));
+        }
+
         public static int Delete(this SqlConnection connection, string tableName, KeyValuePair<string, object> condition)
         {
             string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1}", tableName, condition.Key);
