@@ -12,7 +12,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
         /// </summary>
         public string FileName { get; set; }
 
-        public Guid 案件编号 { get; set; }
+        public string 案件编号 { get; set; }
 
         /// <summary>
         /// The date and time when the file was uploaded.

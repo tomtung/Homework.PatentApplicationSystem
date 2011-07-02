@@ -7,7 +7,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
     /// </summary>
     public struct Case
     {
-        public Guid 编号 { get; set; }
+        public string 编号 { get; set; }
         public string 名称 { get; set; }
         public DateTime 创建时间 { get; set; }
         public DateTime 绝限日 { get; set; }

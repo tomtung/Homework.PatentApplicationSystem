@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Homework.PatentApplicationSystem.Model.Data
+﻿namespace Homework.PatentApplicationSystem.Model.Data
 {
     /// <summary>
     /// 一条某办案人员对某案件的留言信息。
@@ -10,7 +8,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
         /// <summary>
         /// 信息所属的案件的编号。
         /// </summary>
-        public Guid 案件编号 { get; set; }
+        public string 案件编号 { get; set; }
 
         /// <summary>
         /// 信息内容。

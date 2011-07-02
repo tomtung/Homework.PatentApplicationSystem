@@ -57,16 +57,11 @@
     <Compile Include="DefaultNinjectModule.cs" />
     <Compile Include="IUserLoginService.cs" />
     <Compile Include="IUserSpecificService.cs" />
-    <Compile Include="IUserSpecificServiceFactory.cs" />
     <Compile Include="SqlConnectionHelper.cs" />
-    <Compile Include="Workflow\BookmarkNames.cs" />
+    <Compile Include="TaskNames.cs" />
     <Compile Include="Workflow\IBookmarkRecordManager.cs" />
     <Compile Include="Workflow\ICaseWorkflowManager.cs" />
     <Compile Include="Workflow\IWorkflowStepService.cs" />
-    <Compile Include="Workflow\I代理部主管流程服务.cs" />
-    <Compile Include="Workflow\I代理部文员流程服务.cs" />
-    <Compile Include="Workflow\I办案员流程服务.cs" />
-    <Compile Include="Workflow\I质检员流程服务.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Workflow\WorkflowStepService.cs" />

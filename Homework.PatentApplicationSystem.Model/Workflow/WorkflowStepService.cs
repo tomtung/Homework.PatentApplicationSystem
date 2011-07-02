@@ -40,7 +40,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         #region Implementation of IWorkflowStepService
 
-        public IEnumerable<Guid> PendingCaseIds
+        public IEnumerable<string> PendingCaseIds
         {
             get
             {
@@ -50,7 +50,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
             }
         }
 
-        public bool ContinueCase(Guid caseId, object value)
+        public bool ContinueCase(string caseId, object value)
         {
             return _caseWorkflowManager.ResumeBookmark(caseId, BookmarkName, value);
         }
@@ -59,7 +59,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         /// 使用这个方法的假设是：案件编号为<param name="caseId"/>的案件在此对象的书签
         /// <see cref="WorkflowStepService.BookmarkName"/>处暂停。
         /// </remarks>
-        private bool IsTaskAssignedToMe(Guid caseId)
+        private bool IsTaskAssignedToMe(string caseId)
         {
             // 只有办案员存在被分案的情况
             if (User.Role != Role.办案员)
@@ -69,16 +69,16 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
             Case @case = _caseInfoManager.GetCaseById(caseId);
             switch (BookmarkName)
             {
-                case BookmarkNames.撰写五书:
-                case BookmarkNames.定稿五书:
-                case BookmarkNames.客户指示办案:
-                case BookmarkNames.官方来函办案:
+                case TaskNames.撰写五书:
+                case TaskNames.定稿五书:
+                case TaskNames.客户指示办案:
+                case TaskNames.官方来函办案:
                     return User.UserName == @case.主办员用户名;
-                case BookmarkNames.原始资料翻译:
+                case TaskNames.原始资料翻译:
                     return User.UserName == @case.翻译用户名;
-                case BookmarkNames.原始资料翻译一校:
+                case TaskNames.原始资料翻译一校:
                     return User.UserName == @case.一校用户名;
-                case BookmarkNames.原始资料翻译二校:
+                case TaskNames.原始资料翻译二校:
                     return User.UserName == @case.二校用户名;
                 default:
                     throw new NotSupportedException();

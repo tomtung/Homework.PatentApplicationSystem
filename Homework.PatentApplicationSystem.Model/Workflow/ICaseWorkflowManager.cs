@@ -1,5 +1,3 @@
-using System;
-
 namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     /// <summary>
@@ -11,7 +9,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         /// 使案件号为<param name="caseId"/>的案件从书签<param name="bookmarkName"/>处继续执行。
         /// </summary>
         /// <returns>案件是否成功继续。</returns>
-        bool ResumeBookmark(Guid caseId, string bookmarkName, object value);
+        bool ResumeBookmark(string caseId, string bookmarkName, object value);
     }
 
     internal static class CaseWorkflowManagerHelper
@@ -20,7 +18,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         /// 使案件号为<param name="caseId"/>的案件从书签<param name="bookmarkName"/>处继续执行。
         /// </summary>
         /// <returns>案件是否成功继续。</returns>
-        public static bool ResumeBookmark(this ICaseWorkflowManager manager, Guid caseId, string bookmarkName)
+        public static bool ResumeBookmark(this ICaseWorkflowManager manager, string caseId, string bookmarkName)
         {
             return manager.ResumeBookmark(caseId, bookmarkName, new object());
         }
