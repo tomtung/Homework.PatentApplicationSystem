@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 using Homework.PatentApplicationSystem.Model.Data;
@@ -7,14 +6,13 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     /// <summary>
     /// 用于对用户<see cref="IWorkflowStepService.User"/>的某项任务进行流程控制。
-    /// 实现此接口的对象应由<see cref="IUserSpecificServiceFactory"/>在运行时创建。
     /// </summary>
     public interface IWorkflowStepService : IUserSpecificService
     {
         /// <summary>
         /// 因用户<see cref="IWorkflowStepService.User"/>未完成当前任务而中止的案件的编号。
         /// </summary>
-        IEnumerable<Guid> PendingCaseIds { get; }
+        IEnumerable<string> PendingCaseIds { get; }
 
         /// <summary>
         /// 表示用户<see cref="IWorkflowStepService.User"/>已完成当前任务，案件流程可以继续。
@@ -25,7 +23,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         ///     <example>如对于内审任务，传入true/false表示内审是否通过。</example>
         /// </param>
         /// <returns>案件是否成功继续。</returns>
-        bool ContinueCase(Guid caseId, object value);
+        bool ContinueCase(string caseId, object value);
     }
 
     public static class WorkflowStepServiceHelper
@@ -34,7 +32,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         /// 表示用户<see cref="IWorkflowStepService.User"/>已完成当前任务，案件流程可以继续。
         /// </summary>
         /// <param name="caseId">要继续的案件的编号。</param>
-        public static bool ContinueCase(this IWorkflowStepService service, Guid caseId)
+        public static bool ContinueCase(this IWorkflowStepService service, string caseId)
         {
             return service.ContinueCase(caseId, new object());
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Homework.PatentApplicationSystem.Model.Data
 {
@@ -8,7 +7,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
         /// <summary>
         /// 返回与<see cref="Case.编号"/>为<param name="案件编号" />的<see cref="Case"/>相关的所有<see cref="CaseDoc"/>。
         /// </summary>
-        IEnumerable<CaseDoc> GetDocsOf(Guid 案件编号);
+        IEnumerable<CaseDoc> GetDocsOf(string 案件编号);
 
         /// <summary>
         /// 保存路径为<see cref="CaseDoc.FilePath"/>的文件与案件编号为<see cref="CaseDoc.案件编号"/>的案件的关联。
