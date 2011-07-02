@@ -2,7 +2,7 @@
 
 using Homework.PatentApplicationSystem.Model.Data;
 
-namespace Homework.PatentApplicationSystem.Model
+namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     /// <summary>
     /// 控制案件流程控制类实现此接口。
