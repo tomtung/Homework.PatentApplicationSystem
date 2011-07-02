@@ -2,12 +2,11 @@
 
 namespace Homework.PatentApplicationSystem.Model
 {
-    internal static class TaskNames
+    public static class TaskNames
     {
         public const string 立案 = "立案";
 
-        public const string 中间文件处理分案 = "中间文件处理分案";
-        public const string 新申请分案 = "新申请分案";
+        public const string 分案 = "分案";
 
         public const string 客户指示办案 = "客户指示办案";
         public const string 官方来函办案 = "官方来函办案";
@@ -34,18 +33,18 @@ namespace Homework.PatentApplicationSystem.Model
                 case Role.立案员:
                     return new[] {立案};
                 case Role.代理部主管:
-                    return new[] {中间文件处理分案, 新申请分案, 代理部内审};
+                    return new[] {分案, 代理部内审};
                 case Role.办案员:
                     return new[]
-                    {
-                        撰写五书,
-                        原始资料翻译,
-                        原始资料翻译一校,
-                        原始资料翻译二校,
-                        客户指示办案,
-                        官方来函办案,
-                        定稿五书
-                    };
+                               {
+                                   撰写五书,
+                                   原始资料翻译,
+                                   原始资料翻译一校,
+                                   原始资料翻译二校,
+                                   客户指示办案,
+                                   官方来函办案,
+                                   定稿五书
+                               };
                 case Role.代理部文员:
                     return new[] {制作官方格式函, 制作专利请求书};
                 case Role.质检员:

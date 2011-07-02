@@ -22,8 +22,8 @@ namespace Homework.PatentApplicationSystem.Model.Data
                                  {
                                      {"客户号", customer.客户号},
                                      {"类型", customer.类型},
-                                     {"地址",customer.地址},
-                                     {"邮编",customer.邮编}
+                                     {"地址", customer.地址},
+                                     {"邮编", customer.邮编}
                                  };
             _connection.Insert("客户", dictionary);
             _connection.Close();

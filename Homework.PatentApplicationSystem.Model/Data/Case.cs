@@ -9,6 +9,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
     {
         public string 编号 { get; set; }
         public string 名称 { get; set; }
+        public CaseType 案件类型 { get; set; }
         public DateTime 创建时间 { get; set; }
         public DateTime 绝限日 { get; set; }
         public CaseState 状态 { get; set; }
