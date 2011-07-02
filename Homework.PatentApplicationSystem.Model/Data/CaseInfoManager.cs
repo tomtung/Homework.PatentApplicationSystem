@@ -21,7 +21,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
             if (sqlDataReader.Read())
                 @case = new Case()
                             {
-                                编号=@case.Value.编号,
+                                编号=(string) sqlDataReader["编号"],
                                 名称 = (string)sqlDataReader["名称"],
                                 案件类型 = (CaseType)sqlDataReader["案件类型"],
                                 创建时间 = (DateTime)sqlDataReader["创建时间"],
