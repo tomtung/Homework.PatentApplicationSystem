@@ -34,7 +34,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
     public static class ClientInfoManagerHelper
     {
         public static IEnumerable<CustomerContact> GetCustomerContacts(this IClientInfoManager manager,
-            Customer customer)
+                                                                       Customer customer)
         {
             return manager.GetCustomerContacts(customer.客户号);
         }

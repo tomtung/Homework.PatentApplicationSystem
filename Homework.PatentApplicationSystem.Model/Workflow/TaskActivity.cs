@@ -25,7 +25,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         private void Resume(NativeActivityContext context, Bookmark bookmark, object value)
         {
-            Result.Set(context, (T)value);
+            Result.Set(context, (T) value);
 
             var extension = context.GetExtension<ITaskActivityExtension>();
             extension.AddBookmarkRecord(bookmark.Name);

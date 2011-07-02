@@ -36,15 +36,15 @@ namespace Homework.PatentApplicationSystem.Model
                     return new[] {分案, 代理部内审};
                 case Role.办案员:
                     return new[]
-                    {
-                        撰写五书,
-                        原始资料翻译,
-                        原始资料翻译一校,
-                        原始资料翻译二校,
-                        客户指示办案,
-                        官方来函办案,
-                        定稿五书
-                    };
+                               {
+                                   撰写五书,
+                                   原始资料翻译,
+                                   原始资料翻译一校,
+                                   原始资料翻译二校,
+                                   客户指示办案,
+                                   官方来函办案,
+                                   定稿五书
+                               };
                 case Role.代理部文员:
                     return new[] {制作官方格式函, 制作专利请求书};
                 case Role.质检员:
