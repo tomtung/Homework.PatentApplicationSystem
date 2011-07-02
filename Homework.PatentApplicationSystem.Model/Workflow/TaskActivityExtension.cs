@@ -6,10 +6,6 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     internal class TaskActivityExtension : ITaskActivityExtension
     {
-        private const string CaseIdColumnName = "CaseId";
-        private const string WorkflowinstanceidColumnName = "WorkflowInstanceId";
-        private const string BookmarkNameColumnName = "BookmarkName";
-        private const string BookmarkTableName = "WorkflowBookmark";
         private readonly string _caseId;
         private readonly SqlConnection _connection;
 
@@ -30,12 +26,13 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         public void AddBookmarkRecord(string bookmarkName)
         {
             _connection.Open();
-            _connection.Insert(BookmarkTableName, new Dictionary<string, object>
-                                                      {
-                                                          {CaseIdColumnName, CaseId},
-                                                          {WorkflowinstanceidColumnName, WorkflowInstanceId},
-                                                          {BookmarkNameColumnName, bookmarkName}
-                                                      });
+            _connection.Insert(CaseWorkflowManager.BookmarkTableName,
+                               new Dictionary<string, object>
+                                   {
+                                       {CaseWorkflowManager.CaseIdColumnName, CaseId},
+                                       {CaseWorkflowManager.WorkflowinstanceidColumnName, WorkflowInstanceId},
+                                       {CaseWorkflowManager.BookmarkNameColumnName, bookmarkName}
+                                   });
             _connection.Close();
         }
 
@@ -43,11 +40,12 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         {
             _connection.Open();
             string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1} AND {2} = @{2}",
-                                           BookmarkTableName, CaseIdColumnName, BookmarkNameColumnName);
+                                           CaseWorkflowManager.BookmarkTableName, CaseWorkflowManager.CaseIdColumnName,
+                                           CaseWorkflowManager.BookmarkNameColumnName);
             var parameters = new[]
                                  {
-                                     new SqlParameter("@" + CaseIdColumnName, CaseId),
-                                     new SqlParameter("@" + BookmarkNameColumnName, bookmarkName)
+                                     new SqlParameter("@" + CaseWorkflowManager.CaseIdColumnName, CaseId),
+                                     new SqlParameter("@" + CaseWorkflowManager.BookmarkNameColumnName, bookmarkName)
                                  };
             _connection.ExecuteNonQuery(command, parameters);
             _connection.Close();
