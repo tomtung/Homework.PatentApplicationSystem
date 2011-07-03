@@ -14,5 +14,10 @@
         /// 保存案件<param name="case"/>的信息。该方法并不会自动开始未启动的案件流程。
         /// </summary>
         void AddCase(Case @case);
+
+        /// <summary>
+        /// 更新案件<param name="case"/>的信息。
+        /// </summary>
+        void UpdateCase(Case @case);
     }
 }

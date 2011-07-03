@@ -5,7 +5,12 @@ namespace Homework.PatentApplicationSystem.Model.Data
 {
     internal class ClientInfoManager : IClientInfoManager
     {
+        private const string CustomerTableName = "客户";
+        private const string ApplicantTableName = "申请人";
+        private const string InventorTableName = "发明人";
+        private const string CustomerContactTableName = "客户联系人";
         private readonly SqlConnection _connection;
+
 
         public ClientInfoManager(SqlConnection connection)
         {
@@ -19,14 +24,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                var dictionary = new Dictionary<string, object>
-                                     {
-                                         {"客户号", customer.客户号},
-                                         {"类型", customer.类型},
-                                         {"地址", customer.地址},
-                                         {"邮编", customer.邮编}
-                                     };
-                _connection.Insert("客户", dictionary);
+                _connection.Insert(CustomerTableName, ToKeyValuePairs(customer));
             }
         }
 
@@ -35,7 +33,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                _connection.Delete("客户", new KeyValuePair<string, object>("客户号", customer.客户号));
+                _connection.Delete(CustomerTableName, new KeyValuePair<string, object>("客户号", customer.客户号));
             }
         }
 
@@ -44,14 +42,9 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                var dictionary = new Dictionary<string, object>
-                                     {
-                                         {"客户号", customer.客户号},
-                                         {"类型", customer.类型},
-                                         {"地址", customer.地址},
-                                         {"邮编", customer.邮编}
-                                     };
-                _connection.Update("客户", new KeyValuePair<string, object>("客户号", customer.客户号), dictionary);
+                _connection.Update(CustomerTableName,
+                                   new KeyValuePair<string, object>("客户号", customer.客户号),
+                                   ToKeyValuePairs(customer));
             }
         }
 
@@ -61,17 +54,11 @@ namespace Homework.PatentApplicationSystem.Model.Data
             {
                 _connection.Open();
                 List<Customer> customers;
-                using (SqlDataReader reader = _connection.Select("客户"))
+                using (SqlDataReader reader = _connection.Select(CustomerTableName))
                 {
                     customers = new List<Customer>();
                     while (reader.Read())
-                        customers.Add(new Customer
-                                          {
-                                              客户号 = (string) reader["客户号"],
-                                              类型 = (string) reader["类型"],
-                                              地址 = (string) reader["地址"],
-                                              邮编 = (string) reader["邮编"]
-                                          });
+                        customers.Add(ExtractCustomer(reader));
                 }
                 return customers;
             }
@@ -82,17 +69,12 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                SqlDataReader reader = _connection.Select("客户", new KeyValuePair<string, object>("客户号", 客户号));
+                SqlDataReader reader = _connection.Select(CustomerTableName,
+                                                          new KeyValuePair<string, object>("客户号", 客户号));
                 using (reader)
                 {
                     if (reader.Read())
-                        return new Customer
-                                   {
-                                       客户号 = (string) reader["客户号"],
-                                       类型 = (string) reader["类型"],
-                                       地址 = (string) reader["地址"],
-                                       邮编 = (string) reader["邮编"]
-                                   };
+                        return ExtractCustomer(reader);
                     return null;
                 }
             }
@@ -103,15 +85,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                var dictionary = new Dictionary<string, object>
-                                     {
-                                         {"姓名", contact.姓名},
-                                         {"电话", contact.电话},
-                                         {"Email", contact.Email},
-                                         {"联系人类型", contact.联系人类型},
-                                         {"客户号", contact.客户号}
-                                     };
-                _connection.Insert("客户联系人", dictionary);
+                _connection.Insert(CustomerContactTableName, ToKeyValuePairs(contact));
             }
         }
 
@@ -120,7 +94,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                _connection.Delete("客户联系人", new KeyValuePair<string, object>("客户号", contact.客户号));
+                _connection.Delete(CustomerContactTableName, new KeyValuePair<string, object>("客户号", contact.客户号));
             }
         }
 
@@ -129,15 +103,9 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                var dictionary = new Dictionary<string, object>
-                                     {
-                                         {"姓名", contact.姓名},
-                                         {"电话", contact.电话},
-                                         {"Email", contact.Email},
-                                         {"联系人类型", contact.联系人类型},
-                                         {"客户号", contact.客户号}
-                                     };
-                _connection.Update("客户联系人", new KeyValuePair<string, object>("客户号", contact.客户号), dictionary);
+                _connection.Update(CustomerContactTableName,
+                                   new KeyValuePair<string, object>("客户号", contact.客户号),
+                                   ToKeyValuePairs(contact));
             }
         }
 
@@ -147,47 +115,24 @@ namespace Homework.PatentApplicationSystem.Model.Data
             {
                 _connection.Open();
                 var customerContacts = new List<CustomerContact>();
-                SqlDataReader reader = _connection.Select("客户联系人",
+                SqlDataReader reader = _connection.Select(CustomerContactTableName,
                                                           new KeyValuePair<string, object>("客户号", 客户号));
                 using (reader)
                 {
                     while (reader.Read())
-                        customerContacts.Add(new CustomerContact
-                                                 {
-                                                     姓名 = (string) reader["姓名"],
-                                                     电话 = (string) reader["电话"],
-                                                     Email = (string) reader["Email"],
-                                                     联系人类型 = (string) reader["联系人类型"],
-                                                     客户号 = (string) reader["客户号"]
-                                                 });
+                        customerContacts.Add(ExtractCustomerContact(reader));
                 }
                 return customerContacts;
             }
         }
+
 
         public void AddApplicant(Applicant applicant)
         {
             using (_connection)
             {
                 _connection.Open();
-                var dictionary = new Dictionary<string, object>
-                                     {
-                                         {"证件号", applicant.证件号},
-                                         {"类型", applicant.类型},
-                                         {"中文名", applicant.中文名},
-                                         {"英文名", applicant.英文名},
-                                         {"简称", applicant.简称},
-                                         {"国家", applicant.国家},
-                                         {"省", applicant.省},
-                                         {"市区县", applicant.市区县},
-                                         {"中国地址", applicant.中国地址},
-                                         {"外国地址", applicant.外国地址},
-                                         {"邮编", applicant.邮编},
-                                         {"电话", applicant.电话},
-                                         {"传真", applicant.传真},
-                                         {"Email", applicant.Email}
-                                     };
-                _connection.Insert("申请人", dictionary);
+                _connection.Insert(ApplicantTableName, ToKeyValuePairs(applicant));
             }
         }
 
@@ -196,7 +141,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                _connection.Delete("申请人", new KeyValuePair<string, object>("证件号", applicant.证件号));
+                _connection.Delete(ApplicantTableName, new KeyValuePair<string, object>("证件号", applicant.证件号));
             }
         }
 
@@ -205,24 +150,9 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                var dictionary = new Dictionary<string, object>
-                                     {
-                                         {"证件号", applicant.证件号},
-                                         {"类型", applicant.类型},
-                                         {"中文名", applicant.中文名},
-                                         {"英文名", applicant.英文名},
-                                         {"简称", applicant.简称},
-                                         {"国家", applicant.国家},
-                                         {"省", applicant.省},
-                                         {"市区县", applicant.市区县},
-                                         {"中国地址", applicant.中国地址},
-                                         {"外国地址", applicant.外国地址},
-                                         {"邮编", applicant.邮编},
-                                         {"电话", applicant.电话},
-                                         {"传真", applicant.传真},
-                                         {"Email", applicant.Email}
-                                     };
-                _connection.Update("申请人", new KeyValuePair<string, object>("证件号", applicant.证件号), dictionary);
+                _connection.Update(ApplicantTableName,
+                                   new KeyValuePair<string, object>("证件号", applicant.证件号),
+                                   ToKeyValuePairs(applicant));
             }
         }
 
@@ -232,25 +162,9 @@ namespace Homework.PatentApplicationSystem.Model.Data
             {
                 _connection.Open();
                 var applicants = new List<Applicant>();
-                using (SqlDataReader reader = _connection.Select("申请人"))
+                using (SqlDataReader reader = _connection.Select(ApplicantTableName))
                     while (reader.Read())
-                        applicants.Add(new Applicant
-                                           {
-                                               证件号 = (string) reader["证件号"],
-                                               类型 = (string) reader["类型"],
-                                               中文名 = (string) reader["中文名"],
-                                               英文名 = (string) reader["英文名"],
-                                               简称 = (string) reader["简称"],
-                                               国家 = (string) reader["国家"],
-                                               省 = (string) reader["省"],
-                                               市区县 = (string) reader["市区县"],
-                                               中国地址 = (string) reader["中国地址"],
-                                               外国地址 = (string) reader["外国地址"],
-                                               邮编 = (string) reader["邮编"],
-                                               电话 = (string) reader["电话"],
-                                               传真 = (string) reader["传真"],
-                                               Email = (string) reader["Email"]
-                                           });
+                        applicants.Add(ExtractApplicant(reader));
                 return applicants;
             }
         }
@@ -260,27 +174,12 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                SqlDataReader reader = _connection.Select("申请人", new KeyValuePair<string, object>("证件号", 证件号));
+                SqlDataReader reader = _connection.Select(ApplicantTableName,
+                                                          new KeyValuePair<string, object>("证件号", 证件号));
                 using (reader)
                 {
                     if (reader.Read())
-                        return new Applicant
-                                   {
-                                       证件号 = (string) reader["证件号"],
-                                       类型 = (string) reader["类型"],
-                                       中文名 = (string) reader["中文名"],
-                                       英文名 = (string) reader["英文名"],
-                                       简称 = (string) reader["简称"],
-                                       国家 = (string) reader["国家"],
-                                       省 = (string) reader["省"],
-                                       市区县 = (string) reader["市区县"],
-                                       中国地址 = (string) reader["中国地址"],
-                                       外国地址 = (string) reader["外国地址"],
-                                       邮编 = (string) reader["邮编"],
-                                       电话 = (string) reader["电话"],
-                                       传真 = (string) reader["传真"],
-                                       Email = (string) reader["Email"]
-                                   };
+                        return ExtractApplicant(reader);
                     return null;
                 }
             }
@@ -291,14 +190,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                var dictionary = new Dictionary<string, object>
-                                     {
-                                         {"身份证号", inventor.身份证号},
-                                         {"姓名", inventor.姓名},
-                                         {"电话", inventor.电话},
-                                         {"Email", inventor.Email}
-                                     };
-                _connection.Insert("发明人", dictionary);
+                _connection.Insert(InventorTableName, ToKeyValuePairs(inventor));
             }
         }
 
@@ -307,7 +199,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                _connection.Delete("发明人", new KeyValuePair<string, object>("身份证号", inventor.身份证号));
+                _connection.Delete(InventorTableName, new KeyValuePair<string, object>("身份证号", inventor.身份证号));
             }
         }
 
@@ -316,14 +208,9 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                var dictionary = new Dictionary<string, object>
-                                     {
-                                         {"身份证号", inventor.身份证号},
-                                         {"姓名", inventor.姓名},
-                                         {"电话", inventor.电话},
-                                         {"Email", inventor.Email}
-                                     };
-                _connection.Update("发明人", new KeyValuePair<string, object>("身份证号", inventor.身份证号), dictionary);
+                _connection.Update(InventorTableName,
+                                   new KeyValuePair<string, object>("身份证号", inventor.身份证号),
+                                   ToKeyValuePairs(inventor));
             }
         }
 
@@ -333,15 +220,9 @@ namespace Homework.PatentApplicationSystem.Model.Data
             {
                 _connection.Open();
                 var inventors = new List<Inventor>();
-                using (SqlDataReader sqlDataReader = _connection.Select("发明人"))
+                using (SqlDataReader sqlDataReader = _connection.Select(InventorTableName))
                     while (sqlDataReader.Read())
-                        inventors.Add(new Inventor
-                                          {
-                                              Email = (string) sqlDataReader["Email"],
-                                              姓名 = (string) sqlDataReader["姓名"],
-                                              电话 = (string) sqlDataReader["电话"],
-                                              身份证号 = (string) sqlDataReader["身份证号"]
-                                          });
+                        inventors.Add(ExtractInventor(sqlDataReader));
                 return inventors;
             }
         }
@@ -351,22 +232,131 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (_connection)
             {
                 _connection.Open();
-                SqlDataReader reader = _connection.Select("发明人", new KeyValuePair<string, object>("身份证号", 身份证号));
+                SqlDataReader reader = _connection.Select(InventorTableName,
+                                                          new KeyValuePair<string, object>("身份证号", 身份证号));
                 using (reader)
                 {
                     if (reader.Read())
-                        return new Inventor
-                                   {
-                                       Email = (string) reader["Email"],
-                                       姓名 = (string) reader["姓名"],
-                                       电话 = (string) reader["电话"],
-                                       身份证号 = (string) reader["身份证号"]
-                                   };
+                        return ExtractInventor(reader);
                     return null;
                 }
             }
         }
 
         #endregion
+
+        private static CustomerContact ExtractCustomerContact(SqlDataReader reader)
+        {
+            return new CustomerContact
+                       {
+                           姓名 = (string) reader["姓名"],
+                           电话 = (string) reader["电话"],
+                           Email = (string) reader["Email"],
+                           联系人类型 = (string) reader["联系人类型"],
+                           客户号 = (string) reader["客户号"]
+                       };
+        }
+
+        private static Customer ExtractCustomer(SqlDataReader reader)
+        {
+            return new Customer
+                       {
+                           客户号 = (string) reader["客户号"],
+                           类型 = (string) reader["类型"],
+                           地址 = (string) reader["地址"],
+                           邮编 = (string) reader["邮编"]
+                       };
+        }
+
+        private static Applicant ExtractApplicant(SqlDataReader reader)
+        {
+            return new Applicant
+                       {
+                           证件号 = (string) reader["证件号"],
+                           类型 = (string) reader["类型"],
+                           中文名 = (string) reader["中文名"],
+                           英文名 = (string) reader["英文名"],
+                           简称 = (string) reader["简称"],
+                           国家 = (string) reader["国家"],
+                           省 = (string) reader["省"],
+                           市区县 = (string) reader["市区县"],
+                           中国地址 = (string) reader["中国地址"],
+                           外国地址 = (string) reader["外国地址"],
+                           邮编 = (string) reader["邮编"],
+                           电话 = (string) reader["电话"],
+                           传真 = (string) reader["传真"],
+                           Email = (string) reader["Email"]
+                       };
+        }
+
+
+        private static IEnumerable<KeyValuePair<string, object>> ToKeyValuePairs(Customer customer)
+        {
+            return new Dictionary<string, object>
+                       {
+                           {"客户号", customer.客户号},
+                           {"类型", customer.类型},
+                           {"地址", customer.地址},
+                           {"邮编", customer.邮编}
+                       };
+        }
+
+
+        private static IEnumerable<KeyValuePair<string, object>> ToKeyValuePairs(CustomerContact contact)
+        {
+            return new Dictionary<string, object>
+                       {
+                           {"姓名", contact.姓名},
+                           {"电话", contact.电话},
+                           {"Email", contact.Email},
+                           {"联系人类型", contact.联系人类型},
+                           {"客户号", contact.客户号}
+                       };
+        }
+
+        private static IEnumerable<KeyValuePair<string, object>> ToKeyValuePairs(Applicant applicant)
+        {
+            return new Dictionary<string, object>
+                       {
+                           {"证件号", applicant.证件号},
+                           {"类型", applicant.类型},
+                           {"中文名", applicant.中文名},
+                           {"英文名", applicant.英文名},
+                           {"简称", applicant.简称},
+                           {"国家", applicant.国家},
+                           {"省", applicant.省},
+                           {"市区县", applicant.市区县},
+                           {"中国地址", applicant.中国地址},
+                           {"外国地址", applicant.外国地址},
+                           {"邮编", applicant.邮编},
+                           {"电话", applicant.电话},
+                           {"传真", applicant.传真},
+                           {"Email", applicant.Email}
+                       };
+        }
+
+
+        private static IEnumerable<KeyValuePair<string, object>> ToKeyValuePairs(Inventor inventor)
+        {
+            return new Dictionary<string, object>
+                       {
+                           {"身份证号", inventor.身份证号},
+                           {"姓名", inventor.姓名},
+                           {"电话", inventor.电话},
+                           {"Email", inventor.Email}
+                       };
+        }
+
+
+        private static Inventor ExtractInventor(SqlDataReader reader)
+        {
+            return new Inventor
+                       {
+                           Email = (string) reader["Email"],
+                           姓名 = (string) reader["姓名"],
+                           电话 = (string) reader["电话"],
+                           身份证号 = (string) reader["身份证号"]
+                       };
+        }
     }
 }
