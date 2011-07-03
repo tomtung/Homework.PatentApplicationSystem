@@ -54,6 +54,7 @@ namespace Homework.PatentApplicationSystem.Model
         public static void Insert(this SqlConnection connection, string tableName,
                                   IEnumerable<KeyValuePair<string, Object>> keyValuePairs)
         {
+            keyValuePairs = keyValuePairs.Where(p => p.Value != null);
             IEnumerable<string> columns = keyValuePairs.Select(pair => pair.Key);
             string columnList = columns.ToCommaSeperatedList();
             string valuePlaceHolders = columns.Select(c => "@" + c).ToCommaSeperatedList();
@@ -67,7 +68,8 @@ namespace Homework.PatentApplicationSystem.Model
 
         private static SqlParameter ToSqlParameter(this KeyValuePair<string, object> pair)
         {
-            return new SqlParameter("@" + pair.Key, pair.Value);
+            return new SqlParameter("@" + pair.Key,
+                                    pair.Value.GetType().IsEnum ? pair.Value.ToString() : pair.Value);
         }
 
         private static string ToCommaSeperatedList(this IEnumerable<string> items)
@@ -85,6 +87,7 @@ namespace Homework.PatentApplicationSystem.Model
                                  KeyValuePair<string, Object> condition,
                                  IEnumerable<KeyValuePair<string, Object>> keyValuePairs)
         {
+            keyValuePairs = keyValuePairs.Where(p => p.Value != null);
             string updates = keyValuePairs.Select(p => string.Format("{0} = @{0}", p.Key)).ToCommaSeperatedList();
             string command = string.Format("UPDATE [{0}] SET {1} WHERE {2} = @new{2}", tableName, updates, condition.Key);
 
