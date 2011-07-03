@@ -24,7 +24,7 @@ namespace Homework.PatentApplicationSystem.Model
 
             Bind<IUserLoginService>().To<UserLoginService>().InSingletonScope();
 
-            Bind<IClientInfoManager>().To<ClientInfoManager>().InThreadScope(); 
+            Bind<IClientInfoManager>().To<ClientInfoManager>().InThreadScope();
             Bind<ICaseInfoManager>().To<CaseInfoManager>().InThreadScope();
             Bind<ICaseDocManager>().To<CaseDocManager>().InThreadScope();
             Bind<ICaseMessageManager>().To<CaseMessageManager>().InThreadScope();

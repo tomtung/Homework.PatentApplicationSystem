@@ -48,7 +48,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
             try
             {
                 Case @case = _caseInfoManager.GetCaseById(caseId).Value;
-                using (_connection)
+                try
                 {
                     _connection.Open();
                     SqlDataReader reader = _connection.Select(BookmarkTableName,
@@ -61,6 +61,10 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
                         wfApp.Load(instanceId);
                         return wfApp.ResumeBookmark(taskName, value) == BookmarkResumptionResult.Success;
                     }
+                }
+                finally
+                {
+                    _connection.Close();
                 }
             }
             catch
@@ -93,7 +97,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         private IEnumerable<string> GetAllCaseIdsPendingAt(string taskName)
         {
-            using (_connection)
+            try
             {
                 _connection.Open();
                 var caseIds = new List<string>();
@@ -104,6 +108,10 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
                     while (reader.Read())
                         caseIds.Add(reader[CaseIdColumnName].ToString());
                 return caseIds;
+            }
+            finally
+            {
+                _connection.Close();
             }
         }
 

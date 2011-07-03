@@ -1,14 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
   <siteMapNode url="" title="" description="">
-    <siteMapNode url="~/Default.aspx" title="主页" description="主页"/>
-    <siteMapNode url="~/View/Default.aspx" title="查看" description="查看各种案件" roles="立案员,质检员,代理部主管,办案员,代理部议员"/>
-    <siteMapNode url="~/Template/Default.aspx" title="模板下载" description="各种模板" roles="立案员,质检员,代理部主管,办案员,代理部议员"/>
-    <siteMapNode url="~/Upload/Default.aspx" title="上传案件" description="上传相应案件" roles="立案员,质检员,代理部主管,办案员,代理部议员"/>
-    <siteMapNode url="~/Mail/Default.aspx" title="邮件" description="邮件" roles="立案员,质检员,代理部主管,办案员,代理部议员"/>
+    <siteMapNode url="~/Default.aspx" title="主页" description="主页" />
+    <siteMapNode url="~/View/Default.aspx" title="查看" description="查看各种案件" roles="立案员,质检员,代理部主管,办案员,代理部议员" />
+    <siteMapNode url="~/Template/Default.aspx" title="模板下载" description="各种模板" roles="立案员,质检员,代理部主管,办案员,代理部议员" />
+    <siteMapNode url="~/Upload/Default.aspx" title="上传案件" description="上传相应案件" roles="立案员,质检员,代理部主管,办案员,代理部议员" />
+    <siteMapNode url="~/Mail/Default.aspx" title="邮件" description="邮件" roles="立案员,质检员,代理部主管,办案员,代理部议员" />
     <siteMapNode ulr="~/About.aspx" title="关于" description="帮助" />
   </siteMapNode>
-   
-  
-  
+
+
 </siteMap>

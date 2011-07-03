@@ -6,8 +6,8 @@ namespace Homework.PatentApplicationSystem.Model.Data
 {
     internal class CaseDocManager : ICaseDocManager
     {
-        private readonly SqlConnection _connection;
         private const string CaseDocTableName = "案件文件";
+        private readonly SqlConnection _connection;
 
         public CaseDocManager(SqlConnection connection)
         {
@@ -18,16 +18,17 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public IEnumerable<CaseDoc> GetDocsOf(string 案件编号)
         {
-            using(_connection)
+            try
             {
                 _connection.Open();
-                var reader = _connection.Select(CaseDocTableName, new KeyValuePair<string, object>("案件编号", 案件编号));
+                SqlDataReader reader = _connection.Select(CaseDocTableName,
+                                                          new KeyValuePair<string, object>("案件编号", 案件编号));
                 List<CaseDoc> caseDocs;
-                using(reader)
+                using (reader)
                 {
                     caseDocs = new List<CaseDoc>();
                     while (reader.Read())
-                        caseDocs.Add(new CaseDoc()
+                        caseDocs.Add(new CaseDoc
                                          {
                                              FileName = (string) reader["文件名"],
                                              UploadUserName = (string) reader["创建人"],
@@ -37,11 +38,15 @@ namespace Homework.PatentApplicationSystem.Model.Data
                 }
                 return caseDocs;
             }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         public void AddDoc(CaseDoc doc)
         {
-            using(_connection)
+            try
             {
                 _connection.Open();
                 var dictionary = new Dictionary<string, object>
@@ -53,11 +58,15 @@ namespace Homework.PatentApplicationSystem.Model.Data
                                      };
                 _connection.Insert(CaseDocTableName, dictionary);
             }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         public void RemoveDoc(CaseDoc doc)
         {
-            using(_connection)
+            try
             {
                 _connection.Open();
                 var prKey1 = new KeyValuePair<string, object>("案件编号", doc.案件编号);
@@ -66,9 +75,12 @@ namespace Homework.PatentApplicationSystem.Model.Data
                                                prKey1.Key, prKey2.Key);
                 _connection.ExecuteNonQuery(command);
             }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         #endregion
-
     }
 }

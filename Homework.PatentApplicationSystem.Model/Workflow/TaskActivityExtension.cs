@@ -25,7 +25,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         public void AddBookmarkRecord(string bookmarkName)
         {
-            using (_connection)
+            try
             {
                 _connection.Open();
                 _connection.Insert(CaseWorkflowManager.BookmarkTableName,
@@ -36,11 +36,15 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
                                            {CaseWorkflowManager.BookmarkNameColumnName, bookmarkName}
                                        });
             }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         public void RemoveBookmarkRecord(string bookmarkName)
         {
-            using (_connection)
+            try
             {
                 _connection.Open();
                 string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1} AND {2} = @{2}",
@@ -53,6 +57,10 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
                                          new SqlParameter("@" + CaseWorkflowManager.BookmarkNameColumnName, bookmarkName)
                                      };
                 _connection.ExecuteNonQuery(command, parameters);
+            }
+            finally
+            {
+                _connection.Close();
             }
         }
 

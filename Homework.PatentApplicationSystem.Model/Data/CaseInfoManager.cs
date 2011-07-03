@@ -18,7 +18,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public Case? GetCaseById(string caseId)
         {
-            using (_connection)
+            try
             {
                 _connection.Open();
                 SqlDataReader reader = _connection.Select(CaseTableName,
@@ -30,26 +30,38 @@ namespace Homework.PatentApplicationSystem.Model.Data
                     return null;
                 }
             }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         public void AddCase(Case @case)
         {
-            using (_connection)
+            try
             {
                 _connection.Open();
                 _connection.Insert(CaseTableName, ToKeyValuePairs(@case));
+            }
+            finally
+            {
+                _connection.Close();
             }
         }
 
 
         public void UpdateCase(Case @case)
         {
-            using (_connection)
+            try
             {
                 _connection.Open();
                 _connection.Update(CaseTableName,
                                    new KeyValuePair<string, object>("编号", @case.编号),
                                    ToKeyValuePairs(@case));
+            }
+            finally
+            {
+                _connection.Close();
             }
         }
 

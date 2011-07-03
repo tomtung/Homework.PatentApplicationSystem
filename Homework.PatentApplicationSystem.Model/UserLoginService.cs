@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace Homework.PatentApplicationSystem.Model
 {
-    class UserLoginService : IUserLoginService
+    internal class UserLoginService : IUserLoginService
     {
         private readonly SqlConnection _connection;
 
@@ -22,7 +22,7 @@ namespace Homework.PatentApplicationSystem.Model
                 _connection.Open();
                 LoginResult result;
                 User user = null;
-                var reader = _connection.Select("员工", new KeyValuePair<string, object>("UserName", userName));
+                SqlDataReader reader = _connection.Select("员工", new KeyValuePair<string, object>("UserName", userName));
                 if (reader.Read())
                 {
                     if ((string) reader["Password"] != password)
@@ -32,7 +32,7 @@ namespace Homework.PatentApplicationSystem.Model
                     else
                     {
                         result = LoginResult.Successful;
-                        user = new User()
+                        user = new User
                                    {
                                        UserName = (string) reader["UserName"],
                                        Password = (string) reader["Password"],
@@ -50,7 +50,6 @@ namespace Homework.PatentApplicationSystem.Model
             {
                 _connection.Close();
             }
-                
         }
 
         #endregion

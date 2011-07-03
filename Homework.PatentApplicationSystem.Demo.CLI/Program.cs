@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using CommonServiceLocator.NinjectAdapter;
 using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Data;
@@ -11,13 +8,13 @@ using Ninject;
 
 namespace Homework.PatentApplicationSystem.Demo.CLI
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             SetUp();
 
-            var @case = new Case{案件类型 = CaseType.客户指示处理};
+            var @case = new Case {案件类型 = CaseType.客户指示处理};
 
             立案(@case);
 
@@ -30,10 +27,9 @@ namespace Homework.PatentApplicationSystem.Demo.CLI
             var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
 
 
-            var user = new User { UserName = "某代理部主管", Password = "123", Role = Role.代理部主管 };
-            
-            var pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
+            var user = new User {UserName = "某代理部主管", Password = "123", Role = Role.代理部主管};
 
+            IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
         }
 
         private static void 立案(Case @case)
@@ -48,7 +44,8 @@ namespace Homework.PatentApplicationSystem.Demo.CLI
         private static void SetUp()
         {
             // 这几行在 Global.asax.cs里写
-            const string connString = @"Data Source=TOMTUNG-THINK\SQLEXPRESS;Initial Catalog=HW_PAS;Integrated Security=True";
+            const string connString =
+                @"Data Source=TOMTUNG-THINK\SQLEXPRESS;Initial Catalog=HW_PAS;Integrated Security=True";
             IKernel kernel = new StandardKernel(new DefaultNinjectModule(connString));
             var serviceLocator = new NinjectServiceLocator(kernel);
             ServiceLocator.SetLocatorProvider(() => serviceLocator);
