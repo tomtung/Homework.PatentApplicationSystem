@@ -62,7 +62,8 @@ namespace Homework.PatentApplicationSystem.Model.Data
                 _connection.Open();
                 var prKey1 = new KeyValuePair<string, object>("案件编号", doc.案件编号);
                 var prKey2 = new KeyValuePair<string, object>("文件名", doc.FileName);
-                string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1} AND {2}=@{2}", CaseDocTableName, prKey1.Key, prKey2.Key)
+                string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1} AND {2}=@{2}", CaseDocTableName,
+                                               prKey1.Key, prKey2.Key);
                 _connection.ExecuteNonQuery(command);
             }
         }
