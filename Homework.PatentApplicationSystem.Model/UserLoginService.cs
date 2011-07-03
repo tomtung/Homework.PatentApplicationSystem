@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace Homework.PatentApplicationSystem.Model
 {
-    internal class UserLoginService : IUserLoginService
+    class UserLoginService : IUserLoginService
     {
         private readonly SqlConnection _connection;
 
@@ -22,24 +22,15 @@ namespace Homework.PatentApplicationSystem.Model
                 _connection.Open();
                 LoginResult result;
                 User user = null;
-                SqlDataReader reader = _connection.Select("员工", new KeyValuePair<string, object>("UserName", userName));
+                var reader = _connection.Select("员工", new KeyValuePair<string, object>("UserName", userName));
                 if (reader.Read())
-                {
                     if ((string) reader["Password"] != password)
-                    {
                         result = LoginResult.PasswordNotMatch;
-                    }
                     else
                     {
                         result = LoginResult.Successful;
-                        user = new User
-                                   {
-                                       UserName = (string) reader["UserName"],
-                                       Password = (string) reader["Password"],
-                                       Role = (Role) reader["Role"]
-                                   };
+                        user = ExtractUser(reader);
                     }
-                }
                 else
                 {
                     result = LoginResult.UserNotExist;
@@ -50,6 +41,17 @@ namespace Homework.PatentApplicationSystem.Model
             {
                 _connection.Close();
             }
+                
+        }
+
+        private static User ExtractUser(SqlDataReader reader)
+        {
+            return new User()
+                       {
+                           UserName = (string) reader["UserName"],
+                           Password = (string) reader["Password"],
+                           Role = ((string) reader["Role"]).EnumParse<Role>()
+                       };
         }
 
         #endregion

@@ -3,50 +3,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
-    <title></title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Untitled Document</title>
+    <link href="~/Styles/basic.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    My ASP.NET Application
-                </h1>
-            </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" DataSourceID="SiteMapSrc" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" >
-<%--                    <DataBindings>
-                        <asp:MenuItemBinding DataMember="category" TextField="text" />
-                    </DataBindings>--%>
+    <div id="container">
+        <div id="header">
+            <div id="loginfo">
+                <a href="#">管理员</a><span class="separator">|</span><a href="#">退出</a></div>
+            <div id="nav">
+                <asp:Menu ID="Menu1" DataSourceID="MenuSrc" runat="server" CssClass="menu" EnableViewState="false"
+                    IncludeStyleBlock="false" Orientation="Horizontal">
+                    <DataBindings>
+                        <asp:MenuItemBinding DataMember="category" />
+                        <asp:MenuItemBinding DataMember="item" />
+                    </DataBindings>
                 </asp:Menu>
-<%--                <asp:XmlDataSource ID="MenuSrc" DataFile="Menu.xml"  runat="server">
-                </asp:XmlDataSource>--%>
-                <asp:SiteMapDataSource ID="SiteMapSrc" ShowStartingNode="false" runat="server" /> 
+                <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+                </asp:SiteMapPath>
+                <asp:XmlDataSource ID="MenuSrc" DataFile="Menu.xml" runat="server"></asp:XmlDataSource>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" ShowStartingNode="false" runat="server" />
             </div>
         </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        <div class="content-bg">
+            <div id="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
         </div>
-        <div class="clear">
+        <div id="footer-bg">
+            <div id="footer">
+                <a href="#">联系</a><span class="separator">|</span><a href="#">帮助</a><span class="separator">|</span><a
+                    href="#">其他</a><p id="copyright">
+                        All Rights Reserved</p>
+            </div>
         </div>
-    </div>
-    <div class="footer">
-        
     </div>
     </form>
 </body>
