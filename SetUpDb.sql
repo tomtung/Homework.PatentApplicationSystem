@@ -2049,12 +2049,12 @@ CREATE TABLE [dbo].[案件文件](
 ) ON [PRIMARY]
 
 CREATE TABLE [dbo].[员工](
-	[用户名] [varchar](50) NOT NULL,
-	[密码] [varchar](50) NULL,
-	[角色] [varchar](50) NULL,
+	[UserName] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NULL,
+	[Role] [varchar](50) NULL,
  CONSTRAINT [PK_员工] PRIMARY KEY CLUSTERED 
 (
-	[用户名] ASC
+	[UserName] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
@@ -2137,22 +2137,22 @@ REFERENCES [dbo].[申请人] ([证件号])
 ALTER TABLE [dbo].[案件] CHECK CONSTRAINT [FK_案件_申请人]
 
 ALTER TABLE [dbo].[案件]  WITH CHECK ADD  CONSTRAINT [FK_案件_员工_主办员] FOREIGN KEY([主办员用户名])
-REFERENCES [dbo].[员工] ([用户名])
+REFERENCES [dbo].[员工] ([UserName])
 
 ALTER TABLE [dbo].[案件] CHECK CONSTRAINT [FK_案件_员工_主办员]
 
 ALTER TABLE [dbo].[案件]  WITH CHECK ADD  CONSTRAINT [FK_案件_员工_翻译] FOREIGN KEY([翻译用户名])
-REFERENCES [dbo].[员工] ([用户名])
+REFERENCES [dbo].[员工] ([UserName])
 
 ALTER TABLE [dbo].[案件] CHECK CONSTRAINT [FK_案件_员工_翻译]
 
 ALTER TABLE [dbo].[案件]  WITH CHECK ADD  CONSTRAINT [FK_案件_员工_一校] FOREIGN KEY([一校用户名])
-REFERENCES [dbo].[员工] ([用户名])
+REFERENCES [dbo].[员工] ([UserName])
 
 ALTER TABLE [dbo].[案件] CHECK CONSTRAINT [FK_案件_员工_一校]
 
 ALTER TABLE [dbo].[案件]  WITH CHECK ADD  CONSTRAINT [FK_案件_员工_二校] FOREIGN KEY([二校用户名])
-REFERENCES [dbo].[员工] ([用户名])
+REFERENCES [dbo].[员工] ([UserName])
 
 ALTER TABLE [dbo].[案件] CHECK CONSTRAINT [FK_案件_员工_二校]
 
@@ -2165,3 +2165,42 @@ GO
 
 SET ANSI_PADDING OFF
 GO
+
+USE [HW_PAS]
+GO
+
+/****** Object:  Table [dbo].[CaseMessage]    Script Date: 07/03/2011 21:00:38 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[CaseMessage](
+	[案件编号] [varchar](50) NULL,
+	[Content] [varchar](50) NULL,
+	[SenderName] [varchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[CaseMessage]  WITH CHECK ADD  CONSTRAINT [FK_CaseMessage_案件] FOREIGN KEY([案件编号])
+REFERENCES [dbo].[案件] ([编号])
+GO
+
+ALTER TABLE [dbo].[CaseMessage] CHECK CONSTRAINT [FK_CaseMessage_案件]
+GO
+
+
+USE [HW_PAS]
+GO
+
+
+
+
