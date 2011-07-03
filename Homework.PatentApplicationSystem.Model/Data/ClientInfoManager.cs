@@ -325,11 +325,11 @@ namespace Homework.PatentApplicationSystem.Model.Data
         {
             return new CustomerContact
                        {
-                           姓名 = (string) reader["姓名"],
-                           电话 = (string) reader["电话"],
-                           Email = (string) reader["Email"],
-                           联系人类型 = (string) reader["联系人类型"],
-                           客户号 = (string) reader["客户号"]
+                           姓名 = reader["姓名"] as string,
+                           电话 = reader["电话"] as string,
+                           Email = reader["Email"] as string,
+                           联系人类型 = reader["联系人类型"] as string,
+                           客户号 = reader["客户号"] as string
                        };
         }
 
@@ -337,10 +337,10 @@ namespace Homework.PatentApplicationSystem.Model.Data
         {
             return new Customer
                        {
-                           客户号 = (string) reader["客户号"],
-                           类型 = (string) reader["类型"],
-                           地址 = (string) reader["地址"],
-                           邮编 = (string) reader["邮编"]
+                           客户号 = reader["客户号"] as string,
+                           类型 = reader["类型"] as string,
+                           地址 = reader["地址"] as string,
+                           邮编 = reader["邮编"] as string
                        };
         }
 
@@ -348,20 +348,20 @@ namespace Homework.PatentApplicationSystem.Model.Data
         {
             return new Applicant
                        {
-                           证件号 = (string) reader["证件号"],
-                           类型 = (string) reader["类型"],
-                           中文名 = (string) reader["中文名"],
-                           英文名 = (string) reader["英文名"],
-                           简称 = (string) reader["简称"],
-                           国家 = (string) reader["国家"],
-                           省 = (string) reader["省"],
-                           市区县 = (string) reader["市区县"],
-                           中国地址 = (string) reader["中国地址"],
-                           外国地址 = (string) reader["外国地址"],
-                           邮编 = (string) reader["邮编"],
-                           电话 = (string) reader["电话"],
-                           传真 = (string) reader["传真"],
-                           Email = (string) reader["Email"]
+                           证件号 = reader["证件号"] as string,
+                           类型 = reader["类型"] as string,
+                           中文名 = reader["中文名"] as string,
+                           英文名 = reader["英文名"] as string,
+                           简称 = reader["简称"] as string,
+                           国家 = reader["国家"] as string,
+                           省 = reader["省"] as string,
+                           市区县 = reader["市区县"] as string,
+                           中国地址 = reader["中国地址"] as string,
+                           外国地址 = reader["外国地址"] as string,
+                           邮编 = reader["邮编"] as string,
+                           电话 = reader["电话"] as string,
+                           传真 = reader["传真"] as string,
+                           Email = reader["Email"] as string
                        };
         }
 

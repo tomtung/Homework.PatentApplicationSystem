@@ -2114,8 +2114,14 @@ CREATE TABLE [dbo].[WorkflowBookmark](
 ) ON [PRIMARY]
 
 
-GO
+CREATE TABLE [dbo].[CaseMessage](
+	[案件编号] [varchar](50) NULL,
+	[Content] [varchar](50) NULL,
+	[SenderName] [varchar](50) NULL
+) ON [PRIMARY]
 
+GO
+/*
 ALTER TABLE [dbo].[客户联系人]  WITH CHECK ADD  CONSTRAINT [FK_客户联系人_客户] FOREIGN KEY([客户号])
 REFERENCES [dbo].[客户] ([客户号])
 
@@ -2161,44 +2167,15 @@ REFERENCES [dbo].[案件] ([编号])
 
 ALTER TABLE [dbo].[WorkflowBookmark] CHECK CONSTRAINT [FK_WorkflowBookmark_案件]
 
-GO
-
-SET ANSI_PADDING OFF
-GO
-
-USE [HW_PAS]
-GO
-
-/****** Object:  Table [dbo].[CaseMessage]    Script Date: 07/03/2011 21:00:38 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-SET ANSI_PADDING ON
-GO
-
-CREATE TABLE [dbo].[CaseMessage](
-	[案件编号] [varchar](50) NULL,
-	[Content] [varchar](50) NULL,
-	[SenderName] [varchar](50) NULL
-) ON [PRIMARY]
-
-GO
-
-SET ANSI_PADDING OFF
-GO
-
 ALTER TABLE [dbo].[CaseMessage]  WITH CHECK ADD  CONSTRAINT [FK_CaseMessage_案件] FOREIGN KEY([案件编号])
 REFERENCES [dbo].[案件] ([编号])
 GO
 
 ALTER TABLE [dbo].[CaseMessage] CHECK CONSTRAINT [FK_CaseMessage_案件]
 GO
+*/
 
-
-USE [HW_PAS]
+SET ANSI_PADDING OFF
 GO
 
 

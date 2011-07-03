@@ -44,7 +44,7 @@ namespace Homework.PatentApplicationSystem.Model
                                               TimeSpan.FromSeconds(30));
             handle.Free();
 
-            store.DefaultInstanceOwner = view.InstanceOwner;
+            //store.DefaultInstanceOwner = view.InstanceOwner;
             return store;
         }
     }

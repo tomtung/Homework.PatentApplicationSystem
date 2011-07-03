@@ -30,7 +30,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         public void StartCase(Case @case)
         {
-            WorkflowApplication wfApp = GetWorkflowApplication(@case);
+            WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow {CaseType = @case.案件类型}, @case.编号);
             wfApp.Run();
         }
 
@@ -47,51 +47,47 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         {
             try
             {
-                Case @case = _caseInfoManager.GetCaseById(caseId).Value;
-                try
+                _connection.Open();
+                SqlDataReader reader =
+                    _connection.Select(BookmarkTableName,
+                                       new KeyValuePair<string, object>(CaseIdColumnName, caseId));
+                using (reader)
                 {
-                    _connection.Open();
-                    SqlDataReader reader = _connection.Select(BookmarkTableName,
-                                                              new KeyValuePair<string, object>(CaseIdColumnName, caseId));
-                    using (reader)
-                    {
-                        reader.Read();
-                        Guid instanceId = Guid.Parse(reader[WorkflowinstanceidColumnName].ToString());
-                        WorkflowApplication wfApp = GetWorkflowApplication(@case);
-                        wfApp.Load(instanceId);
-                        return wfApp.ResumeBookmark(taskName, value) == BookmarkResumptionResult.Success;
-                    }
-                }
-                finally
-                {
-                    _connection.Close();
+                    reader.Read();
+                    Guid instanceId = Guid.Parse((string) reader[WorkflowinstanceidColumnName]);
+                    WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow(), caseId);
+                    wfApp.Load(instanceId);
+                    return wfApp.ResumeBookmark(taskName, value) == BookmarkResumptionResult.Success;
                 }
             }
-            catch
+            catch (Exception e)
             {
                 return false;
+            }
+            finally
+            {
+                _connection.Close();
             }
         }
 
         #endregion
 
-        private WorkflowApplication GetWorkflowApplication(Case @case)
+        private WorkflowApplication GetWorkflowApplication(Activity workflow, string caseId)
         {
-            var wfApp = new WorkflowApplication(new CaseWorkflow {CaseType = @case.案件类型})
+            var wfApp = new WorkflowApplication(workflow)
                             {
                                 InstanceStore = _instanceStore,
                                 PersistableIdle = e => PersistableIdleAction.Unload,
                                 Completed = e =>
                                                 {
-                                                    Case? nullableCase = _caseInfoManager.GetCaseById(@case.编号);
+                                                    Case? nullableCase = _caseInfoManager.GetCaseById(caseId);
                                                     if (nullableCase == null) return;
                                                     Case completedCase = nullableCase.Value;
                                                     completedCase.状态 = CaseState.Completed;
-                                                    // TODO
-                                                    //_caseInfoManager.Update(completedCase);
+                                                    _caseInfoManager.UpdateCase(completedCase);
                                                 }
                             };
-            wfApp.Extensions.Add(new TaskActivityExtension(@case.编号, wfApp.Id, _connection));
+            wfApp.Extensions.Add(new TaskActivityExtension(caseId, _connection.ConnectionString));
             return wfApp;
         }
 
@@ -101,9 +97,10 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
             {
                 _connection.Open();
                 var caseIds = new List<string>();
-                SqlDataReader reader = _connection.Select(BookmarkTableName,
-                                                          new KeyValuePair<string, object>(BookmarkNameColumnName,
-                                                                                           taskName));
+                SqlDataReader reader =
+                    _connection.Select(BookmarkTableName,
+                                       new KeyValuePair<string, object>(BookmarkNameColumnName,
+                                                                        taskName));
                 using (reader)
                     while (reader.Read())
                         caseIds.Add(reader[CaseIdColumnName].ToString());
