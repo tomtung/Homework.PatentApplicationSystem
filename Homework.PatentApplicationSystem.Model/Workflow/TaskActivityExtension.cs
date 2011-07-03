@@ -25,30 +25,35 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         public void AddBookmarkRecord(string bookmarkName)
         {
-            _connection.Open();
-            _connection.Insert(CaseWorkflowManager.BookmarkTableName,
-                               new Dictionary<string, object>
-                                   {
-                                       {CaseWorkflowManager.CaseIdColumnName, CaseId},
-                                       {CaseWorkflowManager.WorkflowinstanceidColumnName, WorkflowInstanceId},
-                                       {CaseWorkflowManager.BookmarkNameColumnName, bookmarkName}
-                                   });
-            _connection.Close();
+            using (_connection)
+            {
+                _connection.Open();
+                _connection.Insert(CaseWorkflowManager.BookmarkTableName,
+                                   new Dictionary<string, object>
+                                       {
+                                           {CaseWorkflowManager.CaseIdColumnName, CaseId},
+                                           {CaseWorkflowManager.WorkflowinstanceidColumnName, WorkflowInstanceId},
+                                           {CaseWorkflowManager.BookmarkNameColumnName, bookmarkName}
+                                       });
+            }
         }
 
         public void RemoveBookmarkRecord(string bookmarkName)
         {
-            _connection.Open();
-            string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1} AND {2} = @{2}",
-                                           CaseWorkflowManager.BookmarkTableName, CaseWorkflowManager.CaseIdColumnName,
-                                           CaseWorkflowManager.BookmarkNameColumnName);
-            var parameters = new[]
-                                 {
-                                     new SqlParameter("@" + CaseWorkflowManager.CaseIdColumnName, CaseId),
-                                     new SqlParameter("@" + CaseWorkflowManager.BookmarkNameColumnName, bookmarkName)
-                                 };
-            _connection.ExecuteNonQuery(command, parameters);
-            _connection.Close();
+            using (_connection)
+            {
+                _connection.Open();
+                string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1} AND {2} = @{2}",
+                                               CaseWorkflowManager.BookmarkTableName,
+                                               CaseWorkflowManager.CaseIdColumnName,
+                                               CaseWorkflowManager.BookmarkNameColumnName);
+                var parameters = new[]
+                                     {
+                                         new SqlParameter("@" + CaseWorkflowManager.CaseIdColumnName, CaseId),
+                                         new SqlParameter("@" + CaseWorkflowManager.BookmarkNameColumnName, bookmarkName)
+                                     };
+                _connection.ExecuteNonQuery(command, parameters);
+            }
         }
 
         #endregion

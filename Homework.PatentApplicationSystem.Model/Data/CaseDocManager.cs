@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Homework.PatentApplicationSystem.Model.Data
 {
-    class CaseDocManager:ICaseDocManager
+    internal class CaseDocManager : ICaseDocManager
     {
+        #region ICaseDocManager Members
+
         public IEnumerable<CaseDoc> GetDocsOf(string 案件编号)
         {
             throw new NotImplementedException();
@@ -21,5 +21,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }
