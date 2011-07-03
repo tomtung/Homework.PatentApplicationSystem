@@ -64,8 +64,15 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="basic.html" />
+    <Content Include="Images\bg.png" />
+    <Content Include="Images\footer-bg.png" />
+    <Content Include="Images\footer.png" />
+    <Content Include="Images\log-bg.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Mail\Default.aspx" />
     <Content Include="Menu.xml" />
+    <Content Include="Styles\basic.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -75,13 +82,18 @@
     <Content Include="Template\Default.aspx" />
     <Content Include="Upload\Default.aspx" />
     <Content Include="View\Default.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="分案员\分案.aspx" />
+    <Content Include="立案员\案件信息.aspx" />
+    <Content Include="立案员\相关文件.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -164,6 +176,27 @@
     </Compile>
     <Compile Include="View\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="分案员\分案.aspx.cs">
+      <DependentUpon>分案.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="分案员\分案.aspx.designer.cs">
+      <DependentUpon>分案.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="立案员\案件信息.aspx.cs">
+      <DependentUpon>案件信息.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="立案员\案件信息.aspx.designer.cs">
+      <DependentUpon>案件信息.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="立案员\相关文件.aspx.cs">
+      <DependentUpon>相关文件.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="立案员\相关文件.aspx.designer.cs">
+      <DependentUpon>相关文件.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

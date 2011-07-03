@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<menu>
-  <category text="Home">
+<Menu>
+  <category text="立案">
+    <item text="案件信息" value=""/>
   </category>
-  
-  <category text="About">
-  </category>
-
-</menu>
+</Menu>
