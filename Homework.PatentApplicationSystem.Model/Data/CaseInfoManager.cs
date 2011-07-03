@@ -78,19 +78,14 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         private static Case ExtractCase(SqlDataReader reader)
         {
-            CaseType caseType;
-            Enum.TryParse((string) reader["案件类型"], out caseType);
-            CaseState caseState;
-            Enum.TryParse((string) reader["状态"], out caseState);
-
             return new Case
                        {
                            编号 = (string) reader["编号"],
                            名称 = (string) reader["名称"],
-                           案件类型 = caseType,
+                           案件类型 = ((string) reader["案件类型"]).EnumParse<CaseType>(),
                            创建时间 = (DateTime) reader["创建时间"],
                            绝限日 = (DateTime) reader["绝限日"],
-                           状态 = caseState,
+                           状态 = ((string) reader["状态"]).EnumParse<CaseState>(),
                            客户号 = (string) reader["客户号"],
                            申请人证件号 = (string) reader["申请人证件号"],
                            发明人身份证号 = (string) reader["发明人身份证号"],
