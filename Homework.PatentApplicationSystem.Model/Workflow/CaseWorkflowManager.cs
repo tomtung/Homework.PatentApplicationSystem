@@ -126,11 +126,12 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
             if (user.Role != Role.办案员) return true;
 
             Case @case = nullableCase.Value;
-            return (taskName == TaskNames.撰写五书 || taskName == TaskNames.官方来函办案 || taskName == TaskNames.客户指示办案)
-                   && @case.主办员用户名 == user.UserName
-                   || taskName == TaskNames.原始资料翻译 && @case.翻译用户名 == user.UserName
-                   || taskName == TaskNames.原始资料翻译一校 && @case.一校用户名 == user.UserName
-                   || taskName == TaskNames.原始资料翻译二校 && @case.二校用户名 == user.UserName;
+            return
+                (taskName == TaskNames.撰写五书 || taskName == TaskNames.官方来函办案
+                 || taskName == TaskNames.客户指示办案 || taskName == TaskNames.定稿五书) && @case.主办员用户名 == user.UserName
+                || taskName == TaskNames.原始资料翻译 && @case.翻译用户名 == user.UserName
+                || taskName == TaskNames.原始资料翻译一校 && @case.一校用户名 == user.UserName
+                || taskName == TaskNames.原始资料翻译二校 && @case.二校用户名 == user.UserName;
         }
     }
 }
