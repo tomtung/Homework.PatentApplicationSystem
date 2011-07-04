@@ -7,22 +7,22 @@ namespace Homework.PatentApplicationSystem.Model.Data
     internal class CaseInfoManager : ICaseInfoManager
     {
         private const string CaseTableName = "案件";
-        private readonly SqlConnection _connection;
+        private readonly string _connectionString;
 
-        public CaseInfoManager(SqlConnection connection)
+        public CaseInfoManager(string connectionString)
         {
-            _connection = connection;
+            _connectionString = connectionString;
         }
 
         #region ICaseInfoManager Members
 
         public Case? GetCaseById(string caseId)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                SqlDataReader reader = _connection.Select(CaseTableName,
-                                                          new KeyValuePair<string, object>("编号", caseId));
+                connection.Open();
+                SqlDataReader reader = connection.Select(CaseTableName,
+                                                         new KeyValuePair<string, object>("编号", caseId));
                 using (reader)
                 {
                     if (reader.Read())
@@ -30,38 +30,26 @@ namespace Homework.PatentApplicationSystem.Model.Data
                     return null;
                 }
             }
-            finally
-            {
-                _connection.Close();
-            }
         }
 
         public void AddCase(Case @case)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Insert(CaseTableName, ToKeyValuePairs(@case));
-            }
-            finally
-            {
-                _connection.Close();
+                connection.Open();
+                connection.Insert(CaseTableName, ToKeyValuePairs(@case));
             }
         }
 
 
         public void UpdateCase(Case @case)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Update(CaseTableName,
-                                   new KeyValuePair<string, object>("编号", @case.编号),
-                                   ToKeyValuePairs(@case));
-            }
-            finally
-            {
-                _connection.Close();
+                connection.Open();
+                connection.Update(CaseTableName,
+                                  new KeyValuePair<string, object>("编号", @case.编号),
+                                  ToKeyValuePairs(@case));
             }
         }
 

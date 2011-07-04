@@ -6,21 +6,21 @@ namespace Homework.PatentApplicationSystem.Model.Data
     internal class CaseMessageManager : ICaseMessageManager
     {
         private const string TableName = "CaseMessage";
-        private readonly SqlConnection _connection;
+        private readonly string _connectionString;
 
-        public CaseMessageManager(SqlConnection connection)
+        public CaseMessageManager(string connectionString)
         {
-            _connection = connection;
+            _connectionString = connectionString;
         }
 
         #region Implementation of ICaseMessageManager
 
         public IEnumerable<CaseMessage> GetMessagesOf(string 案件编号)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                SqlDataReader reader = _connection.Select(TableName, new KeyValuePair<string, object>("案件编号", 案件编号));
+                connection.Open();
+                SqlDataReader reader = connection.Select(TableName, new KeyValuePair<string, object>("案件编号", 案件编号));
                 List<CaseMessage> caseMessages;
                 using (reader)
                 {
@@ -37,28 +37,20 @@ namespace Homework.PatentApplicationSystem.Model.Data
                 }
                 return caseMessages;
             }
-            finally
-            {
-                _connection.Close();
-            }
         }
 
         public void AddMessage(CaseMessage doc)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 var dictionary = new Dictionary<string, object>
                                      {
                                          {"案件编号", doc.案件编号},
                                          {"Content", doc.Content},
                                          {"SenderUsername", doc.SenderUsername}
                                      };
-                _connection.Insert(TableName, dictionary);
-            }
-            finally
-            {
-                _connection.Close();
+                connection.Insert(TableName, dictionary);
             }
         }
 

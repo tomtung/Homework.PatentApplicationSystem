@@ -6,23 +6,23 @@ namespace Homework.PatentApplicationSystem.Model
 {
     internal class UserLoginService : IUserLoginService
     {
-        private readonly SqlConnection _connection;
+        private readonly string _connectionString;
 
-        public UserLoginService(SqlConnection connection)
+        public UserLoginService(string connectionString)
         {
-            _connection = connection;
+            _connectionString = connectionString;
         }
 
         #region Implementation of IUserLoginService
 
         public Tuple<LoginResult, User> Login(string userName, string password)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 LoginResult result;
                 User user = null;
-                SqlDataReader reader = _connection.Select("员工", new KeyValuePair<string, object>("UserName", userName));
+                SqlDataReader reader = connection.Select("员工", new KeyValuePair<string, object>("UserName", userName));
                 if (reader.Read())
                     if ((string) reader["Password"] != password)
                         result = LoginResult.PasswordNotMatch;
@@ -32,14 +32,8 @@ namespace Homework.PatentApplicationSystem.Model
                         user = ExtractUser(reader);
                     }
                 else
-                {
                     result = LoginResult.UserNotExist;
-                }
                 return Tuple.Create(result, user);
-            }
-            finally
-            {
-                _connection.Close();
             }
         }
 

@@ -3,6 +3,7 @@ using System.Activities;
 using System.Activities.DurableInstancing;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using Homework.PatentApplicationSystem.Model.Data;
 
@@ -15,15 +16,12 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         public const string BookmarkNameColumnName = "BookmarkName";
         public const string BookmarkTableName = "WorkflowBookmark";
         private readonly ICaseInfoManager _caseInfoManager;
-        private readonly SqlConnection _connection;
-        private readonly SqlWorkflowInstanceStore _instanceStore;
+        private readonly string _connectionString;
 
-        public CaseWorkflowManager(ICaseInfoManager caseInfoManager, SqlConnection connection,
-                                   SqlWorkflowInstanceStore instanceStore)
+        public CaseWorkflowManager(ICaseInfoManager caseInfoManager, string connectionString)
         {
             _caseInfoManager = caseInfoManager;
-            _connection = connection;
-            _instanceStore = instanceStore;
+            _connectionString = connectionString;
         }
 
         #region ICaseWorkflowManager Members
@@ -31,7 +29,8 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         public void StartCase(Case @case)
         {
             WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow {CaseType = @case.案件类型}, @case.编号);
-            wfApp.Run();
+            lock (this)
+                wfApp.Run();
         }
 
         public IEnumerable<string> GetPendingCaseIds(string taskName, User user)
@@ -45,28 +44,30 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         public bool ResumeCase(string caseId, string taskName, object value)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                SqlDataReader reader =
-                    _connection.Select(BookmarkTableName,
-                                       new KeyValuePair<string, object>(CaseIdColumnName, caseId));
-                using (reader)
+                try
                 {
-                    reader.Read();
-                    Guid instanceId = Guid.Parse((string) reader[WorkflowinstanceidColumnName]);
-                    WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow(), caseId);
-                    wfApp.Load(instanceId);
-                    return wfApp.ResumeBookmark(taskName, value) == BookmarkResumptionResult.Success;
+                    connection.Open();
+                    SqlDataReader reader =
+                        connection.Select(BookmarkTableName,
+                                          new KeyValuePair<string, object>(CaseIdColumnName, caseId));
+                    using (reader)
+                    {
+                        reader.Read();
+                        Guid instanceId = Guid.Parse((string) reader[WorkflowinstanceidColumnName]);
+                        WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow(), caseId);
+                        lock (this)
+                        {
+                            wfApp.Load(instanceId);
+                            return wfApp.ResumeBookmark(taskName, value) == BookmarkResumptionResult.Success;
+                        }
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-            finally
-            {
-                _connection.Close();
+                catch (Exception e)
+                {
+                    return false;
+                }
             }
         }
 
@@ -76,7 +77,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         {
             var wfApp = new WorkflowApplication(workflow)
                             {
-                                InstanceStore = _instanceStore,
+                                InstanceStore = new SqlWorkflowInstanceStore(_connectionString),
                                 PersistableIdle = e => PersistableIdleAction.Unload,
                                 Completed = e =>
                                                 {
@@ -87,28 +88,24 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
                                                     _caseInfoManager.UpdateCase(completedCase);
                                                 }
                             };
-            wfApp.Extensions.Add(new TaskActivityExtension(caseId, _connection.ConnectionString));
+            wfApp.Extensions.Add(new TaskActivityExtension(caseId, _connectionString));
             return wfApp;
         }
 
         private IEnumerable<string> GetAllCaseIdsPendingAt(string taskName)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 var caseIds = new List<string>();
                 SqlDataReader reader =
-                    _connection.Select(BookmarkTableName,
-                                       new KeyValuePair<string, object>(BookmarkNameColumnName,
-                                                                        taskName));
+                    connection.Select(BookmarkTableName,
+                                      new KeyValuePair<string, object>(BookmarkNameColumnName,
+                                                                       taskName));
                 using (reader)
                     while (reader.Read())
                         caseIds.Add(reader[CaseIdColumnName].ToString());
                 return caseIds;
-            }
-            finally
-            {
-                _connection.Close();
             }
         }
 

@@ -1,7 +1,4 @@
 using System;
-using System.Activities.DurableInstancing;
-using System.Data.SqlClient;
-using System.Runtime.DurableInstancing;
 using Homework.PatentApplicationSystem.Model.Data;
 using Homework.PatentApplicationSystem.Model.Workflow;
 using Ninject.Modules;
@@ -19,33 +16,23 @@ namespace Homework.PatentApplicationSystem.Model
 
         public override void Load()
         {
-            Bind<SqlConnection>().ToMethod(c => new SqlConnection(DbConnectionString));
-            Bind<SqlWorkflowInstanceStore>().ToMethod(c => GetSqlWorkflowIntanceStore());
-
             Bind<IUserLoginService>().To<UserLoginService>().InSingletonScope();
+            Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<UserLoginService>();
 
-            Bind<IClientInfoManager>().To<ClientInfoManager>().InThreadScope();
-            Bind<ICaseInfoManager>().To<CaseInfoManager>().InThreadScope();
-            Bind<ICaseDocManager>().To<CaseDocManager>().InThreadScope();
-            Bind<ICaseMessageManager>().To<CaseMessageManager>().InThreadScope();
+            Bind<IClientInfoManager>().To<ClientInfoManager>().InSingletonScope();
+            Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<ClientInfoManager>();
 
-            Bind<ICaseWorkflowManager>().To<CaseWorkflowManager>().InThreadScope();
-        }
+            Bind<ICaseInfoManager>().To<CaseInfoManager>().InSingletonScope();
+            Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<CaseInfoManager>();
 
-        private SqlWorkflowInstanceStore GetSqlWorkflowIntanceStore()
-        {
-            var store =
-                new SqlWorkflowInstanceStore(DbConnectionString);
+            Bind<ICaseDocManager>().To<CaseDocManager>().InSingletonScope();
+            Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<CaseDocManager>();
 
-            InstanceHandle handle = store.CreateInstanceHandle();
-            InstanceView view = store.Execute(handle,
-                                              new CreateWorkflowOwnerCommand
-                                                  (),
-                                              TimeSpan.FromSeconds(30));
-            handle.Free();
+            Bind<ICaseMessageManager>().To<CaseMessageManager>().InSingletonScope();
+            Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<CaseMessageManager>();
 
-            //store.DefaultInstanceOwner = view.InstanceOwner;
-            return store;
+            Bind<ICaseWorkflowManager>().To<CaseWorkflowManager>().InSingletonScope();
+            Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<CaseWorkflowManager>();
         }
     }
 }

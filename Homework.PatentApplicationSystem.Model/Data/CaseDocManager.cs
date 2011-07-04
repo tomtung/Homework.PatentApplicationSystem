@@ -7,22 +7,22 @@ namespace Homework.PatentApplicationSystem.Model.Data
     internal class CaseDocManager : ICaseDocManager
     {
         private const string CaseDocTableName = "案件文件";
-        private readonly SqlConnection _connection;
+        private readonly string _connectionString;
 
-        public CaseDocManager(SqlConnection connection)
+        public CaseDocManager(string connectionString)
         {
-            _connection = connection;
+            _connectionString = connectionString;
         }
 
         #region ICaseDocManager Members
 
         public IEnumerable<CaseDoc> GetDocsOf(string 案件编号)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                SqlDataReader reader = _connection.Select(CaseDocTableName,
-                                                          new KeyValuePair<string, object>("案件编号", 案件编号));
+                connection.Open();
+                SqlDataReader reader = connection.Select(CaseDocTableName,
+                                                         new KeyValuePair<string, object>("案件编号", 案件编号));
                 List<CaseDoc> caseDocs;
                 using (reader)
                 {
@@ -38,17 +38,13 @@ namespace Homework.PatentApplicationSystem.Model.Data
                 }
                 return caseDocs;
             }
-            finally
-            {
-                _connection.Close();
-            }
         }
 
         public void AddDoc(CaseDoc doc)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 var dictionary = new Dictionary<string, object>
                                      {
                                          {"文件名", doc.FileName},
@@ -56,28 +52,20 @@ namespace Homework.PatentApplicationSystem.Model.Data
                                          {"创建日期", doc.UploadDateTime},
                                          {"文件路径", doc.FilePath}
                                      };
-                _connection.Insert(CaseDocTableName, dictionary);
-            }
-            finally
-            {
-                _connection.Close();
+                connection.Insert(CaseDocTableName, dictionary);
             }
         }
 
         public void RemoveDoc(CaseDoc doc)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 var prKey1 = new KeyValuePair<string, object>("案件编号", doc.案件编号);
                 var prKey2 = new KeyValuePair<string, object>("文件名", doc.FileName);
                 string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1} AND {2}=@{2}", CaseDocTableName,
                                                prKey1.Key, prKey2.Key);
-                _connection.ExecuteNonQuery(command);
-            }
-            finally
-            {
-                _connection.Close();
+                connection.ExecuteNonQuery(command);
             }
         }
 
