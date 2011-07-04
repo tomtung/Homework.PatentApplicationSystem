@@ -16,24 +16,46 @@
             <div id="loginfo">
                 <a href="#">管理员</a><span class="separator">|</span><a href="#">退出</a></div>
             <div id="nav">
-                <asp:Menu ID="Menu1" DataSourceID="MenuSrc" runat="server" CssClass="menu" EnableViewState="false"
-                    IncludeStyleBlock="false" Orientation="Horizontal">
+                <ul>
+          <%--      
+                        <li><a href="#">分案</a></li>
+						<li class="selected"><a href="#">分案</a></li>
+						<li><a href="#">分案</a></li>
+						<li><a href="#">分案</a></li>
+                        <li><a href="#">分案</a></li>--%>
+
+                <li><asp:HyperLink ID="立案" Text="立案" NavigateUrl="~/立案员/案件信息.aspx" CssClass="selected" runat="server"></asp:HyperLink></li>
+                <li><asp:HyperLink ID="分案" Text="分案" NavigateUrl="~/分案员/分案.aspx" runat="server"></asp:HyperLink></li>
+                
+               <%-- <asp:Menu ID="Menu1" DataSourceID="MenuSrc1"  EnableViewState="false"
+                    IncludeStyleBlock="false" Orientation="Horizontal" MaximumDynamicDisplayLevels="4"
+                    StaticDisplayLevels="1" DynamicHorizontalOffset="1" DynamicVerticalOffset="1" runat="server">
                     <DataBindings>
-                        <asp:MenuItemBinding DataMember="category" />
-                        <asp:MenuItemBinding DataMember="item" />
+                        <asp:MenuItemBinding DataMember="Menu" />
                     </DataBindings>
-                </asp:Menu>
-                <asp:SiteMapPath ID="SiteMapPath1" runat="server">
-                </asp:SiteMapPath>
-                <asp:XmlDataSource ID="MenuSrc" DataFile="Menu.xml" runat="server"></asp:XmlDataSource>
+                </asp:Menu>--%>
+                </ul>
                 <asp:SiteMapDataSource ID="SiteMapDataSource1" ShowStartingNode="false" runat="server" />
             </div>
         </div>
         <div class="content-bg">
             <div id="content">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                <div id="breadcrumbs">
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+                    </asp:SiteMapPath>
+                </div>
+             
+
+                <div id="main"> 
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
         </div>
+        <asp:XmlDataSource ID="MenuSrc1" DataFile="Menu.xml" XPath="/Home/Menu" runat="server">
+        </asp:XmlDataSource>
+        <asp:XmlDataSource ID="MenuSrc2" DataFile="Menu.xml" XPath="/Home/Menu/SubMenu" runat="server">
+        </asp:XmlDataSource>
         <div id="footer-bg">
             <div id="footer">
                 <a href="#">联系</a><span class="separator">|</span><a href="#">帮助</a><span class="separator">|</span><a
