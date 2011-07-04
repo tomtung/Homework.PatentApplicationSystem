@@ -85,6 +85,9 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Template\Default.aspx" />
     <Content Include="Upload\Default.aspx" />
+    <Content Include="UserControl\CaseInfoUserControl.ascx" />
+    <Content Include="UserControl\FileUserControl.ascx" />
+    <Content Include="UserControl\SetupCaseCaseInfoUserControl.ascx" />
     <Content Include="UserControl\Tab.ascx" />
     <Content Include="View\Default.aspx" />
     <Content Include="Web.config">
@@ -173,6 +176,27 @@
     </Compile>
     <Compile Include="Upload\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CaseInfoUserControl.ascx.cs">
+      <DependentUpon>CaseInfoUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CaseInfoUserControl.ascx.designer.cs">
+      <DependentUpon>CaseInfoUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\FileUserControl.ascx.cs">
+      <DependentUpon>FileUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\FileUserControl.ascx.designer.cs">
+      <DependentUpon>FileUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SetupCaseCaseInfoUserControl.ascx.cs">
+      <DependentUpon>SetupCaseCaseInfoUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SetupCaseCaseInfoUserControl.ascx.designer.cs">
+      <DependentUpon>SetupCaseCaseInfoUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Tab.ascx.cs">
       <DependentUpon>Tab.ascx</DependentUpon>

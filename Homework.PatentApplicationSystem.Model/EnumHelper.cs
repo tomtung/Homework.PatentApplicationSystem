@@ -2,7 +2,7 @@
 
 namespace Homework.PatentApplicationSystem.Model
 {
-    internal static class EnumHelper
+    public static class EnumHelper
     {
         public static T EnumParse<T>(this string value)
         {
