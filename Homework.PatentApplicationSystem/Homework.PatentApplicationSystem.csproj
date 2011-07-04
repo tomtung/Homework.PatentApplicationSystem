@@ -92,10 +92,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="分案员\分案.aspx" />
+    <Content Include="分案员\Default.aspx" />
     <Content Include="立案员\Default.aspx" />
-    <Content Include="立案员\案件信息.aspx" />
-    <Content Include="立案员\相关文件.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -186,12 +184,12 @@
     <Compile Include="View\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="分案员\分案.aspx.cs">
-      <DependentUpon>分案.aspx</DependentUpon>
+    <Compile Include="分案员\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="分案员\分案.aspx.designer.cs">
-      <DependentUpon>分案.aspx</DependentUpon>
+    <Compile Include="分案员\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="立案员\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -199,20 +197,6 @@
     </Compile>
     <Compile Include="立案员\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="立案员\案件信息.aspx.cs">
-      <DependentUpon>案件信息.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="立案员\案件信息.aspx.designer.cs">
-      <DependentUpon>案件信息.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="立案员\相关文件.aspx.cs">
-      <DependentUpon>相关文件.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="立案员\相关文件.aspx.designer.cs">
-      <DependentUpon>相关文件.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
