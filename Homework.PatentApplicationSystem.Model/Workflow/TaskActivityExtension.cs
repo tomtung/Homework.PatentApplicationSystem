@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Homework.PatentApplicationSystem.Model.Workflow
@@ -7,62 +6,49 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
     internal class TaskActivityExtension : ITaskActivityExtension
     {
         private readonly string _caseId;
-        private readonly SqlConnection _connection;
-
-        private readonly Guid _workflowInstanceId;
+        private readonly string _connectionString;
 
         #region Implementation of ITaskActivityExtension
 
-        public string CaseId
+        public void AddBookmarkRecord(string bookmarkName, object workflowInstanceId)
         {
-            get { return _caseId; }
-        }
-
-        public Guid WorkflowInstanceId
-        {
-            get { return _workflowInstanceId; }
-        }
-
-        public void AddBookmarkRecord(string bookmarkName)
-        {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Insert(CaseWorkflowManager.BookmarkTableName,
-                                   new Dictionary<string, object>
-                                       {
-                                           {CaseWorkflowManager.CaseIdColumnName, CaseId},
-                                           {CaseWorkflowManager.WorkflowinstanceidColumnName, WorkflowInstanceId},
-                                           {CaseWorkflowManager.BookmarkNameColumnName, bookmarkName}
-                                       });
+                connection.Open();
+                connection.Insert(CaseWorkflowManager.BookmarkTableName,
+                                  new Dictionary<string, object>
+                                      {
+                                          {CaseWorkflowManager.CaseIdColumnName, _caseId},
+                                          {CaseWorkflowManager.WorkflowinstanceidColumnName, workflowInstanceId},
+                                          {CaseWorkflowManager.BookmarkNameColumnName, bookmarkName}
+                                      });
             }
         }
 
         public void RemoveBookmarkRecord(string bookmarkName)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 string command = string.Format("DELETE FROM [{0}] WHERE {1} = @{1} AND {2} = @{2}",
                                                CaseWorkflowManager.BookmarkTableName,
                                                CaseWorkflowManager.CaseIdColumnName,
                                                CaseWorkflowManager.BookmarkNameColumnName);
                 var parameters = new[]
                                      {
-                                         new SqlParameter("@" + CaseWorkflowManager.CaseIdColumnName, CaseId),
+                                         new SqlParameter("@" + CaseWorkflowManager.CaseIdColumnName, _caseId),
                                          new SqlParameter("@" + CaseWorkflowManager.BookmarkNameColumnName, bookmarkName)
                                      };
-                _connection.ExecuteNonQuery(command, parameters);
+                connection.ExecuteNonQuery(command, parameters);
             }
         }
 
         #endregion
 
-        public TaskActivityExtension(string caseId, Guid workflowInstanceId, SqlConnection connection)
+        public TaskActivityExtension(string caseId, string connectionString)
         {
             _caseId = caseId;
-            _connection = connection;
-            _workflowInstanceId = workflowInstanceId;
+            _connectionString = connectionString;
         }
     }
 }

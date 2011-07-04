@@ -18,7 +18,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
             context.CreateBookmark(taskName, Resume);
 
             var extension = context.GetExtension<ITaskActivityExtension>();
-            extension.AddBookmarkRecord(taskName);
+            extension.AddBookmarkRecord(taskName, context.WorkflowInstanceId);
 
             Debug.WriteLine("Bookmark: " + taskName);
         }
@@ -28,7 +28,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
             Result.Set(context, (T) value);
 
             var extension = context.GetExtension<ITaskActivityExtension>();
-            extension.AddBookmarkRecord(bookmark.Name);
+            extension.RemoveBookmarkRecord(bookmark.Name);
 
             Debug.WriteLine("Bookmark " + bookmark.Name + " resumed, with value " + value);
         }
@@ -49,7 +49,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
             context.CreateBookmark(taskName, Resume);
 
             var extension = context.GetExtension<ITaskActivityExtension>();
-            extension.AddBookmarkRecord(taskName);
+            extension.AddBookmarkRecord(taskName, context.WorkflowInstanceId);
 
             Debug.WriteLine("Bookmark: " + taskName);
         }
@@ -57,7 +57,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         private static void Resume(NativeActivityContext context, Bookmark bookmark, object value)
         {
             var extension = context.GetExtension<ITaskActivityExtension>();
-            extension.AddBookmarkRecord(bookmark.Name);
+            extension.RemoveBookmarkRecord(bookmark.Name);
 
             Debug.WriteLine("Bookmark " + bookmark.Name + " resumed, with value " + value);
         }

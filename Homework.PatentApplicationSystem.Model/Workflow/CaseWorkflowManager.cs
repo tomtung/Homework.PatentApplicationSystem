@@ -3,6 +3,7 @@ using System.Activities;
 using System.Activities.DurableInstancing;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using Homework.PatentApplicationSystem.Model.Data;
 
@@ -15,23 +16,21 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
         public const string BookmarkNameColumnName = "BookmarkName";
         public const string BookmarkTableName = "WorkflowBookmark";
         private readonly ICaseInfoManager _caseInfoManager;
-        private readonly SqlConnection _connection;
-        private readonly SqlWorkflowInstanceStore _instanceStore;
+        private readonly string _connectionString;
 
-        public CaseWorkflowManager(ICaseInfoManager caseInfoManager, SqlConnection connection,
-                                   SqlWorkflowInstanceStore instanceStore)
+        public CaseWorkflowManager(ICaseInfoManager caseInfoManager, string connectionString)
         {
             _caseInfoManager = caseInfoManager;
-            _connection = connection;
-            _instanceStore = instanceStore;
+            _connectionString = connectionString;
         }
 
         #region ICaseWorkflowManager Members
 
         public void StartCase(Case @case)
         {
-            WorkflowApplication wfApp = GetWorkflowApplication(@case);
-            wfApp.Run();
+            WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow {CaseType = @case.案件类型}, @case.编号);
+            lock (this)
+                wfApp.Run();
         }
 
         public IEnumerable<string> GetPendingCaseIds(string taskName, User user)
@@ -45,61 +44,64 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         public bool ResumeCase(string caseId, string taskName, object value)
         {
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                Case @case = _caseInfoManager.GetCaseById(caseId).Value;
-                using (_connection)
+                try
                 {
-                    _connection.Open();
-                    SqlDataReader reader = _connection.Select(BookmarkTableName,
-                                                              new KeyValuePair<string, object>(CaseIdColumnName, caseId));
+                    connection.Open();
+                    SqlDataReader reader =
+                        connection.Select(BookmarkTableName,
+                                          new KeyValuePair<string, object>(CaseIdColumnName, caseId));
                     using (reader)
                     {
                         reader.Read();
-                        Guid instanceId = Guid.Parse(reader[WorkflowinstanceidColumnName].ToString());
-                        WorkflowApplication wfApp = GetWorkflowApplication(@case);
-                        wfApp.Load(instanceId);
-                        return wfApp.ResumeBookmark(taskName, value) == BookmarkResumptionResult.Success;
+                        Guid instanceId = Guid.Parse((string) reader[WorkflowinstanceidColumnName]);
+                        WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow(), caseId);
+                        lock (this)
+                        {
+                            wfApp.Load(instanceId);
+                            return wfApp.ResumeBookmark(taskName, value) == BookmarkResumptionResult.Success;
+                        }
                     }
                 }
-            }
-            catch
-            {
-                return false;
+                catch (Exception e)
+                {
+                    return false;
+                }
             }
         }
 
         #endregion
 
-        private WorkflowApplication GetWorkflowApplication(Case @case)
+        private WorkflowApplication GetWorkflowApplication(Activity workflow, string caseId)
         {
-            var wfApp = new WorkflowApplication(new CaseWorkflow {CaseType = @case.案件类型})
+            var wfApp = new WorkflowApplication(workflow)
                             {
-                                InstanceStore = _instanceStore,
+                                InstanceStore = new SqlWorkflowInstanceStore(_connectionString),
                                 PersistableIdle = e => PersistableIdleAction.Unload,
                                 Completed = e =>
                                                 {
-                                                    Case? nullableCase = _caseInfoManager.GetCaseById(@case.编号);
+                                                    Case? nullableCase = _caseInfoManager.GetCaseById(caseId);
                                                     if (nullableCase == null) return;
                                                     Case completedCase = nullableCase.Value;
                                                     completedCase.状态 = CaseState.Completed;
-                                                    // TODO
-                                                    //_caseInfoManager.Update(completedCase);
+                                                    _caseInfoManager.UpdateCase(completedCase);
                                                 }
                             };
-            wfApp.Extensions.Add(new TaskActivityExtension(@case.编号, wfApp.Id, _connection));
+            wfApp.Extensions.Add(new TaskActivityExtension(caseId, _connectionString));
             return wfApp;
         }
 
         private IEnumerable<string> GetAllCaseIdsPendingAt(string taskName)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 var caseIds = new List<string>();
-                SqlDataReader reader = _connection.Select(BookmarkTableName,
-                                                          new KeyValuePair<string, object>(BookmarkNameColumnName,
-                                                                                           taskName));
+                SqlDataReader reader =
+                    connection.Select(BookmarkTableName,
+                                      new KeyValuePair<string, object>(BookmarkNameColumnName,
+                                                                       taskName));
                 using (reader)
                     while (reader.Read())
                         caseIds.Add(reader[CaseIdColumnName].ToString());

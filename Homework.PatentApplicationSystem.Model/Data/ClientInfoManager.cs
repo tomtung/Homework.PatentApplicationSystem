@@ -9,52 +9,52 @@ namespace Homework.PatentApplicationSystem.Model.Data
         private const string ApplicantTableName = "申请人";
         private const string InventorTableName = "发明人";
         private const string CustomerContactTableName = "客户联系人";
-        private readonly SqlConnection _connection;
+        private readonly string _connectionString;
 
 
-        public ClientInfoManager(SqlConnection connection)
+        public ClientInfoManager(string connectionString)
         {
-            _connection = connection;
+            _connectionString = connectionString;
         }
 
         #region IClientInfoManager Members
 
         public void AddCustomer(Customer customer)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Insert(CustomerTableName, ToKeyValuePairs(customer));
+                connection.Open();
+                connection.Insert(CustomerTableName, ToKeyValuePairs(customer));
             }
         }
 
         public void RemoveCustomer(Customer customer)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Delete(CustomerTableName, new KeyValuePair<string, object>("客户号", customer.客户号));
+                connection.Open();
+                connection.Delete(CustomerTableName, new KeyValuePair<string, object>("客户号", customer.客户号));
             }
         }
 
         public void UpdateCustomer(Customer customer)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Update(CustomerTableName,
-                                   new KeyValuePair<string, object>("客户号", customer.客户号),
-                                   ToKeyValuePairs(customer));
+                connection.Open();
+                connection.Update(CustomerTableName,
+                                  new KeyValuePair<string, object>("客户号", customer.客户号),
+                                  ToKeyValuePairs(customer));
             }
         }
 
         public IEnumerable<Customer> GetAllCustomers()
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 List<Customer> customers;
-                using (SqlDataReader reader = _connection.Select(CustomerTableName))
+                using (SqlDataReader reader = connection.Select(CustomerTableName))
                 {
                     customers = new List<Customer>();
                     while (reader.Read())
@@ -66,11 +66,11 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public Customer? GetCustomer(string 客户号)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                SqlDataReader reader = _connection.Select(CustomerTableName,
-                                                          new KeyValuePair<string, object>("客户号", 客户号));
+                connection.Open();
+                SqlDataReader reader = connection.Select(CustomerTableName,
+                                                         new KeyValuePair<string, object>("客户号", 客户号));
                 using (reader)
                 {
                     if (reader.Read())
@@ -82,41 +82,41 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public void AddCustomerContact(CustomerContact contact)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Insert(CustomerContactTableName, ToKeyValuePairs(contact));
+                connection.Open();
+                connection.Insert(CustomerContactTableName, ToKeyValuePairs(contact));
             }
         }
 
         public void RemoveCustomerContact(CustomerContact contact)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Delete(CustomerContactTableName, new KeyValuePair<string, object>("客户号", contact.客户号));
+                connection.Open();
+                connection.Delete(CustomerContactTableName, new KeyValuePair<string, object>("客户号", contact.客户号));
             }
         }
 
         public void UpdateCustomerContact(CustomerContact contact)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Update(CustomerContactTableName,
-                                   new KeyValuePair<string, object>("客户号", contact.客户号),
-                                   ToKeyValuePairs(contact));
+                connection.Open();
+                connection.Update(CustomerContactTableName,
+                                  new KeyValuePair<string, object>("客户号", contact.客户号),
+                                  ToKeyValuePairs(contact));
             }
         }
 
         public IEnumerable<CustomerContact> GetCustomerContacts(string 客户号)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 var customerContacts = new List<CustomerContact>();
-                SqlDataReader reader = _connection.Select(CustomerContactTableName,
-                                                          new KeyValuePair<string, object>("客户号", 客户号));
+                SqlDataReader reader = connection.Select(CustomerContactTableName,
+                                                         new KeyValuePair<string, object>("客户号", 客户号));
                 using (reader)
                 {
                     while (reader.Read())
@@ -129,40 +129,40 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public void AddApplicant(Applicant applicant)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Insert(ApplicantTableName, ToKeyValuePairs(applicant));
+                connection.Open();
+                connection.Insert(ApplicantTableName, ToKeyValuePairs(applicant));
             }
         }
 
         public void RemoveApplicant(Applicant applicant)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Delete(ApplicantTableName, new KeyValuePair<string, object>("证件号", applicant.证件号));
+                connection.Open();
+                connection.Delete(ApplicantTableName, new KeyValuePair<string, object>("证件号", applicant.证件号));
             }
         }
 
         public void UpdateApplicant(Applicant applicant)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Update(ApplicantTableName,
-                                   new KeyValuePair<string, object>("证件号", applicant.证件号),
-                                   ToKeyValuePairs(applicant));
+                connection.Open();
+                connection.Update(ApplicantTableName,
+                                  new KeyValuePair<string, object>("证件号", applicant.证件号),
+                                  ToKeyValuePairs(applicant));
             }
         }
 
         public IEnumerable<Applicant> GetAllApplicants()
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 var applicants = new List<Applicant>();
-                using (SqlDataReader reader = _connection.Select(ApplicantTableName))
+                using (SqlDataReader reader = connection.Select(ApplicantTableName))
                     while (reader.Read())
                         applicants.Add(ExtractApplicant(reader));
                 return applicants;
@@ -171,11 +171,11 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public Applicant? GetApplicant(string 证件号)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                SqlDataReader reader = _connection.Select(ApplicantTableName,
-                                                          new KeyValuePair<string, object>("证件号", 证件号));
+                connection.Open();
+                SqlDataReader reader = connection.Select(ApplicantTableName,
+                                                         new KeyValuePair<string, object>("证件号", 证件号));
                 using (reader)
                 {
                     if (reader.Read())
@@ -187,40 +187,40 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public void AddInventor(Inventor inventor)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Insert(InventorTableName, ToKeyValuePairs(inventor));
+                connection.Open();
+                connection.Insert(InventorTableName, ToKeyValuePairs(inventor));
             }
         }
 
         public void RemoveInventor(Inventor inventor)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Delete(InventorTableName, new KeyValuePair<string, object>("身份证号", inventor.身份证号));
+                connection.Open();
+                connection.Delete(InventorTableName, new KeyValuePair<string, object>("身份证号", inventor.身份证号));
             }
         }
 
         public void UpdateInventor(Inventor inventor)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Update(InventorTableName,
-                                   new KeyValuePair<string, object>("身份证号", inventor.身份证号),
-                                   ToKeyValuePairs(inventor));
+                connection.Open();
+                connection.Update(InventorTableName,
+                                  new KeyValuePair<string, object>("身份证号", inventor.身份证号),
+                                  ToKeyValuePairs(inventor));
             }
         }
 
         public IEnumerable<Inventor> GetAllInventors()
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
+                connection.Open();
                 var inventors = new List<Inventor>();
-                using (SqlDataReader sqlDataReader = _connection.Select(InventorTableName))
+                using (SqlDataReader sqlDataReader = connection.Select(InventorTableName))
                     while (sqlDataReader.Read())
                         inventors.Add(ExtractInventor(sqlDataReader));
                 return inventors;
@@ -229,11 +229,11 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public Inventor? GetInventor(string 身份证号)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                SqlDataReader reader = _connection.Select(InventorTableName,
-                                                          new KeyValuePair<string, object>("身份证号", 身份证号));
+                connection.Open();
+                SqlDataReader reader = connection.Select(InventorTableName,
+                                                         new KeyValuePair<string, object>("身份证号", 身份证号));
                 using (reader)
                 {
                     if (reader.Read())
@@ -249,11 +249,11 @@ namespace Homework.PatentApplicationSystem.Model.Data
         {
             return new CustomerContact
                        {
-                           姓名 = (string) reader["姓名"],
-                           电话 = (string) reader["电话"],
-                           Email = (string) reader["Email"],
-                           联系人类型 = (string) reader["联系人类型"],
-                           客户号 = (string) reader["客户号"]
+                           姓名 = reader["姓名"] as string,
+                           电话 = reader["电话"] as string,
+                           Email = reader["Email"] as string,
+                           联系人类型 = reader["联系人类型"] as string,
+                           客户号 = reader["客户号"] as string
                        };
         }
 
@@ -261,10 +261,10 @@ namespace Homework.PatentApplicationSystem.Model.Data
         {
             return new Customer
                        {
-                           客户号 = (string) reader["客户号"],
-                           类型 = (string) reader["类型"],
-                           地址 = (string) reader["地址"],
-                           邮编 = (string) reader["邮编"]
+                           客户号 = reader["客户号"] as string,
+                           类型 = reader["类型"] as string,
+                           地址 = reader["地址"] as string,
+                           邮编 = reader["邮编"] as string
                        };
         }
 
@@ -272,20 +272,20 @@ namespace Homework.PatentApplicationSystem.Model.Data
         {
             return new Applicant
                        {
-                           证件号 = (string) reader["证件号"],
-                           类型 = (string) reader["类型"],
-                           中文名 = (string) reader["中文名"],
-                           英文名 = (string) reader["英文名"],
-                           简称 = (string) reader["简称"],
-                           国家 = (string) reader["国家"],
-                           省 = (string) reader["省"],
-                           市区县 = (string) reader["市区县"],
-                           中国地址 = (string) reader["中国地址"],
-                           外国地址 = (string) reader["外国地址"],
-                           邮编 = (string) reader["邮编"],
-                           电话 = (string) reader["电话"],
-                           传真 = (string) reader["传真"],
-                           Email = (string) reader["Email"]
+                           证件号 = reader["证件号"] as string,
+                           类型 = reader["类型"] as string,
+                           中文名 = reader["中文名"] as string,
+                           英文名 = reader["英文名"] as string,
+                           简称 = reader["简称"] as string,
+                           国家 = reader["国家"] as string,
+                           省 = reader["省"] as string,
+                           市区县 = reader["市区县"] as string,
+                           中国地址 = reader["中国地址"] as string,
+                           外国地址 = reader["外国地址"] as string,
+                           邮编 = reader["邮编"] as string,
+                           电话 = reader["电话"] as string,
+                           传真 = reader["传真"] as string,
+                           Email = reader["Email"] as string
                        };
         }
 

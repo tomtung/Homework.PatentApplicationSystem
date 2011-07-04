@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Diagnostics;
-
-using Homework.PatentApplicationSystem.Model;
-using Homework.PatentApplicationSystem.Model.Data;
-using NUnit.Framework;
+﻿using System.Diagnostics;
 using FluentAssertions;
+using Homework.PatentApplicationSystem.Model;
 using Moq;
+using NUnit.Framework;
 
 namespace Homework.PatentApplicationSystem.Test
 {
@@ -37,7 +32,7 @@ namespace Homework.PatentApplicationSystem.Test
             //{
             //    Debug.WriteLine(allCustomer.客户号);   
             //}
-            
+
             //var customerContact = new CustomerContact() {姓名 = "1", Email = "2", 客户号 = "123", 电话 = "12321", 联系人类型 = "哦"};
             //clientInfoManager.AddCustomerContact(customerContact);
             //clientInfoManager.RemoveCustomerContact(customerContact);
@@ -96,8 +91,6 @@ namespace Homework.PatentApplicationSystem.Test
             //inventor.电话 = "885";
             //clientInfoManager.UpdateInventor(inventor);
             //Debug.WriteLine(clientInfoManager.GetInventor("34001").Value.身份证号);
-
-
-        }   
+        }
     }
 }

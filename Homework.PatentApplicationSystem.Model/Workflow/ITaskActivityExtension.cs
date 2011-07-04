@@ -1,5 +1,3 @@
-using System;
-
 namespace Homework.PatentApplicationSystem.Model.Workflow
 {
     /// <summary>
@@ -7,9 +5,7 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
     /// </summary>
     internal interface ITaskActivityExtension
     {
-        string CaseId { get; }
-        Guid WorkflowInstanceId { get; }
-        void AddBookmarkRecord(string bookmarkName);
+        void AddBookmarkRecord(string bookmarkName, object workflowInstanceId);
         void RemoveBookmarkRecord(string bookmarkName);
     }
 }

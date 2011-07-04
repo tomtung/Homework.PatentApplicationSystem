@@ -7,22 +7,22 @@ namespace Homework.PatentApplicationSystem.Model.Data
     internal class CaseInfoManager : ICaseInfoManager
     {
         private const string CaseTableName = "案件";
-        private readonly SqlConnection _connection;
+        private readonly string _connectionString;
 
-        public CaseInfoManager(SqlConnection connection)
+        public CaseInfoManager(string connectionString)
         {
-            _connection = connection;
+            _connectionString = connectionString;
         }
 
         #region ICaseInfoManager Members
 
         public Case? GetCaseById(string caseId)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                SqlDataReader reader = _connection.Select(CaseTableName,
-                                                          new KeyValuePair<string, object>("编号", caseId));
+                connection.Open();
+                SqlDataReader reader = connection.Select(CaseTableName,
+                                                         new KeyValuePair<string, object>("编号", caseId));
                 using (reader)
                 {
                     if (reader.Read())
@@ -34,22 +34,22 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         public void AddCase(Case @case)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Insert(CaseTableName, ToKeyValuePairs(@case));
+                connection.Open();
+                connection.Insert(CaseTableName, ToKeyValuePairs(@case));
             }
         }
 
 
         public void UpdateCase(Case @case)
         {
-            using (_connection)
+            using (var connection = new SqlConnection(_connectionString))
             {
-                _connection.Open();
-                _connection.Update(CaseTableName,
-                                   new KeyValuePair<string, object>("编号", @case.编号),
-                                   ToKeyValuePairs(@case));
+                connection.Open();
+                connection.Update(CaseTableName,
+                                  new KeyValuePair<string, object>("编号", @case.编号),
+                                  ToKeyValuePairs(@case));
             }
         }
 
@@ -78,26 +78,21 @@ namespace Homework.PatentApplicationSystem.Model.Data
 
         private static Case ExtractCase(SqlDataReader reader)
         {
-            CaseType caseType;
-            Enum.TryParse((string) reader["案件类型"], out caseType);
-            CaseState caseState;
-            Enum.TryParse((string) reader["状态"], out caseState);
-
             return new Case
                        {
-                           编号 = (string) reader["编号"],
-                           名称 = (string) reader["名称"],
-                           案件类型 = caseType,
+                           编号 = reader["编号"] as string,
+                           名称 = reader["名称"] as string,
+                           案件类型 = ((string) reader["案件类型"]).EnumParse<CaseType>(),
                            创建时间 = (DateTime) reader["创建时间"],
                            绝限日 = (DateTime) reader["绝限日"],
-                           状态 = caseState,
-                           客户号 = (string) reader["客户号"],
-                           申请人证件号 = (string) reader["申请人证件号"],
-                           发明人身份证号 = (string) reader["发明人身份证号"],
-                           主办员用户名 = (string) reader["主办员用户名"],
-                           翻译用户名 = (string) reader["翻译用户名"],
-                           一校用户名 = (string) reader["一校用户名"],
-                           二校用户名 = (string) reader["二校用户名"]
+                           状态 = ((string) reader["状态"]).EnumParse<CaseState>(),
+                           客户号 = reader["客户号"] as string,
+                           申请人证件号 = reader["申请人证件号"] as string,
+                           发明人身份证号 = reader["发明人身份证号"] as string,
+                           主办员用户名 = reader["主办员用户名"] as string,
+                           翻译用户名 = reader["翻译用户名"] as string,
+                           一校用户名 = reader["一校用户名"] as string,
+                           二校用户名 = reader["二校用户名"] as string
                        };
         }
     }
