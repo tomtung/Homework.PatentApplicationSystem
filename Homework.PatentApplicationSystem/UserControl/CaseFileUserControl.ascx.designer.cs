@@ -10,7 +10,7 @@
 namespace Homework.PatentApplicationSystem.UserControl {
     
     
-    public partial class FileUserControl {
+    public partial class CaseFileUserControl {
         
         /// <summary>
         /// listViewFiles control.

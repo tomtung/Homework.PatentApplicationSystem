@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.Practices.ServiceLocation;
+using Homework.PatentApplicationSystem.Model.Data;
 
 namespace Homework.PatentApplicationSystem.立案员
 {
@@ -18,6 +20,7 @@ namespace Homework.PatentApplicationSystem.立案员
                 tabs.Add("案件信息");
                 tabs.Add("相关文件");
                 this.TabStrip1.DataSource = tabs;
+                
             }
         }
 

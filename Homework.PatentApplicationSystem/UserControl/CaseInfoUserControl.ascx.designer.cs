@@ -91,7 +91,7 @@ namespace Homework.PatentApplicationSystem.UserControl {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lblClientNameInfo;
+        protected global::System.Web.UI.WebControls.Label lblClientNameInfo;
         
         /// <summary>
         /// lblClientID control.
@@ -110,24 +110,6 @@ namespace Homework.PatentApplicationSystem.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblClientIDInfo;
-        
-        /// <summary>
-        /// lblDepartmentID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDepartmentID;
-        
-        /// <summary>
-        /// lblDepartmentIDInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDepartmentIDInfo;
         
         /// <summary>
         /// lblInventorID control.

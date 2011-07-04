@@ -11,12 +11,7 @@ namespace Homework.PatentApplicationSystem.UserControl
 {
     public partial class SetupCaseCaseInfoUserControl : System.Web.UI.UserControl
     {
-        private int _id;
-        public int ID
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+ 
 
         private Case _newCase;
         public Case NewCase
@@ -46,8 +41,7 @@ namespace Homework.PatentApplicationSystem.UserControl
             _newCase.创建时间 = Convert.ToDateTime(this.tboxCreateDate.Text);
             _newCase.客户号 = this.lBoxClientName.SelectedValue;
             _newCase.申请人证件号 = this.tBoxClientID.Text;
-            _newCase.申请人证件号 = this.tBoxDepartmentID.Text;
-            _newCase.发明人身份证号 = this.tBoxClientID.Text;
+            _newCase.发明人身份证号 = this.tBoxInventorID.Text;
         }
 
     }

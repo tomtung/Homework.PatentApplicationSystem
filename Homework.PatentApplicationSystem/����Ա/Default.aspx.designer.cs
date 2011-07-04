@@ -40,12 +40,12 @@ namespace Homework.PatentApplicationSystem.立案员 {
         protected global::System.Web.UI.WebControls.View ViewCaseInfo;
         
         /// <summary>
-        /// fileList control.
+        /// scCaseInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.RelatedFilesUserControl fileList;
+        protected global::Homework.PatentApplicationSystem.UserControl.SetupCaseCaseInfoUserControl scCaseInfo;
     }
 }

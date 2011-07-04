@@ -7,8 +7,8 @@
     </div>
     <asp:MultiView ID="MultiView1" ActiveViewIndex="0" runat="server">
         <asp:View ID="ViewCaseInfo" runat="server">
-            <user:File ID="fileList" runat="server" />     
-        </asp:View>
-       
+            <user:SetupCaseCaseInfo ID="scCaseInfo" runat="server" />
+        </asp:View> 
+        
     </asp:MultiView>
 </asp:Content>

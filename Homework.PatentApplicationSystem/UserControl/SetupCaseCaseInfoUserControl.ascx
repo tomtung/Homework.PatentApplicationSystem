@@ -41,19 +41,13 @@
     </asp:TableRow>
     <asp:TableRow CssClass="odd">
         <asp:TableCell>
-            <asp:Label ID="Label5" Text="申请人证件号:" runat="server" />
+            <asp:Label ID="Label5" Text="申请人证件号/机构代码:" runat="server" />
         </asp:TableCell><asp:TableCell>
             <asp:TextBox ID="tBoxClientID" Text="" runat="server" />
         </asp:TableCell>
     </asp:TableRow>
-    <asp:TableRow>
-        <asp:TableCell>
-            <asp:Label ID="Label6" Text="机构代码" runat="server" />
-        </asp:TableCell><asp:TableCell>
-            <asp:TextBox ID="tBoxDepartmentID" runat="server" />
-        </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow CssClass="odd">
+    
+    <asp:TableRow >
         <asp:TableCell>
             <asp:Label ID="Label7" Text="发明人身份证号" runat="server" />
         </asp:TableCell><asp:TableCell>
