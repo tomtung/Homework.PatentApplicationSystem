@@ -28,6 +28,76 @@ namespace Homework.PatentApplicationSystem.Test
             ServiceLocator.SetLocatorProvider(() => serviceLocator);
         }
 
+
+        private static void 新申请测试(Case @case, User 主办员, User 翻译, User 一校, User 二校)
+        {
+            立案(@case);
+            分案(@case.编号, 主办员, 翻译, 一校, 二校);
+
+            Action 处理新申请案件 =
+                () => Parallel.Invoke(() => 办案(@case.编号, 主办员, TaskNames.撰写五书)
+                                                .Should().BeTrue(),
+                                      () =>
+                                          {
+                                              办案(@case.编号, 一校, TaskNames.原始资料翻译一校)
+                                                  .Should().BeFalse();
+                                              办案(@case.编号, 翻译, TaskNames.原始资料翻译)
+                                                  .Should().BeTrue();
+
+                                              办案(@case.编号, 二校, TaskNames.原始资料翻译二校)
+                                                  .Should().BeFalse();
+                                              办案(@case.编号, 一校, TaskNames.原始资料翻译一校)
+                                                  .Should().BeTrue();
+
+                                              办案(@case.编号, 二校, TaskNames.原始资料翻译二校)
+                                                  .Should().BeTrue();
+                                          });
+            处理新申请案件();
+            // 第一次内审不通过
+            代理部内审(@case.编号, false);
+            处理新申请案件();
+            // 第二次内审通过
+            代理部内审(@case.编号, true);
+
+            办案(@case.编号, 主办员, TaskNames.定稿五书).Should().BeTrue();
+
+            文员处理案件(@case.编号, TaskNames.制作专利请求书);
+
+            流程部质检(@case.编号, true);
+            处理提交并确认(@case.编号);
+        }
+
+        private static void 客户指示处理测试(Case @case, User user)
+        {
+            立案(@case);
+            分案(@case.编号, user);
+            办案(@case.编号, user, TaskNames.客户指示办案).Should().BeTrue();
+            流程部质检(@case.编号, false);
+            办案(@case.编号, user, TaskNames.客户指示办案).Should().BeTrue();
+            流程部质检(@case.编号, false);
+            办案(@case.编号, user, TaskNames.客户指示办案).Should().BeTrue();
+            流程部质检(@case.编号, true);
+            处理提交并确认(@case.编号);
+        }
+
+        private static void 官方来函测试(Case @case, User user)
+        {
+            立案(@case);
+            分案(@case.编号, user);
+
+            办案(@case.编号, user, TaskNames.官方来函办案);
+            代理部内审(@case.编号, false);
+            办案(@case.编号, user, TaskNames.官方来函办案);
+            代理部内审(@case.编号, true);
+            文员处理案件(@case.编号, TaskNames.制作官方格式函);
+            流程部质检(@case.编号, false);
+            办案(@case.编号, user, TaskNames.官方来函办案);
+            代理部内审(@case.编号, true);
+            文员处理案件(@case.编号, TaskNames.制作官方格式函);
+            流程部质检(@case.编号, true);
+            处理提交并确认(@case.编号);
+        }
+
         private static void 立案(Case @case)
         {
             Debug.WriteLine("立案：" + @case.编号);
@@ -177,103 +247,82 @@ namespace Homework.PatentApplicationSystem.Test
         [Test]
         public void TestEntireWorkflow()
         {
-            // 三个案件
-            Case[] cases = {
-                               new Case
-                                   {
-                                       编号 = "ABCDEFG",
-                                       创建时间 = DateTime.Now,
-                                       绝限日 = DateTime.Now.AddDays(30),
-                                       案件类型 = CaseType.客户指示处理
-                                   },
-                               new Case
-                                   {
-                                       编号 = "HIJKLMN",
-                                       创建时间 = DateTime.Now,
-                                       绝限日 = DateTime.Now.AddDays(30),
-                                       案件类型 = CaseType.新申请
-                                   },
-                               new Case
-                                   {
-                                       编号 = "OPQRST",
-                                       创建时间 = DateTime.Now,
-                                       绝限日 = DateTime.Now.AddDays(30),
-                                       案件类型 = CaseType.官方来函
-                                   },
-                           };
-
             // 三个办案员
             var 办案员A = new User {UserName = "办案员A", Password = "AAA", Role = Role.办案员};
             var 办案员B = new User {UserName = "办案员B", Password = "BBB", Role = Role.办案员};
             var 办案员C = new User {UserName = "办案员C", Password = "CCC", Role = Role.办案员};
 
-            // 并行处理三个案件
-            Parallel.Invoke(() =>
-                                {
-                                    立案(cases[0]);
-                                    // ABCDEFG分给办案员B
-                                    分案(cases[0].编号, 办案员B);
-                                    // 办案员A不该办ABCDEFG的“客户指示办案”任务
-                                    办案(cases[0].编号, 办案员A, TaskNames.客户指示办案).Should().BeFalse();
-                                    // 办案员B应该办ABCDEFG的“客户指示办案”任务，下略……
-                                    办案(cases[0].编号, 办案员B, TaskNames.客户指示办案).Should().BeTrue();
-                                    流程部质检(cases[0].编号, false);
-                                    办案(cases[0].编号, 办案员B, TaskNames.客户指示办案).Should().BeTrue();
-                                    流程部质检(cases[0].编号, false);
-                                    办案(cases[0].编号, 办案员B, TaskNames.客户指示办案).Should().BeTrue();
-                                    流程部质检(cases[0].编号, true);
-                                    处理提交并确认(cases[0].编号);
-                                },
-                            () =>
-                                {
-                                    立案(cases[1]);
-                                    分案(cases[1].编号, 办案员A, 办案员B, 办案员A, 办案员C);
-
-                                    Action 处理新申请案件 =
-                                        () => Parallel.Invoke(() =>
-                                                                  {
-                                                                      办案(cases[1].编号, 办案员B, TaskNames.撰写五书)
-                                                                          .Should().BeFalse();
-                                                                      办案(cases[1].编号, 办案员A, TaskNames.撰写五书)
-                                                                          .Should().BeTrue();
-                                                                  },
-                                                              () =>
-                                                                  {
-                                                                      办案(cases[1].编号, 办案员A, TaskNames.原始资料翻译一校)
-                                                                          .Should().BeFalse();
-                                                                      办案(cases[1].编号, 办案员B, TaskNames.原始资料翻译)
-                                                                          .Should().BeTrue();
-                                                                      办案(cases[1].编号, 办案员C, TaskNames.原始资料翻译二校)
-                                                                          .Should().BeFalse();
-                                                                      办案(cases[1].编号, 办案员A, TaskNames.原始资料翻译一校)
-                                                                          .Should().BeTrue();
-                                                                      办案(cases[1].编号, 办案员C, TaskNames.原始资料翻译二校)
-                                                                          .Should().BeTrue();
-                                                                  });
-                                    处理新申请案件();
-                                    // 第一次内审不通过
-                                    代理部内审(cases[1].编号, false);
-                                    处理新申请案件();
-                                    // 第二次内审通过
-                                    代理部内审(cases[1].编号, true);
-
-                                    办案(cases[1].编号, 办案员A, TaskNames.定稿五书).Should().BeTrue();
-
-                                    文员处理案件(cases[1].编号, TaskNames.制作专利请求书);
-
-                                    流程部质检(cases[1].编号, true);
-                                    处理提交并确认(cases[1].编号);
-                                },
-                            () =>
-                                {
-                                    立案(cases[2]);
-                                    分案(cases[2].编号, 办案员C);
-                                    办案(cases[2].编号, 办案员C, TaskNames.官方来函办案);
-                                    代理部内审(cases[2].编号, true);
-                                    文员处理案件(cases[2].编号, TaskNames.制作官方格式函);
-                                    流程部质检(cases[2].编号, true);
-                                    处理提交并确认(cases[2].编号);
-                                });
+            // 并行处理10个案件案件
+            Parallel.Invoke(() => 客户指示处理测试(new Case
+                                               {
+                                                   编号 = "111",
+                                                   创建时间 = DateTime.Now,
+                                                   绝限日 = DateTime.Now.AddDays(30),
+                                                   案件类型 = CaseType.客户指示处理
+                                               }, 办案员B),
+                            () => 客户指示处理测试(new Case
+                                               {
+                                                   编号 = "222",
+                                                   创建时间 = DateTime.Now,
+                                                   绝限日 = DateTime.Now.AddDays(30),
+                                                   案件类型 = CaseType.客户指示处理
+                                               }, 办案员B),
+                            () => 客户指示处理测试(new Case
+                                               {
+                                                   编号 = "333",
+                                                   创建时间 = DateTime.Now,
+                                                   绝限日 = DateTime.Now.AddDays(30),
+                                                   案件类型 = CaseType.客户指示处理
+                                               }, 办案员A),
+                            () => 新申请测试(new Case
+                                            {
+                                                编号 = "444",
+                                                创建时间 = DateTime.Now,
+                                                绝限日 = DateTime.Now.AddDays(30),
+                                                案件类型 = CaseType.新申请
+                                            }, 办案员A, 办案员B, 办案员A, 办案员C),
+                            () => 新申请测试(new Case
+                                            {
+                                                编号 = "555",
+                                                创建时间 = DateTime.Now,
+                                                绝限日 = DateTime.Now.AddDays(30),
+                                                案件类型 = CaseType.新申请
+                                            }, 办案员A, 办案员B, 办案员A, 办案员C),
+                            () => 新申请测试(new Case
+                                            {
+                                                编号 = "666",
+                                                创建时间 = DateTime.Now,
+                                                绝限日 = DateTime.Now.AddDays(30),
+                                                案件类型 = CaseType.新申请
+                                            }, 办案员A, 办案员A, 办案员B, 办案员C),
+                            () => 新申请测试(new Case
+                                            {
+                                                编号 = "777",
+                                                创建时间 = DateTime.Now,
+                                                绝限日 = DateTime.Now.AddDays(30),
+                                                案件类型 = CaseType.新申请
+                                            }, 办案员A, 办案员C, 办案员B, 办案员A),
+                            () => 官方来函测试(new Case
+                                             {
+                                                 编号 = "888",
+                                                 创建时间 = DateTime.Now,
+                                                 绝限日 = DateTime.Now.AddDays(30),
+                                                 案件类型 = CaseType.官方来函
+                                             }, 办案员C),
+                            () => 官方来函测试(new Case
+                                             {
+                                                 编号 = "999",
+                                                 创建时间 = DateTime.Now,
+                                                 绝限日 = DateTime.Now.AddDays(30),
+                                                 案件类型 = CaseType.官方来函
+                                             }, 办案员B),
+                            () => 官方来函测试(new Case
+                                             {
+                                                 编号 = "000",
+                                                 创建时间 = DateTime.Now,
+                                                 绝限日 = DateTime.Now.AddDays(30),
+                                                 案件类型 = CaseType.官方来函
+                                             }, 办案员B));
         }
     }
 }
