@@ -1,32 +1,38 @@
 ﻿using System;
 using System.Web;
 using System.Web.Security;
+using CommonServiceLocator.NinjectAdapter;
 using Homework.PatentApplicationSystem.Model;
+using Microsoft.Practices.ServiceLocation;
 using Ninject;
 
 namespace Homework.PatentApplicationSystem
 {
     public class Global : HttpApplication
     {
-        public static IKernel Kernel = new StandardKernel();
-
         private void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
             PrepareKernel();
-            string[] m_Roles = typeof (Role).GetEnumNames();
-            foreach (string role in m_Roles)
-            {
-                if (!Roles.RoleExists(role))
-                {
-                    Roles.CreateRole(role);
-                }
-            }
+            //string[] m_Roles = typeof (Role).GetEnumNames();
+            //foreach (string role in m_Roles)
+            //{
+            //    if (!Roles.RoleExists(role))
+            //    {
+            //        Roles.CreateRole(role);
+            //    }
+            //}
         }
 
         private static void PrepareKernel()
         {
-            Kernel.Bind<IUserLoginService>().To<MockUserLoginService>().InSingletonScope();
+            System.Configuration.Configuration webconfig =
+                System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
+            System.Configuration.ConnectionStringSettings connString =
+                webconfig.ConnectionStrings.ConnectionStrings["ApplicationServices"];
+            IKernel kernel = new StandardKernel(new DefaultNinjectModule(connString.ConnectionString));
+            var serviceLocator = new NinjectServiceLocator(kernel);
+            ServiceLocator.SetLocatorProvider(() => serviceLocator);
         }
 
         private void Application_End(object sender, EventArgs e)

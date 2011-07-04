@@ -2,6 +2,7 @@
 using System.Web;
 using System.Web.UI;
 using Homework.PatentApplicationSystem.Model;
+using Microsoft.Practices.ServiceLocation;
 using Ninject;
 
 namespace Homework.PatentApplicationSystem.Account
@@ -18,7 +19,7 @@ namespace Homework.PatentApplicationSystem.Account
         {
             string username = txtUserName.Text;
             string pwd = txtPWD.Text;
-            var service = Global.Kernel.Get<IUserLoginService>();
+            var service = ServiceLocator.Current.GetInstance<IUserLoginService>();
             Tuple<LoginResult, User> loginRes = service.Login(username, pwd);
             //string url = "~/" + loginRes.Item2.Role.ToString() + "/Default.aspx";
             //Response.Redirect(url);
