@@ -59,9 +59,6 @@ namespace Homework.PatentApplicationSystem.Demo.CLI
             // 好了
             caseWorkflowManager.ResumeCase(@case.编号, TaskNames.处理提交并确认);
 
-            // 工作流在另一条线程上执行，可能还没处理完，注意查看调试窗口信息
-            Console.ReadKey();
-
             // 从他眼前消失
             Debug.Assert(!caseWorkflowManager.GetPendingCaseIds(TaskNames.处理提交并确认, user).Contains(@case.编号));
             // 案件状态也变成已完成
@@ -85,9 +82,6 @@ namespace Homework.PatentApplicationSystem.Demo.CLI
             // 各种检验………………
             // 检验完了
             caseWorkflowManager.ResumeCase(@case.编号, TaskNames.流程部质检, 通过);
-
-            // 工作流在另一条线程上执行，可能还没处理完，注意查看调试窗口信息
-            Console.ReadKey();
 
             // 案件就从他眼前消失了
             Debug.Assert(!caseWorkflowManager.GetPendingCaseIds(TaskNames.流程部质检, user).Contains(@case.编号));
@@ -113,9 +107,6 @@ namespace Homework.PatentApplicationSystem.Demo.CLI
             // 做某些办案活动……（上传下载文件、留言什么的，调用其它接口了就）
             // 办完了
             caseWorkflowManager.ResumeCase(@case.编号, TaskNames.客户指示办案);
-
-            // 工作流在另一条线程上执行，可能还没处理完，注意查看调试窗口信息
-            Console.ReadKey();
 
             // 案件应该就从他眼前消失了
             Debug.Assert(!caseWorkflowManager.GetPendingCaseIds(TaskNames.客户指示办案, user).Contains(@case.编号));
@@ -145,9 +136,6 @@ namespace Homework.PatentApplicationSystem.Demo.CLI
             // 任务完成
             caseWorkflowManager.ResumeCase(@case, TaskNames.分案);
 
-            // 工作流在另一条线程上执行，可能还没处理完，注意查看调试窗口信息
-            Console.ReadKey();
-
             // 应该就已经从他的分案任务表中移除了
             Debug.Assert(!caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user).Contains(@case.编号));
         }
@@ -165,9 +153,6 @@ namespace Homework.PatentApplicationSystem.Demo.CLI
             // 应该已经保存了
             @case = caseInfoManager.GetCaseById(@case.编号).Value;
             Debug.Assert(@case.状态 == CaseState.OnGoing);
-
-            // 工作流在另一条线程上执行，可能还没处理完，注意查看调试窗口信息
-            Console.ReadKey();
         }
 
         private static void SetUp()

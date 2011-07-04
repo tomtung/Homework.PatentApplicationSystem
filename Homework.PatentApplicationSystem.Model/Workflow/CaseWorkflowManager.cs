@@ -3,8 +3,8 @@ using System.Activities;
 using System.Activities.DurableInstancing;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using Homework.PatentApplicationSystem.Model.Data;
 
 namespace Homework.PatentApplicationSystem.Model.Workflow
@@ -28,9 +28,14 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         public void StartCase(Case @case)
         {
-            WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow {CaseType = @case.案件类型}, @case.编号);
+            var resetEvent = new ManualResetEvent(false);
+            WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow {CaseType = @case.案件类型}, @case.编号,
+                                                               resetEvent);
             lock (this)
+            {
                 wfApp.Run();
+                resetEvent.WaitOne(TimeSpan.FromMinutes(1));
+            }
         }
 
         public IEnumerable<string> GetPendingCaseIds(string taskName, User user)
@@ -56,11 +61,14 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
                     {
                         reader.Read();
                         Guid instanceId = Guid.Parse((string) reader[WorkflowinstanceidColumnName]);
-                        WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow(), caseId);
+                        var resetEvent = new ManualResetEvent(false);
+                        WorkflowApplication wfApp = GetWorkflowApplication(new CaseWorkflow(), caseId, resetEvent);
                         lock (this)
                         {
                             wfApp.Load(instanceId);
-                            return wfApp.ResumeBookmark(taskName, value) == BookmarkResumptionResult.Success;
+                            BookmarkResumptionResult result = wfApp.ResumeBookmark(taskName, value);
+                            resetEvent.WaitOne(TimeSpan.FromMinutes(1));
+                            return result == BookmarkResumptionResult.Success;
                         }
                     }
                 }
@@ -73,12 +81,13 @@ namespace Homework.PatentApplicationSystem.Model.Workflow
 
         #endregion
 
-        private WorkflowApplication GetWorkflowApplication(Activity workflow, string caseId)
+        private WorkflowApplication GetWorkflowApplication(Activity workflow, string caseId, ManualResetEvent resetEvent)
         {
             var wfApp = new WorkflowApplication(workflow)
                             {
                                 InstanceStore = new SqlWorkflowInstanceStore(_connectionString),
                                 PersistableIdle = e => PersistableIdleAction.Unload,
+                                Unloaded = e => resetEvent.Set(),
                                 Completed = e =>
                                                 {
                                                     Case? nullableCase = _caseInfoManager.GetCaseById(caseId);
