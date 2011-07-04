@@ -85,6 +85,7 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Template\Default.aspx" />
     <Content Include="Upload\Default.aspx" />
+    <Content Include="UserControl\Tab.ascx" />
     <Content Include="View\Default.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -96,6 +97,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="分案员\分案.aspx" />
+    <Content Include="立案员\Default.aspx" />
     <Content Include="立案员\案件信息.aspx" />
     <Content Include="立案员\相关文件.aspx" />
   </ItemGroup>
@@ -174,6 +176,13 @@
     <Compile Include="Upload\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Tab.ascx.cs">
+      <DependentUpon>Tab.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Tab.ascx.designer.cs">
+      <DependentUpon>Tab.ascx</DependentUpon>
+    </Compile>
     <Compile Include="View\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +196,13 @@
     </Compile>
     <Compile Include="分案员\分案.aspx.designer.cs">
       <DependentUpon>分案.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="立案员\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="立案员\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="立案员\案件信息.aspx.cs">
       <DependentUpon>案件信息.aspx</DependentUpon>

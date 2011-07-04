@@ -1,6 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Menu>
-  <category text="立案">
-    <item text="案件信息" value=""/>
-  </category>
-</Menu>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Home>
+  <Menu text="主页" url="~/Default.aspx">
+    
+  </Menu>
+  <Menu text="查看" url="~/View/Default.aspx">
+    
+  </Menu>
+ <Menu text="立案">
+    <SubMenu text="案件信息" value="" url="~/立案员/案件信息.aspx"/>
+   <SubMenu text="相关文件" value="" url="~/立案员/相关文件" />
+ </Menu>
+</Home>

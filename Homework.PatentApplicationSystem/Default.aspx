@@ -11,6 +11,9 @@
         您有<asp:Label ID="lblWaitingCases" Text= "0" runat="server"></asp:Label>封待审稿件
         <br />
         您有<asp:Label ID="lblNewMail" Text= "0" runat="server"></asp:Label>封待阅邮件
+        <br />
+        
+        
     </p>
     
         
