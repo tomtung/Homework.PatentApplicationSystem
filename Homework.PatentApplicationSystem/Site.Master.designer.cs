@@ -40,49 +40,13 @@ namespace Homework.PatentApplicationSystem {
         protected global::System.Web.UI.WebControls.LinkButton linkBtnExit;
         
         /// <summary>
-        /// 立案 control.
+        /// TabPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink 立案;
-        
-        /// <summary>
-        /// 分案 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink 分案;
-        
-        /// <summary>
-        /// d control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu d;
-        
-        /// <summary>
-        /// SiteMapDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource1;
-        
-        /// <summary>
-        /// SiteMapPath1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SiteMapPath SiteMapPath1;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder TabPlaceHolder;
         
         /// <summary>
         /// MainContent control.
@@ -92,23 +56,5 @@ namespace Homework.PatentApplicationSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-        
-        /// <summary>
-        /// MenuSrc1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.XmlDataSource MenuSrc1;
-        
-        /// <summary>
-        /// MenuSrc2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.XmlDataSource MenuSrc2;
     }
 }

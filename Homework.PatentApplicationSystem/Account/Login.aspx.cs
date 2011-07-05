@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.UI;
 using Homework.PatentApplicationSystem.Model;
 using Microsoft.Practices.ServiceLocation;
@@ -19,8 +20,8 @@ namespace Homework.PatentApplicationSystem.Account
             if (loginRes.Item1 == LoginResult.Successful)
             {
                 Session["User"] = loginRes.Item2;
-                string url = "~/" + loginRes.Item2.Role + "/Default.aspx";
-                Response.Redirect(url);
+
+                Response.Redirect("/");
             }
             else if (loginRes.Item1 == LoginResult.UserNotExist)
                 Response.Write("<script type='text/javascript'>alert(\"用户不存在\");</script>");

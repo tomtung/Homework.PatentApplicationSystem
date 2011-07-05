@@ -5,15 +5,15 @@ using Homework.PatentApplicationSystem.Model;
 
 namespace Homework.PatentApplicationSystem
 {
-    public partial class _Default : Page
+    public partial class Default : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var user = (User) Session["User"];
-            if (user != null)
-                lblUserName.Text = user.UserName;
+            var user = Session["User"] as User;
+            if (user == null)
+                Server.Transfer("/Account/Login.aspx");
             else
-                lblUserName.Text = "Session State Management Error!!! User can't be extracted from Session";
+                Server.Transfer("/" + user.Role + "/Default.aspx");
         }
     }
 }

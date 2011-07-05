@@ -63,31 +63,16 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
 
         //}
 
-
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            //test();
-
-            CurrentTaskNames = TaskNames.分案;
-            //if (!Page.IsPostBack)
+            var user = Session["User"] as User;
+            if (user == null || user.Role != Role.代理部主管) Response.Redirect("/");
+            if (!Page.IsPostBack)
             {
-
-
-                var user = Session["User"] as User;
-                if (user == null)
-                {
-                    Response.Redirect("/");
-                }
-
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
-                this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
+                this.CaseFile1.CurrentTaskNames = TaskNames.分案;
                 this.CaseFile1.CaseIDSource = pendingCaseIds;
-
-
             }
         }
     }
