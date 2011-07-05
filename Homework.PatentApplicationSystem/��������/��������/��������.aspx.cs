@@ -18,8 +18,7 @@ namespace Homework.PatentApplicationSystem.代理部主管.代理部内审
             
             CurrentTaskNames = "代理部内审";
 
-            User CurrentUser = (User)Session["User"];
-            // if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 List<string> tabs = new List<string>();
                 tabs.Add("案件信息");
@@ -28,11 +27,8 @@ namespace Homework.PatentApplicationSystem.代理部主管.代理部内审
                 this.TabStrip1.DataSource = tabs;
 
                 string selectedCaseID = Session["SelectedCaseID"].ToString();
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
-                var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
-                Case @case = caseInfoManager.GetCaseById(selectedCaseID).Value;
-                this.caseInfo1.CaseID = selectedCaseID;
-                this.filecontrol1.CaseID = selectedCaseID;
+                caseInfo1.CaseID = selectedCaseID;
+                filecontrol1.CaseID = selectedCaseID;
             }
 
         }

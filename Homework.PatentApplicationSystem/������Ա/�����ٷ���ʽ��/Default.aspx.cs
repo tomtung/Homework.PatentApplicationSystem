@@ -16,22 +16,13 @@ namespace Homework.PatentApplicationSystem.代理部文员.制作官方格式函
         protected void Page_Load(object sender, EventArgs e)
         {
             CurrentTaskNames = TaskNames.制作官方格式函;
-            //if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
-
-
-                var user = Session["User"] as User;
-                if (user == null || user.Role != Role.代理部文员)
-                {
-                    Response.Redirect("/");
-                }
-
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
+                var user = Session["User"] as User;
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
                 this.CaseFile1.CaseIDSource = pendingCaseIds;
-
-
             }
 
         }

@@ -14,14 +14,12 @@ namespace Homework.PatentApplicationSystem.立案员.立案
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var user = Session["User"] as User;
+            if (user == null || user.Role != Role.立案员)
+                Response.Redirect("/");
+
             if (!Page.IsPostBack)
             {
-                var user = Session["User"] as User;
-                if (user == null || user.Role != Role.办案员)
-                {
-                    Response.Redirect("/");
-                }
-
                 this.lBoxCaseType.DataSource = typeof(CaseType).GetEnumNames();
                 this.lBoxCaseType.DataBind();
                 var clientInfoManager = ServiceLocator.Current.GetInstance<IClientInfoManager>();

@@ -28,9 +28,6 @@ namespace Homework.PatentApplicationSystem.办案员.撰写五书
                 this.TabStrip1.DataSource = tabs;
 
                 string selectedCaseID = Session["SelectedCaseID"].ToString();
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
-                var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
-                Case @case = caseInfoManager.GetCaseById(selectedCaseID).Value;
                 this.caseInfo1.CaseID = selectedCaseID;
                 this.filecontrol1.CaseID = selectedCaseID;
             }

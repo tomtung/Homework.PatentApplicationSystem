@@ -18,21 +18,15 @@ namespace Homework.PatentApplicationSystem.质检员.流程部质检
 
             CurrentTaskNames = "流程部质检";
 
-            User CurrentUser = (User)Session["User"];
-            // if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
-                List<string> tabs = new List<string>();
-                tabs.Add("案件信息");
-                tabs.Add("相关文件");
+                var tabs = new List<string> {"案件信息", "相关文件"};
 
                 this.TabStrip1.DataSource = tabs;
 
-                string selectedCaseID = Session["SelectedCaseID"].ToString();
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
-                var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
-                Case @case = caseInfoManager.GetCaseById(selectedCaseID).Value;
-                this.caseInfo1.CaseID = selectedCaseID;
-                this.filecontrol1.CaseID = selectedCaseID;
+                string selectedCaseId = Session["SelectedCaseID"].ToString();
+                this.caseInfo1.CaseID = selectedCaseId;
+                this.filecontrol1.CaseID = selectedCaseId;
             }
 
         }

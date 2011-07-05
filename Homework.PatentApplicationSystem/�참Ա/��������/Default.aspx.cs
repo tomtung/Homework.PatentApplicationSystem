@@ -22,17 +22,10 @@ namespace Homework.PatentApplicationSystem.办案员.定稿五书
             //test();
 
             CurrentTaskNames = TaskNames.定稿五书;
-            //if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
-
-
                 var user = Session["User"] as User;
-                if (user == null || user.Role != Role.办案员)
-                {
-                    Response.Redirect("/");
-                }
 
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
                 this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
