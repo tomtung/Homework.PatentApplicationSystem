@@ -22,8 +22,6 @@ namespace Homework.PatentApplicationSystem.代理部文员.制作专利请求书
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
-                this.CaseFile1.CaseIDSource = pendingCaseIds;
-
             }
         }
     }

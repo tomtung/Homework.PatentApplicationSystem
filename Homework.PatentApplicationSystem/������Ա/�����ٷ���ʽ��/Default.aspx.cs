@@ -22,7 +22,6 @@ namespace Homework.PatentApplicationSystem.代理部文员.制作官方格式函
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 var user = Session["User"] as User;
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
-                this.CaseFile1.CaseIDSource = pendingCaseIds;
             }
 
         }

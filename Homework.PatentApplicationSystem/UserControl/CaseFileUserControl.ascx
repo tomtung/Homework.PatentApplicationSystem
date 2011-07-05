@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CaseFileUserControl.ascx.cs" Inherits="Homework.PatentApplicationSystem.UserControl.CaseFileUserControl" %>
 <%@ Import Namespace="Homework.PatentApplicationSystem.Model.Data" %>
-<asp:ListView ID="listViewFiles" DataKeyNames="编号" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged" OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging"
- >
+<asp:ListView ID="listViewFiles" DataKeyNames="编号" runat="server"
+OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged">
     <LayoutTemplate>
         <table >
             <thead>

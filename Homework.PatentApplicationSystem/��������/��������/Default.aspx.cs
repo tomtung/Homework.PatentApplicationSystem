@@ -23,7 +23,6 @@ namespace Homework.PatentApplicationSystem.代理部主管.代理部内审
                 var user = Session["User"] as User;
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
                 this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
-                this.CaseFile1.CaseIDSource = pendingCaseIds;
             }
         }
     }

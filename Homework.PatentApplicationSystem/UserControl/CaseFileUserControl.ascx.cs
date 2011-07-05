@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Workflow;
 using Homework.PatentApplicationSystem.Model.Data;
@@ -12,43 +7,37 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace Homework.PatentApplicationSystem.UserControl
 {
-
-   
     public partial class CaseFileUserControl : System.Web.UI.UserControl
     {
-        //public IEnumerable<string> CaseIDSource{get; set;}
-        public string CurrentTaskNames { get; set; }
+        private readonly ICaseInfoManager _caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
+        private readonly ICaseWorkflowManager _caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
 
-        public IEnumerable<string> CaseIDSource { get; set; }
+        public string CurrentTaskNames
+        {
+            get { return ViewState["CurrentTaskNames"] as string; }
+            set { ViewState["CurrentTaskNames"] = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                User currentUser = (User)Session["User"];
-                ViewState["CurrentTaskNames"] = CurrentTaskNames;
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
-                var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
-                
-                this.listViewFiles.DataSource = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, currentUser).Select(id => caseInfoManager.GetCaseById(id).Value);
-                
-                this.listViewFiles.DataBind();
-
+                listViewFiles.DataSource = _caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, (User)Session["User"])
+                    .Select(id => _caseInfoManager.GetCaseById(id).Value);
+                listViewFiles.DataBind();
             }
         }
 
         protected void listViewFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            Session["SelectedCaseID"] = this.listViewFiles.SelectedValue.ToString();
-            User currentUser = (User)Session["User"];
-            string url = "~/" + currentUser.Role.ToString() + "/" + ViewState["CurrentTaskNames"] + "/" + ViewState["CurrentTaskNames"] + ".aspx";
+            Session["SelectedCaseID"] = listViewFiles.SelectedValue.ToString();
+            string url = string.Format(@"~/{0}/{1}/{1}.aspx", ((User) Session["User"]).Role, CurrentTaskNames);
             Response.Redirect(url);
         }
+
         protected void listViewFiles_SelectedIndexChanging(object sender, EventArgs e)
         {
-
+            // Do nothing.
         }
-    
-
     }
 }

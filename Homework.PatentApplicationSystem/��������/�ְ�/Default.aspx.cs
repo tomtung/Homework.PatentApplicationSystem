@@ -75,8 +75,6 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
                 this.CaseFile1.CurrentTaskNames = TaskNames.分案;
-                this.CaseFile1.CaseIDSource = pendingCaseIds;
-                
             }
         }
     }

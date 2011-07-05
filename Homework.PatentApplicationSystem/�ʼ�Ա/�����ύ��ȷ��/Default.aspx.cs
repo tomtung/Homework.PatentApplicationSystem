@@ -24,7 +24,6 @@ namespace Homework.PatentApplicationSystem.质检员.处理提交并确认
                 var user = Session["User"] as User;
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
                 this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
-                this.CaseFile1.CaseIDSource = pendingCaseIds;
             }
         }
     }
