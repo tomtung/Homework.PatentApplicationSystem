@@ -4,7 +4,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Untitled Document</title>
     <link href="~/Styles/basic.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
@@ -17,17 +16,11 @@
                 <asp:Label ID="lblCurrentUser" runat="server" /><span class="separator">|</span><asp:LinkButton ID="linkBtnExit" Text="退出" OnClick="linkBtnExit_Click" runat="server" /></div>
             <div id="nav">
                 <ul>
-          <%--      
-                        <li><a href="#">分案</a></li>
-						<li class="selected"><a href="#">分案</a></li>
-						<li><a href="#">分案</a></li>
-						<li><a href="#">分案</a></li>
-                        <li><a href="#">分案</a></li>--%>
-
-                <li><asp:HyperLink ID="立案" Text="立案" NavigateUrl="~/立案员/Default.aspx" CssClass="selected" runat="server"></asp:HyperLink></li>
-                <li><asp:HyperLink ID="分案" Text="分案" NavigateUrl="~/分案员/Default.aspx" runat="server"></asp:HyperLink></li>
-                    <asp:Menu ID="d" runat="server">
-                    </asp:Menu>
+                <asp:ContentPlaceHolder ID="TabPlaceHolder" runat="server" />
+<%--                <li><asp:HyperLink ID="立案" Text="立案" NavigateUrl="~/立案员/Default.aspx" CssClass="selected" runat="server"></asp:HyperLink></li>
+                <li><asp:HyperLink ID="分案" Text="分案" NavigateUrl="~/分案员/Default.aspx" runat="server"></asp:HyperLink></li>--%>
+                    <%--<asp:Menu ID="d" runat="server">
+                    </asp:Menu>--%>
                <%-- <asp:Menu ID="Menu1" DataSourceID="MenuSrc1"  EnableViewState="false"
                     IncludeStyleBlock="false" Orientation="Horizontal" MaximumDynamicDisplayLevels="4"
                     StaticDisplayLevels="1" DynamicHorizontalOffset="1" DynamicVerticalOffset="1" runat="server">
@@ -36,27 +29,16 @@
                     </DataBindings>
                 </asp:Menu>--%>
                 </ul>
-                <asp:SiteMapDataSource ID="SiteMapDataSource1" ShowStartingNode="false" runat="server" />
             </div>
         </div>
         <div class="content-bg">
             <div id="content">
-                <div id="breadcrumbs">
-                    <asp:SiteMapPath ID="SiteMapPath1" runat="server">
-                    </asp:SiteMapPath>
-                </div>
-             
-
                 <div id="main"> 
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
         </div>
-        <asp:XmlDataSource ID="MenuSrc1" DataFile="Menu.xml" XPath="/Home/Menu" runat="server">
-        </asp:XmlDataSource>
-        <asp:XmlDataSource ID="MenuSrc2" DataFile="Menu.xml" XPath="/Home/Menu/SubMenu" runat="server">
-        </asp:XmlDataSource>
         <div id="footer-bg">
             <div id="footer">
                 <a href="#">联系</a><span class="separator">|</span><a href="#">帮助</a><span class="separator">|</span><a

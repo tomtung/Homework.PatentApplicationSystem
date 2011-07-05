@@ -16,19 +16,12 @@ namespace Homework.PatentApplicationSystem.立案员.立案
         {
             if (!Page.IsPostBack)
             {
-                
                 this.lBoxCaseType.DataSource = typeof(CaseType).GetEnumNames();
                 this.lBoxCaseType.DataBind();
                 var clientInfoManager = ServiceLocator.Current.GetInstance<IClientInfoManager>();
                 this.lBoxClientName.DataSource = clientInfoManager.GetAllCustomers();
                 this.lblDateLimit.Text = DateTime.Today.AddDays(30).ToString();
-
-
-
             }
-
-
-
         }
         protected void TabStrip1_Click(object sender, EventArgs e)
         {
@@ -49,7 +42,7 @@ namespace Homework.PatentApplicationSystem.立案员.立案
                 申请人证件号 = this.tBoxClientID.Text,
                 发明人身份证号 = this.tBoxInventorID.Text
             };
-            Session["Case"] = @case;
+            
             var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
             var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
             caseInfoManager.AddCase(@case);

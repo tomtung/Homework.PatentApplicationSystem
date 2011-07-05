@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem {
+namespace Homework.PatentApplicationSystem.代理部文员 {
     
     
     public partial class Default {

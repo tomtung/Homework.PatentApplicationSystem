@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="分案.master.cs" Inherits="Homework.PatentApplicationSystem.代理部主管.分案.分案1" %>
+<asp:Content ContentPlaceHolderID="HeadContent" runat="server">
+<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="TabPlaceHolder" runat="server">
+</asp:Content>
+<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+</asp:Content>
