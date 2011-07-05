@@ -16,8 +16,8 @@ namespace Homework.PatentApplicationSystem.Model
 
         public override void Load()
         {
-            Bind<IUserLoginService>().To<UserLoginService>().InSingletonScope();
-            Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<UserLoginService>();
+            Bind<IUserService>().To<UserService>().InSingletonScope();
+            Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<UserService>();
 
             Bind<IClientInfoManager>().To<ClientInfoManager>().InSingletonScope();
             Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<ClientInfoManager>();
