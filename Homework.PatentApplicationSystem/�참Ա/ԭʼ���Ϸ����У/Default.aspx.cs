@@ -27,7 +27,7 @@ namespace Homework.PatentApplicationSystem.办案员.原始资料翻译二校
 
 
                 var user = Session["User"] as User;
-                if (user == null)
+                if (user == null || user.Role != Role.办案员)
                 {
                     Response.Redirect("/");
                 }

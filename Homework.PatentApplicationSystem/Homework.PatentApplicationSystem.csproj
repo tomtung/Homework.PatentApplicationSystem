@@ -65,6 +65,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="App_Data\test.txt" />
     <Content Include="basic.html" />
     <Content Include="Images\bg.png" />
     <Content Include="Images\footer-bg.png" />
@@ -92,6 +93,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Template\Default.aspx" />
+    <Content Include="Test.aspx" />
     <Content Include="Upload\Default.aspx" />
     <Content Include="UserControl\CaseFileUserControl.ascx" />
     <Content Include="UserControl\CaseInfoUserControl.ascx" />
@@ -185,6 +187,13 @@
     <Compile Include="Template\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Upload\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,6 +278,13 @@
     <Compile Include="代理部主管\分案\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="代理部主管\代理部主管Master.master.cs">
+      <DependentUpon>代理部主管Master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="代理部主管\代理部主管Master.master.designer.cs">
+      <DependentUpon>代理部主管Master.master</DependentUpon>
+    </Compile>
     <Compile Include="代理部主管\分案\分案.aspx.cs">
       <DependentUpon>分案.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -276,19 +292,19 @@
     <Compile Include="代理部主管\分案\分案.aspx.designer.cs">
       <DependentUpon>分案.aspx</DependentUpon>
     </Compile>
-    <Compile Include="代理部主管\分案\分案.master.cs">
-      <DependentUpon>分案.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="代理部主管\分案\分案.master.designer.cs">
-      <DependentUpon>分案.master</DependentUpon>
-    </Compile>
     <Compile Include="代理部文员\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="代理部文员\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="代理部文员\代理部文员Master.master.cs">
+      <DependentUpon>代理部文员Master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="代理部文员\代理部文员Master.master.designer.cs">
+      <DependentUpon>代理部文员Master.master</DependentUpon>
     </Compile>
     <Compile Include="代理部文员\制作专利请求书\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -324,6 +340,13 @@
     </Compile>
     <Compile Include="办案员\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\办案员Master.master.cs">
+      <DependentUpon>办案员Master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\办案员Master.master.designer.cs">
+      <DependentUpon>办案员Master.master</DependentUpon>
     </Compile>
     <Compile Include="办案员\原始资料翻译\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -444,10 +467,15 @@
     <Compile Include="质检员\流程部质检\流程部质检.aspx.designer.cs">
       <DependentUpon>流程部质检.aspx</DependentUpon>
     </Compile>
+    <Compile Include="质检员\质检员Master.master.cs">
+      <DependentUpon>质检员Master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="质检员\质检员Master.master.designer.cs">
+      <DependentUpon>质检员Master.master</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
@@ -464,7 +492,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="代理部主管\分案\分案.master" />
+    <Content Include="质检员\质检员Master.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="代理部主管\代理部主管Master.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="代理部文员\代理部文员Master.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="办案员\办案员Master.master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -474,7 +511,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>25294</DevelopmentServerPort>
+          <DevelopmentServerPort>25802</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
