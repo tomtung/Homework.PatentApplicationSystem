@@ -57,7 +57,7 @@
             </asp:Table>
             <br />
         </asp:View>
-     <%--   <asp:View ID="RelatedFilesView" runat="server">
+    <asp:View ID="RelatedFilesView" runat="server">
             <user:File ID="relatedFiles" runat="server" />
         </asp:View>
         <asp:View ID="CaseMessageView" runat="server">
@@ -65,5 +65,5 @@
         </asp:View>
     </asp:MultiView><div id="decide">
         <asp:Button ID="btnOK" Text="完成" CssClass="lbutton_blue" OnClick="btnOK_Click" runat="server" />
-    </div>--%>
+    </div>
 </asp:Content>

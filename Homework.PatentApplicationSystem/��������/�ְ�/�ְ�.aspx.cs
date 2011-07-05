@@ -45,6 +45,10 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
                 this.lblCaseTypeInfo.Text = @case.案件类型.ToString();
                 var userNames = ServiceLocator.Current.GetInstance<IUserService>().GetUsersByRole(Role.办案员).Select(user=>user.UserName);
                 lBoxSponsor.DataSource =  lBoxCaseWorker1.DataSource =  lBoxCaseWorker2.DataSource = lBoxCaseWorker3.DataSource = userNames;
+                lBoxSponsor.DataBind();
+                lBoxCaseWorker1.DataBind();
+                lBoxCaseWorker2.DataBind();
+                lBoxCaseWorker3.DataBind();
                 this.caseInfo1.CaseID = selectedCaseID;
                 this.filecontrol1.CaseID = selectedCaseID;
             }
