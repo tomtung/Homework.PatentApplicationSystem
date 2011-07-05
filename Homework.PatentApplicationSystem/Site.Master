@@ -14,7 +14,7 @@
     <div id="container">
         <div id="header">
             <div id="loginfo">
-                <a href="#">管理员</a><span class="separator">|</span><a href="#">退出</a></div>
+                <asp:Label ID="lblCurrentUser" runat="server" /><span class="separator">|</span><asp:LinkButton ID="linkBtnExit" Text="退出" OnClick="linkBtnExit_Click" runat="server" /></div>
             <div id="nav">
                 <ul>
           <%--      

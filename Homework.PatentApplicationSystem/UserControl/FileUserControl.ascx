@@ -16,6 +16,8 @@
                     <th scope="col">
                         创建日期
                     </th>
+                    <th scope="col">
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -37,11 +39,14 @@
             <td>
                 <%# Eval("UploadUserName") %>>
             </td>
+            <td>
+                 <asp:LinkButton ID="lBtnDownload" Text="下载" OnClick="lbtnDownload_Click"  runat="server" />
+            </td>
         </tr>
     </ItemTemplate>
 </asp:ListView>
-<asp:Label ID="lblTest" runat="server"></asp:Label>
-
+<asp:Button ID="btnAdd" Text="+ 添加" runat="server" /> &nbsp; 
+<asp:Button ID="btnDelete" text="- 删除" runat="server" />
 
 
 

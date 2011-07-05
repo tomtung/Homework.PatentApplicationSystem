@@ -4,23 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Homework.PatentApplicationSystem.Model;
+using Homework.PatentApplicationSystem.Model.Data;
+using Homework.PatentApplicationSystem.Model.Workflow;
+using Microsoft.Practices.ServiceLocation;
 namespace Homework.PatentApplicationSystem.分案员
 {
-    public partial class 分案员 : System.Web.UI.Page
+    public partial class Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                List<string> tabs = new List<string>();
-                tabs.Add("分案");
-                this.TabStrip1.DataSource = tabs;
+                Case @case = (Case)Session["Case"];
+                User user = (User)Session["User"];
+
+                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
+                var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
+                IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
+                this.CaseFile1.CaseIDSource = pendingCaseIds;
+                
+
             }
-        }
-        protected void TabStrip1_Click(object sender, EventArgs e)
-        {
-            this.MultiView1.ActiveViewIndex = this.TabStrip1.SelectedIndex;
         }
     }
 }

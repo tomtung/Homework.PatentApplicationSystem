@@ -16,6 +16,8 @@
                     <th scope="col">
                         客户名
                     </th>
+                    <th scope="col">
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -38,8 +40,10 @@
             <td>
                 <%# Eval("客户号") %>>
             </td>
+            <td>
+                <asp:LinkButton ID="lBtnSelect" Text="选择" OnClick="lbtnSelect_Click"  runat="server" />
+            </td>
         </tr>
     </ItemTemplate>
 </asp:ListView>
 
-<asp:Label ID="lblTest" runat="server"></asp:Label>

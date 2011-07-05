@@ -107,6 +107,7 @@ namespace Homework.PatentApplicationSystem.Test
             @case.状态 = CaseState.OnGoing;
             // 首先保存案件信息
             caseInfoManager.AddCase(@case);
+            
             // 然后启动案件流程
             caseWorkflowManager.StartCase(@case);
 

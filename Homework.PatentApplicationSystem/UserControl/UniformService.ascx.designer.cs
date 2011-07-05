@@ -7,72 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem.Account {
+namespace Homework.PatentApplicationSystem.UserControl {
     
     
-    public partial class Login {
+    public partial class UniformService {
         
         /// <summary>
-        /// RegisterHyperLink control.
+        /// TabStrip1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
+        protected global::Homework.PatentApplicationSystem.UserControl.Tab TabStrip1;
         
         /// <summary>
-        /// lblErrorMessage control.
+        /// MultiView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
+        protected global::System.Web.UI.WebControls.MultiView MultiView1;
         
         /// <summary>
-        /// lblUserName control.
+        /// ViewCaseInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.WebControls.View ViewCaseInfo;
         
         /// <summary>
-        /// txtUserName control.
+        /// caseInfo1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::Homework.PatentApplicationSystem.UserControl.CaseInfoUserControl caseInfo1;
         
         /// <summary>
-        /// lblPWD control.
+        /// ViewRelatedFiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPWD;
+        protected global::System.Web.UI.WebControls.View ViewRelatedFiles;
         
         /// <summary>
-        /// txtPWD control.
+        /// fileControl1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPWD;
+        protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl fileControl1;
         
         /// <summary>
-        /// btnOK control.
+        /// ViewFeedBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOK;
+        protected global::System.Web.UI.WebControls.View ViewFeedBack;
     }
 }

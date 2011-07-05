@@ -57,6 +57,7 @@
     <Compile Include="Data\CaseDocManager.cs" />
     <Compile Include="Data\CaseInfoManager.cs" />
     <Compile Include="Data\CaseMessageManager.cs" />
+    <Compile Include="Data\Cases.cs" />
     <Compile Include="Data\ICaseMessageManager.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="UserLoginService.cs" />

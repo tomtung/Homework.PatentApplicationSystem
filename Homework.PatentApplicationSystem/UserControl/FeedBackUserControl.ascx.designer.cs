@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem.分案员 {
+namespace Homework.PatentApplicationSystem.UserControl {
     
     
-    public partial class Default {
+    public partial class FeedBackUserControl {
         
         /// <summary>
-        /// CaseFile1 control.
+        /// DataListFeedBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.CaseFileUserControl CaseFile1;
+        protected global::System.Web.UI.WebControls.DataList DataListFeedBack;
     }
 }

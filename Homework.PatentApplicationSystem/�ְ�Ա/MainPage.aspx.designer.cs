@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem.立案员 {
+namespace Homework.PatentApplicationSystem.分案员 {
     
     
-    public partial class Default {
+    public partial class MainPage {
         
         /// <summary>
         /// TabStrip1 control.
@@ -31,40 +31,22 @@ namespace Homework.PatentApplicationSystem.立案员 {
         protected global::System.Web.UI.WebControls.MultiView MultiView1;
         
         /// <summary>
-        /// ViewCaseInfo control.
+        /// ViewDistributeCase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View ViewCaseInfo;
+        protected global::System.Web.UI.WebControls.View ViewDistributeCase;
         
         /// <summary>
-        /// tblCaseInfo control.
+        /// tblDistributeCaseMain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblCaseInfo;
-        
-        /// <summary>
-        /// lblCaseNames control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCaseNames;
-        
-        /// <summary>
-        /// tboxCaseName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxCaseName;
+        protected global::System.Web.UI.WebControls.Table tblDistributeCaseMain;
         
         /// <summary>
         /// lblCaseType control.
@@ -76,130 +58,166 @@ namespace Homework.PatentApplicationSystem.立案员 {
         protected global::System.Web.UI.WebControls.Label lblCaseType;
         
         /// <summary>
-        /// lBoxCaseType control.
+        /// lblCaseTypeInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lBoxCaseType;
+        protected global::System.Web.UI.WebControls.Label lblCaseTypeInfo;
         
         /// <summary>
-        /// lblCreateDate control.
+        /// lblSponsor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCreateDate;
+        protected global::System.Web.UI.WebControls.Label lblSponsor;
         
         /// <summary>
-        /// tboxCreateDate control.
+        /// lBoxSponsor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tboxCreateDate;
+        protected global::System.Web.UI.WebControls.ListBox lBoxSponsor;
         
         /// <summary>
-        /// lblDateLimit control.
+        /// MultiVewDistributeCase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateLimit;
+        protected global::System.Web.UI.WebControls.MultiView MultiVewDistributeCase;
         
         /// <summary>
-        /// lblDateLimitInfo control.
+        /// ViewEmpty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateLimitInfo;
+        protected global::System.Web.UI.WebControls.View ViewEmpty;
         
         /// <summary>
-        /// lblClientName control.
+        /// ViewContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClientName;
+        protected global::System.Web.UI.WebControls.View ViewContent;
         
         /// <summary>
-        /// lBoxClientName control.
+        /// tblDistributeCaseAttach control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lBoxClientName;
+        protected global::System.Web.UI.WebControls.Table tblDistributeCaseAttach;
         
         /// <summary>
-        /// btnAddClient control.
+        /// lblTranslator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddClient;
+        protected global::System.Web.UI.WebControls.Label lblTranslator;
         
         /// <summary>
-        /// lblClientID control.
+        /// lBoxCaseWorker1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClientID;
+        protected global::System.Web.UI.WebControls.ListBox lBoxCaseWorker1;
         
         /// <summary>
-        /// tBoxClientID control.
+        /// lblFRev control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tBoxClientID;
+        protected global::System.Web.UI.WebControls.Label lblFRev;
         
         /// <summary>
-        /// lblInventorID control.
+        /// lBoxCaseWorker2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInventorID;
+        protected global::System.Web.UI.WebControls.ListBox lBoxCaseWorker2;
         
         /// <summary>
-        /// tBoxInventorID control.
+        /// lblSRev control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tBoxInventorID;
+        protected global::System.Web.UI.WebControls.Label lblSRev;
         
         /// <summary>
-        /// relatedFiles control.
+        /// lBoxCaseWorker3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl relatedFiles;
+        protected global::System.Web.UI.WebControls.ListBox lBoxCaseWorker3;
         
         /// <summary>
-        /// CaseMessageUserControl1 control.
+        /// ViewCaseInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.CaseMessageUserControl CaseMessageUserControl1;
+        protected global::System.Web.UI.WebControls.View ViewCaseInfo;
+        
+        /// <summary>
+        /// caseInfo1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Homework.PatentApplicationSystem.UserControl.CaseInfoUserControl caseInfo1;
+        
+        /// <summary>
+        /// ViewRelatedFiles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View ViewRelatedFiles;
+        
+        /// <summary>
+        /// fileControl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl fileControl1;
+        
+        /// <summary>
+        /// ViewFeedBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View ViewFeedBack;
         
         /// <summary>
         /// btnOK control.

@@ -11,6 +11,8 @@ namespace Homework.PatentApplicationSystem.UserControl
     public partial class FileUserControl : System.Web.UI.UserControl
     {
         public string CaseID { get; set; }
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,8 +23,13 @@ namespace Homework.PatentApplicationSystem.UserControl
 
         protected void listViewFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.lblTest.Text = this.listViewFiles.SelectedIndex.ToString();
+            
         }
+        protected void lbtnDownload_Click(object sender, EventArgs e)
+        {
+            
+        }
+        
 
     }
 }
