@@ -24,7 +24,7 @@ namespace Homework.PatentApplicationSystem.UserControl
             User currentUser = (User)Session["User"];
             //if (!Page.IsPostBack)
             {
-
+                ViewState["CurrentTaskNames"] = CurrentTaskNames;
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 
@@ -40,9 +40,9 @@ namespace Homework.PatentApplicationSystem.UserControl
             
             Session["SelectedCaseID"] = this.listViewFiles.SelectedValue.ToString();
             User currentUser = (User)Session["User"];
-            string url = "~/" + currentUser.Role.ToString() + "/" + CurrentTaskNames + "/" + CurrentTaskNames + ".aspx";
-            this.lblTest.Text = url + this.listViewFiles.SelectedValue.ToString();
-            //Response.Redirect(url);
+            string url = "~/" + currentUser.Role.ToString() + "/" + ViewState["CurrentTaskNames"].ToString() + "/" + ViewState["CurrentTaskNames"].ToString() + ".aspx";
+            //this.lblTest.Text = url + this.listViewFiles.SelectedValue.ToString();
+            Response.Redirect(url);
         }
         protected void listViewFiles_SelectedIndexChanging(object sender, EventArgs e)
         {
