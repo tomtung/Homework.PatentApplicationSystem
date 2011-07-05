@@ -42,6 +42,10 @@ namespace Homework.PatentApplicationSystem.质检员.流程部质检
         }
         protected void btnOK_Click(object sender, EventArgs e)
         {
+            var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
+            string selectedCaseID = Session["SelectedCaseID"].ToString();
+            caseWorkflowManager.ResumeCase(selectedCaseID, CurrentTaskNames);
+            Response.Redirect("Default.aspx");
         }
     }
 }

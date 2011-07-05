@@ -42,6 +42,7 @@ namespace Homework.PatentApplicationSystem.代理部主管.代理部内审
         }
         protected void btnOK_Click(object sender, EventArgs e)
         {
+
         }
     }
 }
