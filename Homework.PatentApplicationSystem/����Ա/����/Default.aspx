@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/立案员/立案员Master.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="Homework.PatentApplicationSystem.立案员.立案.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
@@ -57,12 +57,12 @@
             </asp:Table>
             <br />
         </asp:View>
-    <asp:View ID="RelatedFilesView" runat="server">
+<%--    <asp:View ID="RelatedFilesView" runat="server">
             <user:File ID="relatedFiles" runat="server" />
         </asp:View>
         <asp:View ID="CaseMessageView" runat="server">
             <user:CaseMessageUserControl ID="CaseMessageUserControl1" runat="server" />
-        </asp:View>
+        </asp:View>--%>
     </asp:MultiView><div id="decide">
         <asp:Button ID="btnOK" Text="完成" CssClass="lbutton_blue" OnClick="btnOK_Click" runat="server" />
     </div>

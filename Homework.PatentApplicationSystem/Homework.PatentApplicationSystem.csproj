@@ -120,6 +120,7 @@
     <Content Include="办案员\原始资料翻译\原始资料翻译.aspx" />
     <Content Include="办案员\原始资料翻译一校\Default.aspx" />
     <Content Include="办案员\原始资料翻译一校\原始资料翻译一校.aspx" />
+    <Content Include="立案员\Default.aspx" />
     <Content Include="立案员\立案\Default.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -302,12 +303,26 @@
     <Compile Include="办案员\原始资料翻译一校\原始资料翻译一校.aspx.designer.cs">
       <DependentUpon>原始资料翻译一校.aspx</DependentUpon>
     </Compile>
+    <Compile Include="立案员\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="立案员\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="立案员\立案\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="立案员\立案\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="立案员\立案员Master.master.cs">
+      <DependentUpon>立案员Master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="立案员\立案员Master.master.designer.cs">
+      <DependentUpon>立案员Master.master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -332,6 +347,9 @@
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="立案员\立案员Master.master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

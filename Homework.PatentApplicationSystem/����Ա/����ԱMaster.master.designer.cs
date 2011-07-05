@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem {
+namespace Homework.PatentApplicationSystem.立案员 {
     
     
-    public partial class SiteMaster {
+    public partial class 立案员Master {
         
         /// <summary>
         /// HeadContent control.
@@ -22,31 +22,22 @@ namespace Homework.PatentApplicationSystem {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
-        /// lblCurrentUser control.
+        /// 立案Tab control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentUser;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 立案Tab;
         
         /// <summary>
-        /// linkBtnExit control.
+        /// HyperLink1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkBtnExit;
-        
-        /// <summary>
-        /// TabPlaceHolder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder TabPlaceHolder;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
         
         /// <summary>
         /// MainContent control.

@@ -14,22 +14,16 @@ namespace Homework.PatentApplicationSystem.立案员.立案
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ((立案员Master) Master).SetTask(TaskNames.立案);
+
             if (!Page.IsPostBack)
             {
-
-
                 this.lBoxCaseType.DataSource = typeof(CaseType).GetEnumNames();
                 this.lBoxCaseType.DataBind();
                 var clientInfoManager = ServiceLocator.Current.GetInstance<IClientInfoManager>();
                 this.lBoxClientName.DataSource = clientInfoManager.GetAllCustomers();
                 this.lblDateLimit.Text = DateTime.Today.AddDays(30).ToString();
-
-
-
             }
-
-
-
         }
         protected void TabStrip1_Click(object sender, EventArgs e)
         {
