@@ -6,6 +6,7 @@ namespace Homework.PatentApplicationSystem.Model
 {
     internal class UserService : IUserService
     {
+        private const string _tableName = "员工";
         private readonly string _connectionString;
 
         public UserService(string connectionString)
@@ -22,7 +23,7 @@ namespace Homework.PatentApplicationSystem.Model
                 connection.Open();
                 LoginResult result;
                 User user = null;
-                SqlDataReader reader = connection.Select("员工", new KeyValuePair<string, object>("UserName", userName));
+                SqlDataReader reader = connection.Select(_tableName, new KeyValuePair<string, object>("UserName", userName));
                 if (reader.Read())
                     if ((string) reader["Password"] != password)
                         result = LoginResult.PasswordNotMatch;
@@ -39,7 +40,16 @@ namespace Homework.PatentApplicationSystem.Model
 
         public IEnumerable<User> GetUsersByRole(Role role)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                var users = new List<User>();
+                var reader = connection.Select(_tableName, new KeyValuePair<string, object>("Role", role.ToString()));
+                while (reader.Read())
+                    users.Add(ExtractUser(reader));
+                reader.Close();
+                return users;
+            }
         }
 
         private static User ExtractUser(SqlDataReader reader)
