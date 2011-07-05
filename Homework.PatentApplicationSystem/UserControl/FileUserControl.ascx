@@ -53,6 +53,9 @@
 
         </tr>
     </ItemTemplate>
+    <EmptyDataTemplate>
+    <td>你的列表中没有等处理的案件!!!</td>
+    </EmptyDataTemplate>
 </asp:ListView>
 <asp:Button ID="btnAdd" Text="+ 添加" runat="server" onclick="btnAdd_Click" /> &nbsp; 
 

@@ -15,13 +15,14 @@ namespace Homework.PatentApplicationSystem.UserControl
    
     public partial class CaseFileUserControl : System.Web.UI.UserControl
     {
-        public IEnumerable<string> CaseIDSource{get; set;}
+        //public IEnumerable<string> CaseIDSource{get; set;}
         public string CurrentTaskNames { get; set; }
-       
+
+        public IEnumerable<string> CaseIDSource { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             User currentUser = (User)Session["User"];
-            if (!Page.IsPostBack)
+            //if (!Page.IsPostBack)
             {
 
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
@@ -39,24 +40,15 @@ namespace Homework.PatentApplicationSystem.UserControl
             
             Session["SelectedCaseID"] = this.listViewFiles.SelectedValue.ToString();
             User currentUser = (User)Session["User"];
-
             string url = "~/" + currentUser.Role.ToString() + "/" + CurrentTaskNames + "/" + CurrentTaskNames + ".aspx";
-            
-            //this.lblTest.Text = url;
-            //this.lblTest.Text = CurrentTaskNames;
-            Response.Redirect(url);
+            this.lblTest.Text = url + this.listViewFiles.SelectedValue.ToString();
+            //Response.Redirect(url);
         }
         protected void listViewFiles_SelectedIndexChanging(object sender, EventArgs e)
         {
 
         }
-        protected void lbtnSelect_Click(object sender, EventArgs e)
-        {
-            //if (listViewFiles.SelectedDataKey == null) throw new NotSupportedException();
-
-            
-
-        }
+    
 
     }
 }

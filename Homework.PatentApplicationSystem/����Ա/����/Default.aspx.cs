@@ -17,7 +17,7 @@ namespace Homework.PatentApplicationSystem.立案员.立案
             if (!Page.IsPostBack)
             {
                 var user = Session["User"] as User;
-                if (user == null || user.Role != Role.办案员)
+                if (user == null || user.Role != Role.立案员)
                 {
                     Response.Redirect("/");
                 }
@@ -25,8 +25,7 @@ namespace Homework.PatentApplicationSystem.立案员.立案
                 this.lBoxCaseType.DataSource = typeof(CaseType).GetEnumNames();
                 this.lBoxCaseType.DataBind();
                 var clientInfoManager = ServiceLocator.Current.GetInstance<IClientInfoManager>();
-                this.lBoxClientName.DataSource = clientInfoManager.GetAllCustomers();
-                this.lblDateLimit.Text = DateTime.Today.AddDays(30).ToString();
+                this.lblDateLimitInfo.Text = DateTime.Today.AddDays(30).ToString();
             }
         }
         protected void TabStrip1_Click(object sender, EventArgs e)
@@ -42,9 +41,9 @@ namespace Homework.PatentApplicationSystem.立案员.立案
                 名称 = this.tboxCaseName.Text,
                 案件类型 = this.lBoxCaseType.SelectedValue.EnumParse<CaseType>(),
                 创建时间 = Convert.ToDateTime(this.tboxCreateDate.Text),
-                绝限日 = Convert.ToDateTime(this.lblDateLimit.Text),
+                绝限日 = Convert.ToDateTime(this.lblDateLimitInfo.Text),
                 状态 = CaseState.OnGoing,
-                客户号 = this.lBoxClientName.SelectedValue,
+                客户号 = this.tBoxClientName.Text,
                 申请人证件号 = this.tBoxClientID.Text,
                 发明人身份证号 = this.tBoxInventorID.Text
             };

@@ -69,10 +69,14 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
             if (user == null || user.Role != Role.代理部主管) Response.Redirect("/");
             if (!Page.IsPostBack)
             {
+
+
+                     
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
                 this.CaseFile1.CurrentTaskNames = TaskNames.分案;
                 this.CaseFile1.CaseIDSource = pendingCaseIds;
+                
             }
         }
     }

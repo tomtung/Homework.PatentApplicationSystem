@@ -36,11 +36,9 @@
                     </asp:TableCell></asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblClientName" Text="客户名称:" runat="server" />
+                        <asp:Label ID="lblClientName" Text="客户号:" runat="server" />
                     </asp:TableCell><asp:TableCell>
-                        <asp:ListBox ID="lBoxClientName" DataTextField="已存档客户" DataValueField="clientName"
-                            DataSourceID="" runat="server" />
-                        &nbsp;<asp:Button ID="btnAddClient" CssClass="mbutton" Text="+ 添加" runat="server" />
+                        <asp:TextBox ID="tBoxClientName" runat="server" />
                     </asp:TableCell></asp:TableRow>
                 <asp:TableRow CssClass="odd">
                     <asp:TableCell>
