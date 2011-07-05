@@ -20,8 +20,11 @@ namespace Homework.PatentApplicationSystem.办案员.原始资料翻译
             {
 
 
-                Case @case = (Case)Session["Case"];
-                User user = (User)Session["User"];
+                var user = Session["User"] as User;
+                if (user == null)
+                {
+                    Response.Redirect("/");
+                }
 
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();

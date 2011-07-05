@@ -18,8 +18,11 @@ namespace Homework.PatentApplicationSystem.代理部文员.制作专利请求书
             CurrentTaskNames = TaskNames.制作专利请求书;
             if (!Page.IsPostBack)
             {
-                Case @case = (Case)Session["Case"];
-                User user = (User)Session["User"];
+                var user = Session["User"] as User;
+                if (user == null)
+                {
+                    Response.Redirect("/");
+                }
 
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();

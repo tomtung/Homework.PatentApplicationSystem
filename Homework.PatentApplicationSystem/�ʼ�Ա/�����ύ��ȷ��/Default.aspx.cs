@@ -13,9 +13,7 @@ namespace Homework.PatentApplicationSystem.质检员.处理提交并确认
     public partial class Default : System.Web.UI.Page
     {
         private string CurrentTaskNames;
-
-
-
+ 
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,8 +24,11 @@ namespace Homework.PatentApplicationSystem.质检员.处理提交并确认
             {
 
 
-                Case @case = (Case)Session["Case"];
-                User user = (User)Session["User"];
+                var user = Session["User"] as User;
+                if (user == null)
+                {
+                    Response.Redirect("/");
+                }
 
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();

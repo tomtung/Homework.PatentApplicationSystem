@@ -1,6 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FileUserControl.ascx.cs"
  Inherits="Homework.PatentApplicationSystem.UserControl.FileUserControl" %>
  <%@ Import Namespace="Homework.PatentApplicationSystem.Model.Data" %>
+
+<asp:FileUpload ID="FileUpload1" Visible="false" runat="server" /> &nbsp; <asp:Button ID="btnUpload" Text="上传" OnClick="btnUpload_Click" runat="server" />
+
+ 
 <asp:ListView ID="listViewFiles" DataKeyNames="案件编号" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged"
  OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging">
     <LayoutTemplate>
@@ -27,10 +31,10 @@
             </tbody>
         </table>
     </LayoutTemplate>
-    <ItemTemplate>
+    <ItemTemplate>s
         <tr>
             <td class="checkbox">
-                <asp:CheckBox ID="cBox1" runat="server" />
+                <asp:CheckBox ID="cBox1" Checked="false" runat="server" />
             </td>
             <td>
                 <%# ((CaseDoc)(Container.DataItem)).FileName  %>
@@ -41,14 +45,17 @@
             <td>
                 <%# ((CaseDoc)(Container.DataItem)).UploadUserName %>>
             </td>
+
             <td>
-                 <asp:LinkButton ID="lBtnDownload" Text="下载" CommandName="Select" OnClick="lbtnDownload_Click"  runat="server" />
+                 <asp:LinkButton ID="lbtnDownload" CommandName="Select" OnClick = "lbtnDownload_Click" runat="server"></asp:LinkButton>
+                 
             </td>
+
         </tr>
     </ItemTemplate>
 </asp:ListView>
-<asp:Button ID="btnAdd" Text="+ 添加" runat="server" /> &nbsp; 
-<asp:Button ID="btnDelete" text="- 删除" runat="server" />
+<asp:Button ID="btnAdd" Text="+ 添加" runat="server" onclick="btnAdd_Click" /> &nbsp; 
+
 
 
 
