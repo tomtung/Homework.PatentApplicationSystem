@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem.UserControl {
+namespace Homework.PatentApplicationSystem.分案员 {
     
     
-    public partial class UniformService {
+    public partial class 内审 {
         
         /// <summary>
         /// TabStrip1 control.
@@ -22,6 +22,15 @@ namespace Homework.PatentApplicationSystem.UserControl {
         protected global::Homework.PatentApplicationSystem.UserControl.Tab TabStrip1;
         
         /// <summary>
+        /// MultiView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView MultiView1;
+        
+        /// <summary>
         /// ViewCaseInfo control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace Homework.PatentApplicationSystem.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View ViewCaseInfo;
+        
+        /// <summary>
+        /// caseInfo1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Homework.PatentApplicationSystem.UserControl.CaseInfoUserControl caseInfo1;
         
         /// <summary>
         /// ViewRelatedFiles control.

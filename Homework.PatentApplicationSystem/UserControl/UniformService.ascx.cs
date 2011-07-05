@@ -29,7 +29,7 @@ namespace Homework.PatentApplicationSystem.UserControl
                 this.caseInfo1.CaseID = CaseID;
                 this.fileControl1.CaseID = CaseID;
                 this.FeedBack1.CaseID = CaseID;
-                
+
             }
         }
         protected void TabStrip1_Click(object sender, EventArgs e)

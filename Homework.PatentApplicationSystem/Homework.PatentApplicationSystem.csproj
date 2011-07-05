@@ -102,9 +102,10 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="分案员\Default.aspx" />
-    <Content Include="分案员\MainPage.aspx" />
-    <Content Include="分案员\内审.aspx" />
+    <Content Include="代理部主管\Default.aspx" />
+    <Content Include="代理部主管\MainPage.aspx" />
+    <Content Include="代理部主管\内审.aspx" />
+    <Content Include="办案员\Default.aspx" />
     <Content Include="立案员\Default.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -238,26 +239,33 @@
     <Compile Include="View\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="分案员\Default.aspx.cs">
+    <Compile Include="代理部主管\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="分案员\Default.aspx.designer.cs">
+    <Compile Include="代理部主管\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="分案员\MainPage.aspx.cs">
+    <Compile Include="代理部主管\MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="分案员\MainPage.aspx.designer.cs">
+    <Compile Include="代理部主管\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="分案员\内审.aspx.cs">
+    <Compile Include="代理部主管\内审.aspx.cs">
       <DependentUpon>内审.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="分案员\内审.aspx.designer.cs">
+    <Compile Include="代理部主管\内审.aspx.designer.cs">
       <DependentUpon>内审.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="立案员\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -269,6 +277,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="代理部议员\" />
+    <Folder Include="质检员\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
