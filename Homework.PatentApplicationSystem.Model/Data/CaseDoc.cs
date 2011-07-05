@@ -25,7 +25,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
         public string UploadUserName { get; set; }
 
         /// <summary>
-        /// 文件在服务器上实际的存储路径。
+        /// 文件在服务器上实际的存储路径(含名称)。
         /// </summary>
         public string FilePath { get; set; }
     }

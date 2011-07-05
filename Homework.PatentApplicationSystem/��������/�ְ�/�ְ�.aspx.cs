@@ -28,6 +28,11 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
                 tabs.Add("案件反馈");
                 this.TabStrip1.DataSource = tabs;
 
+
+                if (Session["SelectedCaseID"] == null)
+                {
+                    Response.Redirect("../");
+                }
                 string selectedCaseID = Session["SelectedCaseID"].ToString();
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();

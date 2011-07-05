@@ -5,7 +5,7 @@
 <asp:FileUpload ID="FileUpload1" Visible="false" runat="server" /> &nbsp; <asp:Button ID="btnUpload" Text="上传" OnClick="btnUpload_Click" runat="server" />
 
  
-<asp:ListView ID="listViewFiles" DataKeyNames="案件编号" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged"
+<asp:ListView ID="listViewFiles" DataKeyNames="文件名" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged"
  OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging">
     <LayoutTemplate>
         <table>

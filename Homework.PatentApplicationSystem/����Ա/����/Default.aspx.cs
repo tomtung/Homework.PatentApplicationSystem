@@ -16,6 +16,12 @@ namespace Homework.PatentApplicationSystem.立案员.立案
         {
             if (!Page.IsPostBack)
             {
+                var user = Session["User"] as User;
+                if (user == null || user.Role != Role.办案员)
+                {
+                    Response.Redirect("/");
+                }
+
                 this.lBoxCaseType.DataSource = typeof(CaseType).GetEnumNames();
                 this.lBoxCaseType.DataBind();
                 var clientInfoManager = ServiceLocator.Current.GetInstance<IClientInfoManager>();
