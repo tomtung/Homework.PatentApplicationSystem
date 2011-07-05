@@ -20,12 +20,13 @@ namespace Homework.PatentApplicationSystem.UserControl
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            User currentUser = (User)Session["User"];
             if (!Page.IsPostBack)
             {
 
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
-                User currentUser = (User)Session["User"];
+                
                 this.listViewFiles.DataSource = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, currentUser).Select(id => caseInfoManager.GetCaseById(id).Value);
                 
                 this.listViewFiles.DataBind();
