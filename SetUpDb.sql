@@ -2116,7 +2116,7 @@ CREATE TABLE [dbo].[WorkflowBookmark](
 
 CREATE TABLE [dbo].[CaseMessage](
 	[案件编号] [varchar](50) NULL,
-	[Content] [varchar](50) NULL,
+	[Content] [varchar](1024) NULL,
 	[SenderName] [varchar](50) NULL
 ) ON [PRIMARY]
 

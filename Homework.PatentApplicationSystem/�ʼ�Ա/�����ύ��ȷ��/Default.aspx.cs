@@ -25,7 +25,7 @@ namespace Homework.PatentApplicationSystem.质检员.处理提交并确认
 
 
                 var user = Session["User"] as User;
-                if (user == null)
+                if (user == null || user.Role != Role.质检员)
                 {
                     Response.Redirect("/");
                 }

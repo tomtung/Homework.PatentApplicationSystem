@@ -25,9 +25,8 @@ namespace Homework.PatentApplicationSystem.质检员.流程部质检
             //if (!Page.IsPostBack)
             {
 
-
                 var user = Session["User"] as User;
-                if (user == null)
+                if (user == null || user.Role != Role.质检员)
                 {
                     Response.Redirect("/");
                 }
