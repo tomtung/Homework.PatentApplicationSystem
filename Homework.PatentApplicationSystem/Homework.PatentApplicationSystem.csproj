@@ -114,10 +114,12 @@
     <Content Include="代理部主管\代理部内审\Default.aspx" />
     <Content Include="代理部主管\分案\Default.aspx" />
     <Content Include="代理部主管\分案\分案.aspx" />
+    <Content Include="代理部文员\Default.aspx" />
     <Content Include="代理部文员\制作专利请求书\Default.aspx" />
     <Content Include="代理部文员\制作专利请求书\制作专利请求书.aspx" />
     <Content Include="代理部文员\制作官方格式函\Default.aspx" />
     <Content Include="代理部文员\制作官方格式函\制作官方格式函.aspx" />
+    <Content Include="办案员\Default.aspx" />
     <Content Include="办案员\原始资料翻译\Default.aspx" />
     <Content Include="办案员\原始资料翻译\原始资料翻译.aspx" />
     <Content Include="办案员\原始资料翻译一校\Default.aspx" />
@@ -130,6 +132,7 @@
     <Content Include="办案员\撰写五书\Default.aspx" />
     <Content Include="办案员\撰写五书\撰写五书.aspx" />
     <Content Include="立案员\立案\Default.aspx" />
+    <Content Include="质检员\Default.aspx" />
     <Content Include="质检员\处理提交并确认\Default.aspx" />
     <Content Include="质检员\处理提交并确认\处理提交并确认.aspx" />
     <Content Include="质检员\流程部质检\Default.aspx" />
@@ -280,6 +283,13 @@
     <Compile Include="代理部主管\分案\分案.master.designer.cs">
       <DependentUpon>分案.master</DependentUpon>
     </Compile>
+    <Compile Include="代理部文员\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="代理部文员\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="代理部文员\制作专利请求书\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,6 +317,13 @@
     </Compile>
     <Compile Include="代理部文员\制作官方格式函\制作官方格式函.aspx.designer.cs">
       <DependentUpon>制作官方格式函.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="办案员\原始资料翻译\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -390,6 +407,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="立案员\立案\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="质检员\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="质检员\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="质检员\处理提交并确认\Default.aspx.cs">
