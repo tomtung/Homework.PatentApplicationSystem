@@ -114,13 +114,24 @@
     <Content Include="代理部主管\分案\Default.aspx" />
     <Content Include="代理部主管\分案\分案.aspx" />
     <Content Include="代理部文员\制作专利请求书\Default.aspx" />
+    <Content Include="代理部文员\制作专利请求书\制作专利请求书.aspx" />
     <Content Include="代理部文员\制作官方格式函\Default.aspx" />
     <Content Include="代理部文员\制作官方格式函\制作官方格式函.aspx" />
     <Content Include="办案员\原始资料翻译\Default.aspx" />
     <Content Include="办案员\原始资料翻译\原始资料翻译.aspx" />
     <Content Include="办案员\原始资料翻译一校\Default.aspx" />
     <Content Include="办案员\原始资料翻译一校\原始资料翻译一校.aspx" />
+    <Content Include="办案员\原始资料翻译二校\Default.aspx" />
+    <Content Include="办案员\原始资料翻译二校\原始资料翻译二校.aspx" />
+    <Content Include="办案员\定稿五书\Default.aspx" />
+    <Content Include="办案员\定稿五书\定稿五书.aspx" />
+    <Content Include="办案员\撰写五书\Default.aspx" />
+    <Content Include="办案员\撰写五书\撰写五书.aspx" />
     <Content Include="立案员\立案\Default.aspx" />
+    <Content Include="质检员\处理提交并确认\Default.aspx" />
+    <Content Include="质检员\处理提交并确认\处理提交并确认.aspx" />
+    <Content Include="质检员\流程部质检\Default.aspx" />
+    <Content Include="质检员\流程部质检\流程部质检.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -260,6 +271,13 @@
     <Compile Include="代理部文员\制作专利请求书\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="代理部文员\制作专利请求书\制作专利请求书.aspx.cs">
+      <DependentUpon>制作专利请求书.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="代理部文员\制作专利请求书\制作专利请求书.aspx.designer.cs">
+      <DependentUpon>制作专利请求书.aspx</DependentUpon>
+    </Compile>
     <Compile Include="代理部文员\制作官方格式函\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,6 +320,48 @@
     <Compile Include="办案员\原始资料翻译一校\原始资料翻译一校.aspx.designer.cs">
       <DependentUpon>原始资料翻译一校.aspx</DependentUpon>
     </Compile>
+    <Compile Include="办案员\原始资料翻译二校\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\原始资料翻译二校\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\原始资料翻译二校\原始资料翻译二校.aspx.cs">
+      <DependentUpon>原始资料翻译二校.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\原始资料翻译二校\原始资料翻译二校.aspx.designer.cs">
+      <DependentUpon>原始资料翻译二校.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\定稿五书\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\定稿五书\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\定稿五书\定稿五书.aspx.cs">
+      <DependentUpon>定稿五书.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\定稿五书\定稿五书.aspx.designer.cs">
+      <DependentUpon>定稿五书.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\撰写五书\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\撰写五书\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\撰写五书\撰写五书.aspx.cs">
+      <DependentUpon>撰写五书.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\撰写五书\撰写五书.aspx.designer.cs">
+      <DependentUpon>撰写五书.aspx</DependentUpon>
+    </Compile>
     <Compile Include="立案员\立案\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -309,14 +369,37 @@
     <Compile Include="立案员\立案\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="质检员\处理提交并确认\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="质检员\处理提交并确认\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="质检员\处理提交并确认\处理提交并确认.aspx.cs">
+      <DependentUpon>处理提交并确认.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="质检员\处理提交并确认\处理提交并确认.aspx.designer.cs">
+      <DependentUpon>处理提交并确认.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="质检员\流程部质检\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="质检员\流程部质检\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="质检员\流程部质检\流程部质检.aspx.cs">
+      <DependentUpon>流程部质检.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="质检员\流程部质检\流程部质检.aspx.designer.cs">
+      <DependentUpon>流程部质检.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="办案员\原始资料翻译二校\" />
-    <Folder Include="办案员\定稿五书\" />
-    <Folder Include="办案员\撰写五书\" />
-    <Folder Include="质检员\处理提交并确认\" />
-    <Folder Include="质检员\流程部质检\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
@@ -341,7 +424,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57672</DevelopmentServerPort>
+          <DevelopmentServerPort>25294</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

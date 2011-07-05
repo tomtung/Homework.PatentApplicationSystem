@@ -1,10 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="制作官方格式函.aspx.cs" Inherits="Homework.PatentApplicationSystem.代理部文员.MainPage" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="原始资料翻译二校.aspx.cs" Inherits="Homework.PatentApplicationSystem.办案员.原始资料翻译二校.原始资料翻译二校" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="nav2">
+   <div id="nav2">
         <user:Tab ID="TabStrip1" OnTabClick="TabStrip1_Click" runat="server" />
     </div>
     <asp:MultiView ID="MultiView1" ActiveViewIndex="0" runat="server">
@@ -21,5 +19,4 @@
     </asp:MultiView>
     
     <asp:Button ID="btnOK" Text="完成" OnClick="btnOK_Click" runat="server" />
-
 </asp:Content>

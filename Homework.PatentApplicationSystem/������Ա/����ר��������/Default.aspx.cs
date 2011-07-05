@@ -12,12 +12,12 @@ namespace Homework.PatentApplicationSystem.代理部文员.制作专利请求书
 {
     public partial class Default : System.Web.UI.Page
     {
+        private string CurrentTaskNames;
         protected void Page_Load(object sender, EventArgs e)
         {
+            CurrentTaskNames = TaskNames.制作专利请求书;
             if (!Page.IsPostBack)
             {
-
-
                 Case @case = (Case)Session["Case"];
                 User user = (User)Session["User"];
 
@@ -25,7 +25,6 @@ namespace Homework.PatentApplicationSystem.代理部文员.制作专利请求书
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
                 this.CaseFile1.CaseIDSource = pendingCaseIds;
-
 
             }
         }

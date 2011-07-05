@@ -8,15 +8,15 @@ using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Data;
 using Homework.PatentApplicationSystem.Model.Workflow;
 using Microsoft.Practices.ServiceLocation;
-namespace Homework.PatentApplicationSystem.代理部文员
+namespace Homework.PatentApplicationSystem.办案员.原始资料翻译二校
 {
-    public partial class MainPage : System.Web.UI.Page
+    public partial class 原始资料翻译二校 : System.Web.UI.Page
     {
         public string CurrentTaskNames { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            CurrentTaskNames = "制作官方格式函";
+            CurrentTaskNames = "原始资料翻译二校";
 
             User CurrentUser = (User)Session["User"];
             // if (!Page.IsPostBack)
