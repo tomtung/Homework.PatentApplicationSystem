@@ -17,9 +17,7 @@ namespace Homework.PatentApplicationSystem.立案员.立案
             if (!Page.IsPostBack)
             {
 
-
-
-
+    
                 this.lBoxCaseType.DataSource = typeof(CaseType).GetEnumNames();
                 this.lBoxCaseType.DataBind();
                 var clientInfoManager = ServiceLocator.Current.GetInstance<IClientInfoManager>();
