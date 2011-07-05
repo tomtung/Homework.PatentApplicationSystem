@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="TabPlaceHolder" runat="server">
+<%--<asp:Content ID="Content2" ContentPlaceHolderID="TabPlaceHolder" runat="server">
 <li id="撰写五书Tab" runat="server">
     <asp:HyperLink ID="HyperLink1" Text="撰写五书" NavigateUrl="~/办案员/撰写五书/Default.aspx" runat="server" />
 </li>
@@ -24,7 +24,7 @@
 <li id="官方来函办案Tab" runat="server">
     <asp:HyperLink ID="HyperLink7" Text="官方来函" NavigateUrl="~/办案员/官方来函办案/Default.aspx" runat="server" />
 </li>
-</asp:Content>
+</asp:Content>--%>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 </asp:Content>

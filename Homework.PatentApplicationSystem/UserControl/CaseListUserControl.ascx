@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CaseFileUserControl.ascx.cs" Inherits="Homework.PatentApplicationSystem.UserControl.CaseFileUserControl" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CaseListUserControl.ascx.cs" Inherits="Homework.PatentApplicationSystem.UserControl.CaseListUserControl" %>
 <%@ Import Namespace="Homework.PatentApplicationSystem.Model.Data" %>
 <asp:ListView ID="listViewFiles" DataKeyNames="编号" runat="server"
 OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged">
@@ -48,9 +48,6 @@ OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging" OnSelectedIndexCha
         </tr>
     </ItemTemplate>
     <EmptyDataTemplate>
-        <td>你的列表中没有等处理的案件!!!</td>
+        <td>没有待处理的案件。</td>
     </EmptyDataTemplate>
 </asp:ListView>
-
-<asp:Label ID="lblTest" runat="server" />
-

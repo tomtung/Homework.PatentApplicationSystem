@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Configuration;
 using System.Web;
-using System.Web.Security;
+using System.Web.Configuration;
 using CommonServiceLocator.NinjectAdapter;
 using Homework.PatentApplicationSystem.Model;
 using Microsoft.Practices.ServiceLocation;
@@ -26,9 +27,9 @@ namespace Homework.PatentApplicationSystem
 
         private static void PrepareKernel()
         {
-            System.Configuration.Configuration webconfig =
-                System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
-            System.Configuration.ConnectionStringSettings connString =
+            Configuration webconfig =
+                WebConfigurationManager.OpenWebConfiguration("/");
+            ConnectionStringSettings connString =
                 webconfig.ConnectionStrings.ConnectionStrings["ApplicationServices"];
             IKernel kernel = new StandardKernel(new DefaultNinjectModule(connString.ConnectionString));
             var serviceLocator = new NinjectServiceLocator(kernel);

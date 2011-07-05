@@ -63,17 +63,8 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Account\Login.aspx" />
-    <Content Include="App_Data\test.txt" />
     <Content Include="basic.html" />
-    <Content Include="Images\bg.png" />
-    <Content Include="Images\footer-bg.png" />
-    <Content Include="Images\footer.png" />
-    <Content Include="Images\log-bg.png" />
-    <Content Include="Images\logo.png" />
-    <Content Include="Mail\Default.aspx" />
-    <Content Include="Menu.xml" />
     <Content Include="Styles\basic.css" />
     <Content Include="Styles\Picture\bg.png" />
     <Content Include="Styles\Picture\footer-bg.png" />
@@ -89,13 +80,8 @@
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Template\Default.aspx" />
-    <Content Include="Upload\Default.aspx" />
-    <Content Include="UserControl\CaseFileUserControl.ascx" />
     <Content Include="UserControl\CaseInfoUserControl.ascx" />
+    <Content Include="UserControl\CaseListUserControl.ascx" />
     <Content Include="UserControl\CaseMessageUserControl.ascx" />
     <Content Include="UserControl\FeedBackUserControl.ascx" />
     <Content Include="UserControl\FileUserControl.ascx" />
@@ -110,8 +96,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="代理部主管\Default.aspx" />
-    <Content Include="代理部主管\代理部内审\代理部内审.aspx" />
     <Content Include="代理部主管\代理部内审\Default.aspx" />
+    <Content Include="代理部主管\代理部内审\代理部内审.aspx" />
     <Content Include="代理部主管\分案\Default.aspx" />
     <Content Include="代理部主管\分案\分案.aspx" />
     <Content Include="代理部文员\Default.aspx" />
@@ -124,16 +110,16 @@
     <Content Include="办案员\原始资料翻译\原始资料翻译.aspx" />
     <Content Include="办案员\原始资料翻译一校\Default.aspx" />
     <Content Include="办案员\原始资料翻译一校\原始资料翻译一校.aspx" />
+    <Content Include="办案员\原始资料翻译二校\Default.aspx" />
     <Content Include="办案员\官方来函办案\Default.aspx" />
     <Content Include="办案员\官方来函办案\官方来函办案.aspx" />
+    <Content Include="办案员\定稿五书\Default.aspx" />
     <Content Include="办案员\客户指示办案\Default.aspx" />
     <Content Include="办案员\客户指示办案\客户指示办案.aspx" />
-    <Content Include="立案员\Default.aspx" />
-    <Content Include="办案员\原始资料翻译二校\Default.aspx" />
-    <Content Include="办案员\原始资料翻译二校\原始资料翻译二校.aspx" />
-    <Content Include="办案员\定稿五书\Default.aspx" />
-    <Content Include="办案员\定稿五书\定稿五书.aspx" />
     <Content Include="办案员\撰写五书\Default.aspx" />
+    <Content Include="立案员\Default.aspx" />
+    <Content Include="办案员\原始资料翻译二校\原始资料翻译二校.aspx" />
+    <Content Include="办案员\定稿五书\定稿五书.aspx" />
     <Content Include="办案员\撰写五书\撰写五书.aspx" />
     <Content Include="立案员\立案\Default.aspx" />
     <Content Include="质检员\Default.aspx" />
@@ -143,19 +129,19 @@
     <Content Include="质检员\流程部质检\流程部质检.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CaseListMaster.master.cs">
+      <DependentUpon>CaseListMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CaseListMaster.master.designer.cs">
+      <DependentUpon>CaseListMaster.master</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -167,13 +153,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mail\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Mail\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -182,33 +161,19 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Template\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Template\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Upload\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Upload\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\CaseFileUserControl.ascx.cs">
-      <DependentUpon>CaseFileUserControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControl\CaseFileUserControl.ascx.designer.cs">
-      <DependentUpon>CaseFileUserControl.ascx</DependentUpon>
-    </Compile>
     <Compile Include="UserControl\CaseInfoUserControl.ascx.cs">
       <DependentUpon>CaseInfoUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\CaseInfoUserControl.ascx.designer.cs">
       <DependentUpon>CaseInfoUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CaseListUserControl.ascx.cs">
+      <DependentUpon>CaseListUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\CaseListUserControl.ascx.designer.cs">
+      <DependentUpon>CaseListUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\CaseMessageUserControl.ascx.cs">
       <DependentUpon>CaseMessageUserControl.ascx</DependentUpon>
@@ -245,13 +210,6 @@
     <Compile Include="代理部主管\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="代理部主管\代理部内审\代理部内审.aspx.cs">
-      <DependentUpon>代理部内审.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="代理部主管\代理部内审\代理部内审.aspx.designer.cs">
-      <DependentUpon>代理部内审.aspx</DependentUpon>
-    </Compile>
     <Compile Include="代理部主管\代理部内审\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -259,12 +217,12 @@
     <Compile Include="代理部主管\代理部内审\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="代理部主管\分案\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="代理部主管\代理部内审\代理部内审.aspx.cs">
+      <DependentUpon>代理部内审.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="代理部主管\分案\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="代理部主管\代理部内审\代理部内审.aspx.designer.cs">
+      <DependentUpon>代理部内审.aspx</DependentUpon>
     </Compile>
     <Compile Include="代理部主管\代理部主管Master.master.cs">
       <DependentUpon>代理部主管Master.master</DependentUpon>
@@ -272,6 +230,13 @@
     </Compile>
     <Compile Include="代理部主管\代理部主管Master.master.designer.cs">
       <DependentUpon>代理部主管Master.master</DependentUpon>
+    </Compile>
+    <Compile Include="代理部主管\分案\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="代理部主管\分案\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="代理部主管\分案\分案.aspx.cs">
       <DependentUpon>分案.aspx</DependentUpon>
@@ -364,6 +329,13 @@
     <Compile Include="办案员\原始资料翻译一校\原始资料翻译一校.aspx.designer.cs">
       <DependentUpon>原始资料翻译一校.aspx</DependentUpon>
     </Compile>
+    <Compile Include="办案员\原始资料翻译二校\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\原始资料翻译二校\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="办案员\官方来函办案\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -377,6 +349,13 @@
     </Compile>
     <Compile Include="办案员\官方来函办案\官方来函办案.aspx.designer.cs">
       <DependentUpon>官方来函办案.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\定稿五书\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\定稿五书\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="办案员\客户指示办案\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -392,18 +371,18 @@
     <Compile Include="办案员\客户指示办案\客户指示办案.aspx.designer.cs">
       <DependentUpon>客户指示办案.aspx</DependentUpon>
     </Compile>
+    <Compile Include="办案员\撰写五书\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\撰写五书\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="立案员\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="立案员\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="办案员\原始资料翻译二校\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="办案员\原始资料翻译二校\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="办案员\原始资料翻译二校\原始资料翻译二校.aspx.cs">
@@ -413,26 +392,12 @@
     <Compile Include="办案员\原始资料翻译二校\原始资料翻译二校.aspx.designer.cs">
       <DependentUpon>原始资料翻译二校.aspx</DependentUpon>
     </Compile>
-    <Compile Include="办案员\定稿五书\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="办案员\定稿五书\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="办案员\定稿五书\定稿五书.aspx.cs">
       <DependentUpon>定稿五书.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="办案员\定稿五书\定稿五书.aspx.designer.cs">
       <DependentUpon>定稿五书.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="办案员\撰写五书\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="办案员\撰写五书\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="办案员\撰写五书\撰写五书.aspx.cs">
       <DependentUpon>撰写五书.aspx</DependentUpon>
@@ -491,9 +456,7 @@
       <DependentUpon>质检员Master.master</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -501,11 +464,6 @@
       <Project>{0085AA20-3D1B-4421-B97C-9A8B3AA4B2D9}</Project>
       <Name>Homework.PatentApplicationSystem.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Web.sitemap">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="质检员\质检员Master.master" />
@@ -518,6 +476,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="办案员\办案员Master.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CaseListMaster.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

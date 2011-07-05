@@ -7,45 +7,39 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem.UserControl {
+namespace Homework.PatentApplicationSystem {
     
     
-    public partial class FileUserControl {
+    public partial class CaseListMaster {
         
         /// <summary>
-        /// FileUpload1 control.
+        /// CaseList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::Homework.PatentApplicationSystem.UserControl.CaseListUserControl CaseList;
         
         /// <summary>
-        /// btnUpload control.
+        /// MainContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpload;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
         
         /// <summary>
-        /// listViewFiles control.
+        /// Master property.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Auto-generated property.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listViewFiles;
-        
-        /// <summary>
-        /// btnAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnAdd;
+        public new Homework.PatentApplicationSystem.SiteMaster Master {
+            get {
+                return ((Homework.PatentApplicationSystem.SiteMaster)(base.Master));
+            }
+        }
     }
 }

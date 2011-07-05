@@ -13,22 +13,22 @@ namespace Homework.PatentApplicationSystem.办案员.撰写五书 {
     public partial class 撰写五书 {
         
         /// <summary>
-        /// TabStrip1 control.
+        /// TabStrip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.Tab TabStrip1;
+        protected global::Homework.PatentApplicationSystem.UserControl.Tab TabStrip;
         
         /// <summary>
-        /// MultiView1 control.
+        /// MultiView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView MultiView1;
+        protected global::System.Web.UI.WebControls.MultiView MultiView;
         
         /// <summary>
         /// viewcaseinfo control.
@@ -65,14 +65,5 @@ namespace Homework.PatentApplicationSystem.办案员.撰写五书 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl filecontrol1;
-        
-        /// <summary>
-        /// btnOK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOK;
     }
 }

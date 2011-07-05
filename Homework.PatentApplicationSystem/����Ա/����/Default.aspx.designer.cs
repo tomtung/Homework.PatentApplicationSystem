@@ -184,12 +184,15 @@ namespace Homework.PatentApplicationSystem.立案员.立案 {
         protected global::System.Web.UI.WebControls.Button btnOK;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// Master property.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Auto-generated property.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        public new Homework.PatentApplicationSystem.SiteMaster Master {
+            get {
+                return ((Homework.PatentApplicationSystem.SiteMaster)(base.Master));
+            }
+        }
     }
 }

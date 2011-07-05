@@ -21,7 +21,8 @@ namespace Homework.PatentApplicationSystem.UserControl
         {
             string FileName = listViewFiles.SelectedValue.ToString();
             string filePath = "";
-            IEnumerable<CaseDoc> docs = ServiceLocator.Current.GetInstance<ICaseDocManager>().GetDocsOf(Session["SelectedCaseID"] as string);
+            IEnumerable<CaseDoc> docs =
+                ServiceLocator.Current.GetInstance<ICaseDocManager>().GetDocsOf(Session["SelectedCaseID"] as string);
             foreach (CaseDoc doc in docs)
             {
                 if (doc.FileName == FileName)

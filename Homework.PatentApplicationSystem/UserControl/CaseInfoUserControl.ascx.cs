@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Microsoft.Practices.ServiceLocation;
 using Homework.PatentApplicationSystem.Model.Data;
+using Microsoft.Practices.ServiceLocation;
+
 namespace Homework.PatentApplicationSystem.UserControl
 {
     public partial class CaseInfoUserControl : System.Web.UI.UserControl
@@ -14,13 +10,15 @@ namespace Homework.PatentApplicationSystem.UserControl
         {
             if (!IsPostBack)
             {
-                Case @case = ServiceLocator.Current.GetInstance<ICaseInfoManager>().GetCaseById(Session["SelectedCaseID"] as string).Value;
-                this.lblCaseNameInfo.Text = @case.名称;
-                this.lblCreateDateInfo.Text = @case.创建时间.ToString();
-                this.lblDateLimitInfo.Text = @case.绝限日.ToString();
-                this.lblClientNameInfo.Text = @case.客户号;
-                this.lblClientIDInfo.Text = @case.申请人证件号;
-                this.lblInventorIDInfo.Text = @case.发明人身份证号;
+                Case @case =
+                    ServiceLocator.Current.GetInstance<ICaseInfoManager>().GetCaseById(
+                        Session["SelectedCaseID"] as string).Value;
+                lblCaseNameInfo.Text = @case.名称;
+                lblCreateDateInfo.Text = @case.创建时间.ToString();
+                lblDateLimitInfo.Text = @case.绝限日.ToString();
+                lblClientNameInfo.Text = @case.客户号;
+                lblClientIDInfo.Text = @case.申请人证件号;
+                lblInventorIDInfo.Text = @case.发明人身份证号;
             }
         }
     }

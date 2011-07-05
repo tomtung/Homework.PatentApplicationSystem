@@ -1,14 +1,14 @@
 ﻿using System;
+using System.Web.UI;
 using Homework.PatentApplicationSystem.Model;
 
 namespace Homework.PatentApplicationSystem.办案员.原始资料翻译
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class Default : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-                CaseFile1.CurrentTaskNames = TaskNames.原始资料翻译;
+            Master.TaskName = TaskNames.原始资料翻译;
         }
     }
 }

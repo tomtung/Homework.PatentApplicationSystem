@@ -2,14 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="TabPlaceHolder" runat="server">
+<%--<asp:Content ID="Content2" ContentPlaceHolderID="TabPlaceHolder" runat="server">
 <li id="分案Tab" runat="server">
     <asp:HyperLink ID="HyperLink2" Text="分案" NavigateUrl="~/代理部主管/分案/Default.aspx" runat="server" />
 </li>
 <li id="代理部内审Tab" runat="server">
     <asp:HyperLink ID="HyperLink1" Text="代理部内审" NavigateUrl="~/代理部主管/代理部内审/Default.aspx" runat="server" />
 </li>
-</asp:Content>
+</asp:Content>--%>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 </asp:Content>

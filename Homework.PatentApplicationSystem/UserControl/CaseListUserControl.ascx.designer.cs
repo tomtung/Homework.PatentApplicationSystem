@@ -10,7 +10,7 @@
 namespace Homework.PatentApplicationSystem.UserControl {
     
     
-    public partial class CaseFileUserControl {
+    public partial class CaseListUserControl {
         
         /// <summary>
         /// listViewFiles control.
@@ -20,14 +20,5 @@ namespace Homework.PatentApplicationSystem.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView listViewFiles;
-        
-        /// <summary>
-        /// lblTest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTest;
     }
 }

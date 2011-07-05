@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="TabPlaceHolder" runat="server">
+<%--<asp:Content ID="Content2" ContentPlaceHolderID="TabPlaceHolder" runat="server">
 <li id="流程部质检Tab" runat="server" class="selected">
     <asp:HyperLink ID="HyperLink1" Text="流程部质检" NavigateUrl="~/质检员/流程部质检/Default.aspx" runat="server" />
 </li>
@@ -10,6 +10,6 @@
     <asp:HyperLink ID="HyperLink2" Text="处理提交并确认" NavigateUrl="~/质检员/处理提交并确认/Default.aspx" runat="server" />
 </li>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+--%><asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 </asp:Content>

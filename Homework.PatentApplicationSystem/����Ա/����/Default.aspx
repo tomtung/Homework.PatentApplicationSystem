@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="Homework.PatentApplicationSystem.立案员.立案.Default" %>
+<%@MasterType TypeName="Homework.PatentApplicationSystem.SiteMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -54,8 +55,8 @@
         <asp:Button ID="btnOK" Text="完成" CssClass="lbutton_blue" OnClick="btnOK_Click" runat="server" />
     </div>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="TabPlaceHolder" runat="server">
+<%--<asp:Content ID="Content3" ContentPlaceHolderID="TabPlaceHolder" runat="server">
 <li runat="server" class="selected">
     <asp:HyperLink ID="HyperLink1" Text="立案" NavigateUrl="~/立案员/立案/Default.aspx" runat="server" />
 </li>
-</asp:Content>
+</asp:Content>--%>

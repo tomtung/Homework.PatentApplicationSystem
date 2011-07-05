@@ -42,7 +42,7 @@ a {
 	height:102px;
 	padding-left:108px;
 	padding-right:108px;
-	width:800px;
+	width:900px;
 	background-image:url(picture/logo.png);
 	background-repeat:no-repeat;
 }
@@ -75,7 +75,7 @@ a {
 	margin-right:10px;
 	margin-top:74px;
 	height:28px;
-	width:80px;
+	width:100px;
 	display:inline-block;
 	-webkit-border-top-left-radius: 4px;
 	-webkit-border-top-right-radius: 4px;

@@ -16,7 +16,58 @@
                 <asp:Label ID="lblCurrentUser" runat="server" /><span class="separator">|</span><asp:LinkButton ID="linkBtnExit" Text="退出" OnClick="linkBtnExit_Click" runat="server" /></div>
             <div id="nav">
                 <ul>
-                <asp:ContentPlaceHolder ID="TabPlaceHolder" runat="server" />
+                    <asp:Panel ID="立案员Tabs" runat="server" Visible="false">
+                        <li id="立案Tab" runat="server">
+                            <asp:HyperLink Text="立案" NavigateUrl="~/立案员/立案/Default.aspx" runat="server" />
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="质检员Tabs" runat="server" Visible="false">
+                        <li id="流程部质检Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink13" Text="流程部质检" NavigateUrl="~/质检员/流程部质检/Default.aspx" runat="server" />
+                        </li>
+                        <li id="处理提交并确认Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink14" Text="提交确认" NavigateUrl="~/质检员/处理提交并确认/Default.aspx" runat="server" />
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="代理部主管Tabs" runat="server" Visible="false">
+                        <li id="分案Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink10" Text="分案" NavigateUrl="~/代理部主管/分案/Default.aspx" runat="server" />
+                        </li>
+                        <li id="代理部内审Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink11" Text="代理部内审" NavigateUrl="~/代理部主管/代理部内审/Default.aspx" runat="server" />
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="办案员Tabs" runat="server" Visible="false">
+                        <li id="撰写五书Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink1" Text="撰写五书" NavigateUrl="~/办案员/撰写五书/Default.aspx" runat="server" />
+                        </li>
+                        <li id="原始资料翻译Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink2" Text="翻译" NavigateUrl="~/办案员/原始资料翻译/Default.aspx" runat="server" />
+                        </li>
+                        <li id="原始资料翻译一校Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink3" Text="一校" NavigateUrl="~/办案员/原始资料翻译一校/Default.aspx" runat="server" />
+                        </li>
+                        <li id="原始资料翻译二校Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink4" Text="二校" NavigateUrl="~/办案员/原始资料翻译二校/Default.aspx" runat="server" />
+                        </li>
+                        <li id="定稿五书Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink5" Text="定稿" NavigateUrl="~/办案员/定稿五书/Default.aspx" runat="server" />
+                        </li>
+                        <li id="客户指示办案Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink6" Text="客户指示" NavigateUrl="~/办案员/客户指示办案/Default.aspx" runat="server" />
+                        </li>
+                        <li id="官方来函办案Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink7" Text="官方来函" NavigateUrl="~/办案员/官方来函办案/Default.aspx" runat="server" />
+                        </li>
+                    </asp:Panel>
+                    <asp:Panel ID="代理部文员Tabs" runat="server" Visible="false">
+                        <li id="制作专利请求书Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink8" Text="专利请求书" NavigateUrl="~/代理部文员/制作专利请求书/Default.aspx" runat="server" />
+                        </li>
+                        <li id="制作官方格式函Tab" runat="server">
+                            <asp:HyperLink ID="HyperLink9" Text="官方格式函" NavigateUrl="~/代理部文员/制作官方格式函/Default.aspx" runat="server" />
+                        </li>
+                    </asp:Panel>
                 </ul>
             </div>
         </div>
