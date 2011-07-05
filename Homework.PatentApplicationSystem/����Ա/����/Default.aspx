@@ -24,7 +24,7 @@
                     <asp:TableCell>
                         <asp:Label ID="lblCreateDate" Text="创建日期:" runat="server" />
                     </asp:TableCell><asp:TableCell>
-                        <asp:TextBox ID="lblCreateDateInfo" Text="" runat="server" />
+                        <asp:Label ID="lblCreateDateInfo" Text="" runat="server" />
                     </asp:TableCell></asp:TableRow><asp:TableRow CssClass="odd">
                     <asp:TableCell>
                         <asp:Label ID="lblDateLimit" Text="绝限日:" runat="server" />

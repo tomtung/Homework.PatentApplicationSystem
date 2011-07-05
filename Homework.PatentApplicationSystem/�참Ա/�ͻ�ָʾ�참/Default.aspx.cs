@@ -8,21 +8,24 @@ using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Data;
 using Homework.PatentApplicationSystem.Model.Workflow;
 using Microsoft.Practices.ServiceLocation;
-namespace Homework.PatentApplicationSystem.代理部文员.制作专利请求书
+namespace Homework.PatentApplicationSystem.办案员.客户指示办案
 {
     public partial class Default : System.Web.UI.Page
     {
-        private string CurrentTaskNames;
         protected void Page_Load(object sender, EventArgs e)
         {
-            CurrentTaskNames = TaskNames.制作专利请求书;
+            var user = Session["User"] as User;
+            if (user == null || user.Role != Role.代理部主管) Response.Redirect("/");
             if (!Page.IsPostBack)
             {
-                var user = Session["User"] as User;
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
+
+
+
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
-                IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
-                this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
+                IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
+                this.CaseFile1.CurrentTaskNames = TaskNames.分案;
+                this.CaseFile1.CaseIDSource = pendingCaseIds;
+
             }
         }
     }

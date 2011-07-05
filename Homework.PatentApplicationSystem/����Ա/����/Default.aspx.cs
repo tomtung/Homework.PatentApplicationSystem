@@ -47,6 +47,7 @@ namespace Homework.PatentApplicationSystem.立案员.立案
                 发明人身份证号 = this.tBoxInventorID.Text
             };
             
+            
             var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
             var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
             caseInfoManager.AddCase(@case);
@@ -54,6 +55,7 @@ namespace Homework.PatentApplicationSystem.立案员.立案
             // 然后启动案件流程
             caseWorkflowManager.StartCase(@case);
 
+            Response.Redirect(Request.Url.ToString());  
 
         }
     }

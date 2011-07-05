@@ -124,6 +124,10 @@
     <Content Include="办案员\原始资料翻译\原始资料翻译.aspx" />
     <Content Include="办案员\原始资料翻译一校\Default.aspx" />
     <Content Include="办案员\原始资料翻译一校\原始资料翻译一校.aspx" />
+    <Content Include="办案员\官方来函办案\Default.aspx" />
+    <Content Include="办案员\官方来函办案\官方来函办案.aspx" />
+    <Content Include="办案员\客户指示办案\Default.aspx" />
+    <Content Include="办案员\客户指示办案\客户指示办案.aspx" />
     <Content Include="立案员\Default.aspx" />
     <Content Include="办案员\原始资料翻译二校\Default.aspx" />
     <Content Include="办案员\原始资料翻译二校\原始资料翻译二校.aspx" />
@@ -359,6 +363,34 @@
     </Compile>
     <Compile Include="办案员\原始资料翻译一校\原始资料翻译一校.aspx.designer.cs">
       <DependentUpon>原始资料翻译一校.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\官方来函办案\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\官方来函办案\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\官方来函办案\官方来函办案.aspx.cs">
+      <DependentUpon>官方来函办案.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\官方来函办案\官方来函办案.aspx.designer.cs">
+      <DependentUpon>官方来函办案.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\客户指示办案\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\客户指示办案\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="办案员\客户指示办案\客户指示办案.aspx.cs">
+      <DependentUpon>客户指示办案.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="办案员\客户指示办案\客户指示办案.aspx.designer.cs">
+      <DependentUpon>客户指示办案.aspx</DependentUpon>
     </Compile>
     <Compile Include="立案员\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -7,7 +7,7 @@ namespace Homework.PatentApplicationSystem.UserControl
     public partial class FeedBackUserControl : System.Web.UI.UserControl
     {
         public string CaseID { get; set; }
-        public User User { get; set; }
+//        public User User { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             var caseMessageManager = ServiceLocator.Current.GetInstance<ICaseMessageManager>();
@@ -18,11 +18,12 @@ namespace Homework.PatentApplicationSystem.UserControl
         protected void btnFinish_Click(object sender, EventArgs e)
         {
 
+            
             CaseMessage doc = new CaseMessage
                               {
                                   案件编号 = CaseID,
                                   Content = commentText.Value,
-                                  SenderUsername = User.UserName
+                                  SenderUsername = ((User)Session["User"]).UserName
                               };
             var caseMessageManager = ServiceLocator.Current.GetInstance<ICaseMessageManager>();
             caseMessageManager.AddMessage(doc);
