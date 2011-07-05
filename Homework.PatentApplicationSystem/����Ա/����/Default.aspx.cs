@@ -8,7 +8,7 @@ using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Data;
 using Homework.PatentApplicationSystem.Model.Workflow;
 using Microsoft.Practices.ServiceLocation;
-namespace Homework.PatentApplicationSystem.立案员
+namespace Homework.PatentApplicationSystem.立案员.立案
 {
     public partial class Default : System.Web.UI.Page
     {
@@ -29,6 +29,9 @@ namespace Homework.PatentApplicationSystem.立案员
 
 
             }
+
+
+
         }
         protected void TabStrip1_Click(object sender, EventArgs e)
         {
@@ -38,17 +41,17 @@ namespace Homework.PatentApplicationSystem.立案员
         {
             //创建Case
             var newCase = new Case
-                        {
-                            编号 = Guid.NewGuid().ToString(),
-                            名称 = this.tboxCaseName.Text,
-                            案件类型 = this.lBoxCaseType.SelectedValue.EnumParse<CaseType>(),
-                            创建时间 = Convert.ToDateTime(this.tboxCreateDate.Text),
-                            绝限日 = Convert.ToDateTime(this.lblDateLimit.Text),
-                            状态 = CaseState.OnGoing, 
-                            客户号 = this.lBoxClientName.SelectedValue,
-                            申请人证件号 = this.tBoxClientID.Text,
-                            发明人身份证号 = this.tBoxInventorID.Text
-                        };
+            {
+                编号 = Guid.NewGuid().ToString(),
+                名称 = this.tboxCaseName.Text,
+                案件类型 = this.lBoxCaseType.SelectedValue.EnumParse<CaseType>(),
+                创建时间 = Convert.ToDateTime(this.tboxCreateDate.Text),
+                绝限日 = Convert.ToDateTime(this.lblDateLimit.Text),
+                状态 = CaseState.OnGoing,
+                客户号 = this.lBoxClientName.SelectedValue,
+                申请人证件号 = this.tBoxClientID.Text,
+                发明人身份证号 = this.tBoxInventorID.Text
+            };
             Session["Case"] = newCase;
 
         }

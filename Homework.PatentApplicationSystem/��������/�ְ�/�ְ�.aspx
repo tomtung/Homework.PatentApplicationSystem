@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="MainPage.aspx.cs" Inherits="Homework.PatentApplicationSystem.分案员.MainPage" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="分案.aspx.cs" Inherits="Homework.PatentApplicationSystem.代理部主管.分案.分案" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
     <div id="nav2">
         <user:Tab ID="TabStrip1" OnTabClick="TabStrip1_Click" runat="server" />
     </div>
