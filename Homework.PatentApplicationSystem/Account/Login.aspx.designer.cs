@@ -13,31 +13,22 @@ namespace Homework.PatentApplicationSystem.Account {
     public partial class Login {
         
         /// <summary>
-        /// RegisterHyperLink control.
+        /// Head1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// lblErrorMessage control.
+        /// Form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
-        
-        /// <summary>
-        /// lblUserName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
         /// txtUserName control.
@@ -49,15 +40,6 @@ namespace Homework.PatentApplicationSystem.Account {
         protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
-        /// lblPWD control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPWD;
-        
-        /// <summary>
         /// txtPWD control.
         /// </summary>
         /// <remarks>
@@ -65,14 +47,5 @@ namespace Homework.PatentApplicationSystem.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPWD;
-        
-        /// <summary>
-        /// btnOK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOK;
     }
 }
