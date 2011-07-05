@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="办案员Master.master.cs" Inherits="Homework.PatentApplicationSystem.办案员.办案员Master" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="TabPlaceHolder" runat="server">
+<li id="撰写五书Tab" runat="server">
+    <asp:HyperLink ID="HyperLink1" Text="撰写五书" NavigateUrl="~/办案员/撰写五书/Default.aspx" runat="server" />
+</li>
+<li id="原始资料翻译Tab" runat="server">
+    <asp:HyperLink ID="HyperLink2" Text="翻译" NavigateUrl="~/办案员/原始资料翻译/Default.aspx" runat="server" />
+</li>
+<li id="原始资料翻译一校Tab" runat="server">
+    <asp:HyperLink ID="HyperLink3" Text="一校" NavigateUrl="~/办案员/原始资料翻译一校/Default.aspx" runat="server" />
+</li>
+<li id="原始资料翻译二校Tab" runat="server">
+    <asp:HyperLink ID="HyperLink4" Text="二校" NavigateUrl="~/办案员/原始资料翻译二校/Default.aspx" runat="server" />
+</li>
+<li id="定稿五书Tab" runat="server">
+    <asp:HyperLink ID="HyperLink5" Text="定稿" NavigateUrl="~/办案员/定稿五书/Default.aspx" runat="server" />
+</li>
+<li id="客户指示办案Tab" runat="server">
+    <asp:HyperLink ID="HyperLink6" Text="客户指示" NavigateUrl="~/办案员/客户指示办案/Default.aspx" runat="server" />
+</li>
+<li id="官方来函办案Tab" runat="server">
+    <asp:HyperLink ID="HyperLink7" Text="官方来函" NavigateUrl="~/办案员/官方来函办案/Default.aspx" runat="server" />
+</li>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+</asp:Content>

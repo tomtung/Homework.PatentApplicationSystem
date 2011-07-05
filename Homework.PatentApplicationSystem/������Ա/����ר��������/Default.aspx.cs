@@ -19,11 +19,6 @@ namespace Homework.PatentApplicationSystem.代理部文员.制作专利请求书
             if (!Page.IsPostBack)
             {
                 var user = Session["User"] as User;
-                if (user == null || user.Role != Role.代理部文员)
-                {
-                    Response.Redirect("/");
-                }
-
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);

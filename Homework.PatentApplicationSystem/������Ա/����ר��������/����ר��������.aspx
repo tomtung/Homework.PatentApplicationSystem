@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="制作专利请求书.aspx.cs" Inherits="Homework.PatentApplicationSystem.代理部文员.制作专利请求书.制作专利请求书" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/代理部文员/代理部文员Master.master" AutoEventWireup="true" CodeBehind="制作专利请求书.aspx.cs" Inherits="Homework.PatentApplicationSystem.代理部文员.制作专利请求书.制作专利请求书" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
 </asp:Content>

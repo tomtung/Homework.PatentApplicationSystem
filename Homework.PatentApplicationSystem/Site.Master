@@ -17,17 +17,6 @@
             <div id="nav">
                 <ul>
                 <asp:ContentPlaceHolder ID="TabPlaceHolder" runat="server" />
-<%--                <li><asp:HyperLink ID="立案" Text="立案" NavigateUrl="~/立案员/Default.aspx" CssClass="selected" runat="server"></asp:HyperLink></li>
-                <li><asp:HyperLink ID="分案" Text="分案" NavigateUrl="~/分案员/Default.aspx" runat="server"></asp:HyperLink></li>--%>
-                    <%--<asp:Menu ID="d" runat="server">
-                    </asp:Menu>--%>
-               <%-- <asp:Menu ID="Menu1" DataSourceID="MenuSrc1"  EnableViewState="false"
-                    IncludeStyleBlock="false" Orientation="Horizontal" MaximumDynamicDisplayLevels="4"
-                    StaticDisplayLevels="1" DynamicHorizontalOffset="1" DynamicVerticalOffset="1" runat="server">
-                    <DataBindings>
-                        <asp:MenuItemBinding DataMember="Menu" />
-                    </DataBindings>
-                </asp:Menu>--%>
                 </ul>
             </div>
         </div>

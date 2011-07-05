@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="处理提交并确认.aspx.cs" Inherits="Homework.PatentApplicationSystem.质检员.处理提交并确认.处理提交并确认" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/质检员/质检员Master.master" AutoEventWireup="true" CodeBehind="处理提交并确认.aspx.cs" Inherits="Homework.PatentApplicationSystem.质检员.处理提交并确认.处理提交并确认" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">

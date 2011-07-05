@@ -13,33 +13,17 @@ namespace Homework.PatentApplicationSystem.代理部主管.代理部内审
     public partial class Default : System.Web.UI.Page
     {
         private string CurrentTaskNames;
-        
-
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //test();
-
             CurrentTaskNames = TaskNames.代理部内审;
-            //if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
-
-
-                //Case @case = (Case)Session["Case"];
-                var user = Session["User"] as User;
-                if (user == null)
-                {
-                    Response.Redirect("/");
-                }
-
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
+                var user = Session["User"] as User;
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
                 this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
                 this.CaseFile1.CaseIDSource = pendingCaseIds;
-                
-
             }
         }
     }

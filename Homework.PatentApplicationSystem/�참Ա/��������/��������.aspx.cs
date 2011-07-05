@@ -18,8 +18,7 @@ namespace Homework.PatentApplicationSystem.办案员.定稿五书
 
             CurrentTaskNames = "定稿五书";
 
-            User CurrentUser = (User)Session["User"];
-            // if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 List<string> tabs = new List<string>();
                 tabs.Add("案件信息");
@@ -28,9 +27,6 @@ namespace Homework.PatentApplicationSystem.办案员.定稿五书
                 this.TabStrip1.DataSource = tabs;
 
                 string selectedCaseID = Session["SelectedCaseID"].ToString();
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
-                var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
-                Case @case = caseInfoManager.GetCaseById(selectedCaseID).Value;
                 this.caseInfo1.CaseID = selectedCaseID;
                 this.filecontrol1.CaseID = selectedCaseID;
             }

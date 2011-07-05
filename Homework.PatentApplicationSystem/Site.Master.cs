@@ -11,9 +11,9 @@ namespace Homework.PatentApplicationSystem
             {
                 User currentUser = (User)Session["User"];
                 if (currentUser == null)
-                    this.lblCurrentUser.Text = "用户";
+                    Response.Redirect("~/Account/Login.aspx");
                 else
-                    this.lblCurrentUser.Text = currentUser.UserName;
+                    lblCurrentUser.Text = currentUser.UserName;
             }
 
         }

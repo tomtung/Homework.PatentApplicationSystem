@@ -17,26 +17,14 @@ namespace Homework.PatentApplicationSystem.质检员.处理提交并确认
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //test();
-
             CurrentTaskNames = TaskNames.处理提交并确认;
-            //if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
-
-
-                var user = Session["User"] as User;
-                if (user == null || user.Role != Role.质检员)
-                {
-                    Response.Redirect("/");
-                }
-
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
+                var user = Session["User"] as User;
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
                 this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
                 this.CaseFile1.CaseIDSource = pendingCaseIds;
-
-
             }
         }
     }

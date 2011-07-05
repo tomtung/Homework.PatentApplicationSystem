@@ -32,7 +32,6 @@ namespace Homework.PatentApplicationSystem.办案员.撰写五书
                     Response.Redirect("/");
                 }
 
-                var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
                 this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
