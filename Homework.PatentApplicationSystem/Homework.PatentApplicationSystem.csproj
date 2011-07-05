@@ -100,7 +100,7 @@
     <Content Include="UserControl\FeedBackUserControl.ascx" />
     <Content Include="UserControl\FileUserControl.ascx" />
     <Content Include="UserControl\Tab.ascx" />
-    <Content Include="View\Default.aspx" />
+    <Content Include="View\WebForm1.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -235,12 +235,12 @@
     <Compile Include="UserControl\Tab.ascx.designer.cs">
       <DependentUpon>Tab.ascx</DependentUpon>
     </Compile>
-    <Compile Include="View\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="View\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="View\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="代理部主管\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
