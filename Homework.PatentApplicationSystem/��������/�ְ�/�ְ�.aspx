@@ -19,7 +19,7 @@
                     <asp:TableCell>
                         <asp:Label ID="lblSponsor" Text="主办人" runat="server" />
                     </asp:TableCell><asp:TableCell>
-                        <asp:ListBox ID="lBoxSponsor" DataSourceID=""  runat="server" />
+                        <asp:ListBox ID="lBoxSponsor" runat="server" />
                     </asp:TableCell></asp:TableRow>
             </asp:Table>
             <asp:MultiView ID="MultiVewDistributeCase" runat="server">
@@ -32,7 +32,7 @@
                                 <asp:Label ID="lblTranslator" Text="翻译" runat="server" />
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:ListBox ID="lBoxCaseWorker1" DataValueField="办案员列表" DataSourceID="" runat="server" />
+                                <asp:ListBox ID="lBoxCaseWorker1" runat="server" />
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
@@ -40,7 +40,7 @@
                                 <asp:Label ID="lblFRev" Text="一校" runat="server" />
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:ListBox ID="lBoxCaseWorker2" DataValueField="办案员列表" DataSourceID="" runat="server" />
+                                <asp:ListBox ID="lBoxCaseWorker2" runat="server" />
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
@@ -48,7 +48,7 @@
                                 <asp:Label ID="lblSRev" Text="二校" runat="server" />
                             </asp:TableCell>
                             <asp:TableCell>
-                                <asp:ListBox ID="lBoxCaseWorker3" DataValueField="办案员列表" DataSourceID="" runat="server" />
+                                <asp:ListBox ID="lBoxCaseWorker3" runat="server" />
                             </asp:TableCell>
                         </asp:TableRow>
                         

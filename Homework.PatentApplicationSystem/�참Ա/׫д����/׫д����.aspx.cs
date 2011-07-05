@@ -19,7 +19,7 @@ namespace Homework.PatentApplicationSystem.办案员.撰写五书
             CurrentTaskNames = "撰写五书";
 
             User CurrentUser = (User)Session["User"];
-            // if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 List<string> tabs = new List<string>();
                 tabs.Add("案件信息");
