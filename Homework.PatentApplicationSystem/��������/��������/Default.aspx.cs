@@ -8,26 +8,28 @@ using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Data;
 using Homework.PatentApplicationSystem.Model.Workflow;
 using Microsoft.Practices.ServiceLocation;
-namespace Homework.PatentApplicationSystem.分案员
+namespace Homework.PatentApplicationSystem.代理部主管.代理部内审
 {
     public partial class Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!Page.IsPostBack)
             {
 
-                Session["TaskName"] = TaskNames.分案;
+
                 Case @case = (Case)Session["Case"];
                 User user = (User)Session["User"];
-                
+
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
                 this.CaseFile1.CaseIDSource = pendingCaseIds;
-                
+
 
             }
+
         }
     }
 }

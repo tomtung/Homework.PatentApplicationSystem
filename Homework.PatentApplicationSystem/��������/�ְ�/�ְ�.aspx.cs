@@ -8,10 +8,11 @@ using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Data;
 using Homework.PatentApplicationSystem.Model.Workflow;
 using Microsoft.Practices.ServiceLocation;
-namespace Homework.PatentApplicationSystem.分案员
+namespace Homework.PatentApplicationSystem.代理部主管.分案
 {
-    public partial class MainPage : System.Web.UI.Page
+    public partial class 分案 : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -36,17 +37,20 @@ namespace Homework.PatentApplicationSystem.分案员
                 {
                     this.MultiVewDistributeCase.ActiveViewIndex = 0;
                 }
-                
+
                 this.lblCaseTypeInfo.Text = @case.案件类型.ToString();
-                
+
 
 
 
             }
         }
+
+
         protected void TabStrip1_Click(object sender, EventArgs e)
         {
             this.MultiView1.ActiveViewIndex = this.TabStrip1.SelectedIndex;
         }
+
     }
 }

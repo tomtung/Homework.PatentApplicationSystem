@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem.办案员
+namespace Homework.PatentApplicationSystem.办案员.原始资料翻译一校
 {
 
 
-    public partial class Default
+    public partial class 原始资料翻译一校
     {
     }
 }
