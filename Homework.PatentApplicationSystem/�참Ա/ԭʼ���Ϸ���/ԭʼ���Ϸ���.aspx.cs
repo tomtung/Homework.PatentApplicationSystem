@@ -25,10 +25,6 @@ namespace Homework.PatentApplicationSystem.办案员.原始资料翻译
                 tabs.Add("相关文件");
 
                 this.TabStrip1.DataSource = tabs;
-
-                string selectedCaseID = Session["SelectedCaseID"].ToString();
-                this.caseInfo1.CaseID = selectedCaseID;
-                this.filecontrol1.CaseID = selectedCaseID;
             }
 
         }

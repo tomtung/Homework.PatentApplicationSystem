@@ -25,10 +25,6 @@ namespace Homework.PatentApplicationSystem.代理部主管.代理部内审
                 tabs.Add("相关文件");
                 
                 this.TabStrip1.DataSource = tabs;
-
-                string selectedCaseID = Session["SelectedCaseID"].ToString();
-                caseInfo1.CaseID = selectedCaseID;
-                filecontrol1.CaseID = selectedCaseID;
             }
 
         }

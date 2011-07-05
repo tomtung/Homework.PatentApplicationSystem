@@ -23,10 +23,6 @@ namespace Homework.PatentApplicationSystem.质检员.流程部质检
                 var tabs = new List<string> {"案件信息", "相关文件"};
 
                 this.TabStrip1.DataSource = tabs;
-
-                string selectedCaseId = Session["SelectedCaseID"].ToString();
-                this.caseInfo1.CaseID = selectedCaseId;
-                this.filecontrol1.CaseID = selectedCaseId;
             }
 
         }
