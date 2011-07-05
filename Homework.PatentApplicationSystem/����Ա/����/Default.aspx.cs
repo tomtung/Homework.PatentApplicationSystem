@@ -17,7 +17,7 @@ namespace Homework.PatentApplicationSystem.立案员.立案
             if (!Page.IsPostBack)
             {
 
-    
+
                 this.lBoxCaseType.DataSource = typeof(CaseType).GetEnumNames();
                 this.lBoxCaseType.DataBind();
                 var clientInfoManager = ServiceLocator.Current.GetInstance<IClientInfoManager>();
@@ -38,7 +38,7 @@ namespace Homework.PatentApplicationSystem.立案员.立案
         protected void btnOK_Click(object sender, EventArgs e)
         {
             //创建Case
-            var newCase = new Case
+            Case newCase = new Case
             {
                 编号 = Guid.NewGuid().ToString(),
                 名称 = this.tboxCaseName.Text,

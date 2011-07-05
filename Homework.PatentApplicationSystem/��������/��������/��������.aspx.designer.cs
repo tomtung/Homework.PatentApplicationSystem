@@ -31,13 +31,13 @@ namespace Homework.PatentApplicationSystem.代理部主管.代理部内审 {
         protected global::System.Web.UI.WebControls.MultiView MultiView1;
         
         /// <summary>
-        /// ViewCaseInfo control.
+        /// viewcaseinfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View ViewCaseInfo;
+        protected global::System.Web.UI.WebControls.View viewcaseinfo;
         
         /// <summary>
         /// caseInfo1 control.
@@ -49,39 +49,12 @@ namespace Homework.PatentApplicationSystem.代理部主管.代理部内审 {
         protected global::Homework.PatentApplicationSystem.UserControl.CaseInfoUserControl caseInfo1;
         
         /// <summary>
-        /// ViewRelatedFiles control.
+        /// btnOK control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View ViewRelatedFiles;
-        
-        /// <summary>
-        /// fileControl1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl fileControl1;
-        
-        /// <summary>
-        /// ViewFeedBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View ViewFeedBack;
-        
-        /// <summary>
-        /// FeedBack1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.FeedBackUserControl FeedBack1;
+        protected global::System.Web.UI.WebControls.Button btnOK;
     }
 }

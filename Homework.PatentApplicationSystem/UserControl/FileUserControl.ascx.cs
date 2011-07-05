@@ -25,6 +25,10 @@ namespace Homework.PatentApplicationSystem.UserControl
         {
             
         }
+        protected void listViewFiles_SelectedIndexChanging(object sender, EventArgs e)
+        {
+
+        }
         protected void lbtnDownload_Click(object sender, EventArgs e)
         {
             

@@ -182,32 +182,5 @@ namespace Homework.PatentApplicationSystem.立案员.立案 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tBoxInventorID;
-        
-        /// <summary>
-        /// relatedFiles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl relatedFiles;
-        
-        /// <summary>
-        /// CaseMessageUserControl1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.CaseMessageUserControl CaseMessageUserControl1;
-        
-        /// <summary>
-        /// btnOK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOK;
     }
 }

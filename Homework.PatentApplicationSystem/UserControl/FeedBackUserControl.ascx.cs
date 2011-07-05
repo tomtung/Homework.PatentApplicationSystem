@@ -22,11 +22,12 @@ namespace Homework.PatentApplicationSystem.UserControl
 
         protected void btnFinish_Click(object sender, EventArgs e)
         {
+
             User currentUser = (User)Session["User"];
             CaseMessage doc = new CaseMessage
                               {
                                   案件编号 = CaseID,
-                                  Content = this.lblContent.Text,
+                                  //Content = this.lblContent.Text,
                                   SenderUsername = currentUser.UserName
                               };
             var caseMessageManager = ServiceLocator.Current.GetInstance<ICaseMessageManager>();

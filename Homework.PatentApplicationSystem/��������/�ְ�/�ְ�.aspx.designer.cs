@@ -175,13 +175,13 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案 {
         protected global::System.Web.UI.WebControls.ListBox lBoxCaseWorker3;
         
         /// <summary>
-        /// ViewCaseInfo control.
+        /// viewcaseinfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View ViewCaseInfo;
+        protected global::System.Web.UI.WebControls.View viewcaseinfo;
         
         /// <summary>
         /// caseInfo1 control.
@@ -193,31 +193,22 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案 {
         protected global::Homework.PatentApplicationSystem.UserControl.CaseInfoUserControl caseInfo1;
         
         /// <summary>
-        /// ViewRelatedFiles control.
+        /// viewrelatedfiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View ViewRelatedFiles;
+        protected global::System.Web.UI.WebControls.View viewrelatedfiles;
         
         /// <summary>
-        /// fileControl1 control.
+        /// filecontrol1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl fileControl1;
-        
-        /// <summary>
-        /// ViewFeedBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View ViewFeedBack;
+        protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl filecontrol1;
         
         /// <summary>
         /// btnOK control.

@@ -1,6 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FileUserControl.ascx.cs"
-    Inherits="Homework.PatentApplicationSystem.UserControl.FileUserControl" %>
-<asp:ListView ID="listViewFiles" DataKeyNames="案件编号" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged">
+ Inherits="Homework.PatentApplicationSystem.UserControl.FileUserControl" %>
+ <%@ Import Namespace="Homework.PatentApplicationSystem.Model.Data" %>
+<asp:ListView ID="listViewFiles" DataKeyNames="案件编号" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged"
+ OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging">
     <LayoutTemplate>
         <table>
             <thead>
@@ -31,16 +33,16 @@
                 <asp:CheckBox ID="cBox1" runat="server" />
             </td>
             <td>
-                <%# Eval("FileName") %>
+                <%# ((CaseDoc)(Container.DataItem)).FileName  %>
             </td>
             <td>
-                <%# Eval("UploadDateTime") %>>
+                <%# ((CaseDoc)(Container.DataItem)).UploadDateTime %>>
             </td>
             <td>
-                <%# Eval("UploadUserName") %>>
+                <%# ((CaseDoc)(Container.DataItem)).UploadUserName %>>
             </td>
             <td>
-                 <asp:LinkButton ID="lBtnDownload" Text="下载" OnClick="lbtnDownload_Click"  runat="server" />
+                 <asp:LinkButton ID="lBtnDownload" Text="下载" CommandName="Select" OnClick="lbtnDownload_Click"  runat="server" />
             </td>
         </tr>
     </ItemTemplate>

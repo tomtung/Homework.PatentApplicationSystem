@@ -36,13 +36,25 @@ namespace Homework.PatentApplicationSystem.UserControl
         protected void listViewFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+            Session["SelectedCaseID"] = this.listViewFiles.SelectedValue.ToString();
+            User currentUser = (User)Session["User"];
+
+            string url = "~/" + currentUser.Role.ToString() + "/" + CurrentTaskNames + "/" + CurrentTaskNames + ".aspx";
+            
+            //this.lblTest.Text = url;
+            //this.lblTest.Text = CurrentTaskNames;
+            Response.Redirect(url);
+        }
+        protected void listViewFiles_SelectedIndexChanging(object sender, EventArgs e)
+        {
+
         }
         protected void lbtnSelect_Click(object sender, EventArgs e)
         {
-            Session["SelectedCaseID"] = this.listViewFiles.SelectedDataKey.Value;
-            User currentUser = (User)Session["User"];
-            string url = "~/" + currentUser.Role + "/MainPage.aspx";
-            Response.Redirect(url);
+            //if (listViewFiles.SelectedDataKey == null) throw new NotSupportedException();
+
+            
+
         }
 
     }

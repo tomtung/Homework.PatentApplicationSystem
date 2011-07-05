@@ -50,7 +50,8 @@ namespace Homework.PatentApplicationSystem.Model.Data
                                          {"文件名", doc.FileName},
                                          {"创建人", doc.UploadUserName},
                                          {"创建日期", doc.UploadDateTime},
-                                         {"文件路径", doc.FilePath}
+                                         {"文件路径", doc.FilePath},
+                                         {"案件编号", doc.案件编号}
                                      };
                 connection.Insert(CaseDocTableName, dictionary);
             }

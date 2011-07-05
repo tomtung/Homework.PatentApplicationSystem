@@ -19,7 +19,7 @@
                     <asp:TableCell>
                         <asp:Label ID="lblSponsor" Text="主办人" runat="server" />
                     </asp:TableCell><asp:TableCell>
-                        <asp:ListBox ID="lBoxSponsor" DataSourceID="" runat="server" />
+                        <asp:ListBox ID="lBoxSponsor" DataSourceID=""  runat="server" />
                     </asp:TableCell></asp:TableRow>
             </asp:Table>
             <asp:MultiView ID="MultiVewDistributeCase" runat="server">
@@ -57,16 +57,16 @@
                 </asp:View>
             </asp:MultiView>
         </asp:View>
-        <asp:View ID="ViewCaseInfo" runat="server">
-            <user:CaseInfo ID="caseInfo1" runat="server" />
-        </asp:View>
-        <asp:View ID="ViewRelatedFiles" runat="server">
-            <user:File ID="fileControl1" runat="server"></user:file>
-        </asp:View>
-        <asp:View ID="ViewFeedBack" runat="server">
+        <asp:view id="viewcaseinfo" runat="server">
+            <user:caseinfo id="caseInfo1" runat="server" />
+        </asp:view>
+        <asp:view id="viewrelatedfiles" runat="server">
+            <user:file id="filecontrol1" runat="server"></user:file>
+        </asp:view>
+<%--        <asp:View ID="ViewFeedBack" runat="server">
             <user::FeedBack ID="FeedBack1" runat="server" />
-        </asp:View>
+        </asp:View>--%>
     </asp:MultiView>
     
-    <asp:Button ID="btnOK" Text="完成" runat="server" />
+    <asp:Button ID="btnOK" Text="完成" OnClick="btnOK_Click" runat="server" />
 </asp:Content>

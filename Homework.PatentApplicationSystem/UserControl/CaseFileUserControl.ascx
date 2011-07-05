@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CaseFileUserControl.ascx.cs" Inherits="Homework.PatentApplicationSystem.UserControl.CaseFileUserControl" %>
-<asp:ListView ID="listViewFiles" DataKeyNames="编号" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged">
+<%@ Import Namespace="Homework.PatentApplicationSystem.Model.Data" %>
+<asp:ListView ID="listViewFiles" DataKeyNames="编号" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged" OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging"
+ >
     <LayoutTemplate>
         <table>
             <thead>
@@ -27,23 +29,24 @@
     </LayoutTemplate>
     <ItemTemplate>
         <tr>
-            
             <td>
-                <%# Eval("名称") %>
+                <%# ((Case)Container.DataItem).名称 %>
             </td>
             <td>
-                <%# Eval("创建时间") %>>
+                <%# ((Case)Container.DataItem).创建时间%>>
             </td>
             <td>
-                <%# Eval("绝限日") %>>
+                <%# ((Case)Container.DataItem).绝限日%>>
             </td>
             <td>
-                <%# Eval("客户号") %>>
+                <%# ((Case)Container.DataItem).客户号 %>>
             </td>
             <td>
-                <asp:LinkButton ID="lBtnSelect" Text="选择" OnClick="lbtnSelect_Click"  runat="server" />
+                <asp:LinkButton ID="lBtnSelect" CommandName="Select" Text="选择" OnClick="lbtnSelect_Click"  runat="server" />
             </td>
         </tr>
     </ItemTemplate>
 </asp:ListView>
+
+<asp:Label ID="lblTest" runat="server" />
 

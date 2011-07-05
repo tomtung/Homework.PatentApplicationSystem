@@ -4,7 +4,7 @@
   </x:Members>
   <sap:VirtualizedContainerService.HintSize>654,676</sap:VirtualizedContainerService.HintSize>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
-  <Flowchart sad:XamlDebuggerXmlReader.FileName="d:\Documents\Visual Studio 2010\Projects\Homework.PatentApplicationSystem\Homework.PatentApplicationSystem.Model\Workflow\CaseWorkflow.xaml" sap:VirtualizedContainerService.HintSize="614,636">
+  <Flowchart sad:XamlDebuggerXmlReader.FileName="J:\DocumentFile\programming(1)\Homework.PatentApplicationSystem\Homework.PatentApplicationSystem.Model\Workflow\CaseWorkflow.xaml" sap:VirtualizedContainerService.HintSize="614,636">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="流程部质检" />
     </Flowchart.Variables>
@@ -35,7 +35,7 @@
                 <av:PointCollection x:Key="ConnectorLocation">250,146.5 250,176.5 250,189</av:PointCollection>
               </scg3:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Flowchart DisplayName="代理部办案" sap:VirtualizedContainerService.HintSize="715,847">
+            <Flowchart DisplayName="代理部办案" sap:VirtualizedContainerService.HintSize="200,53">
               <Flowchart.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="代理部内审" />
               </Flowchart.Variables>

@@ -34,7 +34,7 @@ namespace Homework.PatentApplicationSystem.Model
             Bind<ICaseWorkflowManager>().To<CaseWorkflowManager>().InSingletonScope();
             Bind<String>().ToMethod(c => DbConnectionString).WhenInjectedInto<CaseWorkflowManager>();
 
-            Bind<WordToPdfConverter>().ToSelf().InSingletonScope();
+            //Bind<WordToPdfConverter>().ToSelf().InSingletonScope();
         }
     }
 }

@@ -12,10 +12,14 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
 {
     public partial class 分案 : System.Web.UI.Page
     {
+        public string CurrentTaskNames { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            CurrentTaskNames = "分案";
+
+            User CurrentUser = (User)Session["User"];
+            // if (!Page.IsPostBack)
             {
                 List<string> tabs = new List<string>();
                 tabs.Add("分案");
@@ -39,10 +43,10 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
                 }
 
                 this.lblCaseTypeInfo.Text = @case.案件类型.ToString();
-
-
-
-
+                var userNames = ServiceLocator.Current.GetInstance<IUserService>().GetUsersByRole(Role.办案员).Select(user=>user.UserName);
+                lBoxSponsor.DataSource =  lBoxCaseWorker1.DataSource =  lBoxCaseWorker2.DataSource = lBoxCaseWorker3.DataSource = userNames;
+                this.caseInfo1.CaseID = selectedCaseID;
+                this.filecontrol1.CaseID = selectedCaseID;
             }
         }
 
@@ -50,6 +54,35 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
         protected void TabStrip1_Click(object sender, EventArgs e)
         {
             this.MultiView1.ActiveViewIndex = this.TabStrip1.SelectedIndex;
+        }
+        protected void btnOK_Click(object sender, EventArgs e)
+        {
+            var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
+            var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
+            string caseId = Session["SelectedCaseID"].ToString();
+            Case @case = caseInfoManager.GetCaseById(caseId).Value;
+            User user = (User)Session["User"];
+
+            if (this.lBoxSponsor.SelectedIndex >= 0)
+            {
+                @case.主办员用户名 = this.lBoxSponsor.SelectedValue;
+            }
+
+            if (this.lBoxCaseWorker1.SelectedIndex >= 0)
+            {
+                @case.翻译用户名 = this.lBoxCaseWorker1.SelectedValue;
+
+            }
+            if (this.lBoxCaseWorker2.SelectedIndex >= 0)
+            {
+                @case.一校用户名 = this.lBoxCaseWorker1.SelectedValue;
+
+            }
+            if (this.lBoxCaseWorker3.SelectedIndex >= 0)
+            {
+                @case.二校用户名 = this.lBoxCaseWorker1.SelectedValue;
+
+            }
         }
 
     }
