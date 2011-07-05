@@ -2,8 +2,6 @@
     CodeBehind="Default.aspx.cs" Inherits="Homework.PatentApplicationSystem.立案员.立案.Default" %>
 <%@MasterType TypeName="Homework.PatentApplicationSystem.SiteMaster" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="nav2">
         <user:Tab ID="TabStrip1" OnTabClick="TabStrip1_Click" runat="server" />
@@ -46,17 +44,9 @@
                         <asp:Label ID="lblInventorID" Text="发明人身份证号" runat="server" />
                     </asp:TableCell><asp:TableCell>
                         <asp:TextBox ID="tBoxInventorID" runat="server" />
-                    </asp:TableCell></asp:TableRow></asp:Table><br /></asp:View><%--  <asp:View ID="RelatedFilesView" runat="server">
-            <user:File ID="relatedFiles" runat="server" />
-        </asp:View>
-        <asp:View ID="CaseMessageView" runat="server">
-            <user:CaseMessageUserControl ID="CaseMessageUserControl1" runat="server" />
-        </asp:View>--%></asp:MultiView><div id="decide">
-        <asp:Button ID="btnOK" Text="完成" CssClass="lbutton_blue" OnClick="btnOK_Click" runat="server" />
+                    </asp:TableCell></asp:TableRow></asp:Table><br /></asp:View>
+                    </asp:MultiView>
+    <div id="decide">
+        <button runat="server" class="lbutton-blue" onserverclick="btnOK_Click">完成</button>
     </div>
 </asp:Content>
-<%--<asp:Content ID="Content3" ContentPlaceHolderID="TabPlaceHolder" runat="server">
-<li runat="server" class="selected">
-    <asp:HyperLink ID="HyperLink1" Text="立案" NavigateUrl="~/立案员/立案/Default.aspx" runat="server" />
-</li>
-</asp:Content>--%>

@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CaseHandleMaster.master.cs" Inherits="Homework.PatentApplicationSystem.CaseHandleMaster" %>
+<%@MasterType TypeName="Homework.PatentApplicationSystem.SiteMaster" %>
+<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+    <div id="nav2">
+        <user:Tab ID="TabStrip" OnTabClick="TabStrip_Click" runat="server" />
+    </div>
+    <asp:MultiView ID="MultiView" ActiveViewIndex="0" runat="server">
+        <asp:view runat="server">
+            <user:caseinfo runat="server" />
+        </asp:view>
+        <asp:view runat="server">
+            <user:file runat="server" />
+        </asp:view>
+    </asp:MultiView>
+    <div id="decide">
+        <asp:Panel ID="SingleButtonPanel" runat="server" Visible="true">
+            <button runat="server" class="lbutton-blue" onserverclick="ButtonPass_Click">完成</button>
+        </asp:Panel>
+        <asp:Panel ID="DoubleButtonPanel" runat="server" Visible="false">
+            <button runat="server" class="lbutton-blue" onserverclick="ButtonPass_Click">通过</button>
+            <button runat="server" class="lbutton-red" onserverclick="ButtonCheck_Click">未通过</button>
+        </asp:Panel>
+    </div>
+</asp:Content>

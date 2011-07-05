@@ -1,10 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/代理部主管/代理部主管Master.master" AutoEventWireup="true" CodeBehind="分案.aspx.cs" Inherits="Homework.PatentApplicationSystem.代理部主管.分案.分案" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-</asp:Content>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="分案.aspx.cs" Inherits="Homework.PatentApplicationSystem.代理部主管.分案.分案" %>
+<%@MasterType TypeName="Homework.PatentApplicationSystem.SiteMaster" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div id="nav2">
-        <user:Tab ID="TabStrip1" OnTabClick="TabStrip1_Click" runat="server" />
+        <user:Tab ID="TabStrip" OnTabClick="TabStrip_Click" runat="server" />
     </div>
     <asp:MultiView ID="MultiView1" ActiveViewIndex="0" runat="server">
         <asp:View ID="ViewDistributeCase" runat="server">
@@ -45,12 +44,8 @@
         <asp:view id="viewrelatedfiles" runat="server">
             <user:file id="filecontrol1" runat="server"></user:file>
         </asp:view>
-<%--        <asp:View ID="ViewFeedBack" runat="server">
-            <user::FeedBack ID="FeedBack1" runat="server" />
-        </asp:View>--%>
     </asp:MultiView>
-    
-    
-    <asp:Button ID="btnOK" Text="完成" OnClick="btnOK_Click" runat="server" />
-    
+    <div id="decide">
+    <button runat="server" class="lbutton-blue" onserverclick="btnOK_Click">完成</button>
+    </div>
 </asp:Content>

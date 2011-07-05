@@ -13,57 +13,15 @@ namespace Homework.PatentApplicationSystem.办案员.撰写五书 {
     public partial class 撰写五书 {
         
         /// <summary>
-        /// TabStrip control.
+        /// Master property.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Auto-generated property.
         /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.Tab TabStrip;
-        
-        /// <summary>
-        /// MultiView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView MultiView;
-        
-        /// <summary>
-        /// viewcaseinfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewcaseinfo;
-        
-        /// <summary>
-        /// caseInfo1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.CaseInfoUserControl caseInfo1;
-        
-        /// <summary>
-        /// viewrelatedfiles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewrelatedfiles;
-        
-        /// <summary>
-        /// filecontrol1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl filecontrol1;
+        public new Homework.PatentApplicationSystem.CaseHandleMaster Master {
+            get {
+                return ((Homework.PatentApplicationSystem.CaseHandleMaster)(base.Master));
+            }
+        }
     }
 }
