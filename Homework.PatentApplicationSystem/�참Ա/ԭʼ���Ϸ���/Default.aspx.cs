@@ -23,7 +23,7 @@ namespace Homework.PatentApplicationSystem.办案员.原始资料翻译
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
                 this.CaseFile1.CaseIDSource = pendingCaseIds;
-
+                this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
 
             }
         }
