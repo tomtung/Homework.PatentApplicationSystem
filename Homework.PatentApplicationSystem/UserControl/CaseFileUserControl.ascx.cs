@@ -9,6 +9,7 @@ using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Workflow;
 using Homework.PatentApplicationSystem.Model.Data;
 using Microsoft.Practices.ServiceLocation;
+
 namespace Homework.PatentApplicationSystem.UserControl
 {
 
@@ -40,8 +41,7 @@ namespace Homework.PatentApplicationSystem.UserControl
             
             Session["SelectedCaseID"] = this.listViewFiles.SelectedValue.ToString();
             User currentUser = (User)Session["User"];
-            string url = "~/" + currentUser.Role.ToString() + "/" + ViewState["CurrentTaskNames"].ToString() + "/" + ViewState["CurrentTaskNames"].ToString() + ".aspx";
-            //this.lblTest.Text = url + this.listViewFiles.SelectedValue.ToString();
+            string url = "~/" + currentUser.Role.ToString() + "/" + ViewState["CurrentTaskNames"] + "/" + ViewState["CurrentTaskNames"] + ".aspx";
             Response.Redirect(url);
         }
         protected void listViewFiles_SelectedIndexChanging(object sender, EventArgs e)

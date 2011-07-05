@@ -23,7 +23,8 @@ namespace Homework.PatentApplicationSystem.立案员.立案
                 this.lBoxCaseType.DataSource = typeof(CaseType).GetEnumNames();
                 this.lBoxCaseType.DataBind();
                 var clientInfoManager = ServiceLocator.Current.GetInstance<IClientInfoManager>();
-                this.lblDateLimitInfo.Text = DateTime.Today.AddDays(30).ToString();
+                this.lblDateLimitInfo.Text = DateTime.Now.AddDays(30).ToString();
+                lblCreateDateInfo.Text = DateTime.Now.ToString();
             }
         }
         protected void TabStrip1_Click(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace Homework.PatentApplicationSystem.立案员.立案
                 编号 = Guid.NewGuid().ToString(),
                 名称 = this.tboxCaseName.Text,
                 案件类型 = this.lBoxCaseType.SelectedValue.EnumParse<CaseType>(),
-                创建时间 = Convert.ToDateTime(this.tboxCreateDate.Text),
+                创建时间 = Convert.ToDateTime(this.lblCreateDateInfo.Text),
                 绝限日 = Convert.ToDateTime(this.lblDateLimitInfo.Text),
                 状态 = CaseState.OnGoing,
                 客户号 = this.tBoxClientName.Text,
