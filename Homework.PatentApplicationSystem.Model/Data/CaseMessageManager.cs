@@ -31,7 +31,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
                                              {
                                                  案件编号 = (string) reader["案件编号"],
                                                  Content = (string) reader["Content"],
-                                                 SenderUsername = (string) reader["SendUsername"]
+                                                 SenderUsername = (string) reader["SenderName"]
                                              });
                     }
                 }
@@ -48,7 +48,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
                                      {
                                          {"案件编号", doc.案件编号},
                                          {"Content", doc.Content},
-                                         {"SenderUsername", doc.SenderUsername}
+                                         {"SenderName", doc.SenderUsername}
                                      };
                 connection.Insert(TableName, dictionary);
             }
