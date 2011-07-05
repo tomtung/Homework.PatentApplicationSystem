@@ -19,7 +19,7 @@ namespace Homework.PatentApplicationSystem.Account
         {
             string username = txtUserName.Text;
             string pwd = txtPWD.Text;
-            var service = ServiceLocator.Current.GetInstance<IUserLoginService>();
+            var service = ServiceLocator.Current.GetInstance<IUserService>();
             Tuple<LoginResult, User> loginRes = service.Login(username, pwd);
             if (loginRes.Item1 == LoginResult.Successful)
             {

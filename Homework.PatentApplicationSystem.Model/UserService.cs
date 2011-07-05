@@ -4,16 +4,16 @@ using System.Data.SqlClient;
 
 namespace Homework.PatentApplicationSystem.Model
 {
-    internal class UserLoginService : IUserLoginService
+    internal class UserService : IUserService
     {
         private readonly string _connectionString;
 
-        public UserLoginService(string connectionString)
+        public UserService(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        #region Implementation of IUserLoginService
+        #region Implementation of IUserService
 
         public Tuple<LoginResult, User> Login(string userName, string password)
         {
@@ -35,6 +35,11 @@ namespace Homework.PatentApplicationSystem.Model
                     result = LoginResult.UserNotExist;
                 return Tuple.Create(result, user);
             }
+        }
+
+        public IEnumerable<User> GetUsersByRole(Role role)
+        {
+            throw new NotImplementedException();
         }
 
         private static User ExtractUser(SqlDataReader reader)
