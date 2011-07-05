@@ -26,7 +26,7 @@ namespace Homework.PatentApplicationSystem.UserControl
             CaseMessage doc = new CaseMessage
                               {
                                   案件编号 = CaseID,
-                                  Content = this.tBoxContent.Text,
+                                  Content = this.lblContent.Text,
                                   SenderUsername = currentUser.UserName
                               };
             var caseMessageManager = ServiceLocator.Current.GetInstance<ICaseMessageManager>();
