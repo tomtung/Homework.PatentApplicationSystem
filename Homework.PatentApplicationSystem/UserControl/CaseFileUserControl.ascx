@@ -34,13 +34,13 @@
                 <%# ((Case)Container.DataItem).名称 %>
             </td>
             <td>
-                <%# ((Case)Container.DataItem).创建时间%>>
+                <%# ((Case)Container.DataItem).创建时间%>
             </td>
             <td>
-                <%# ((Case)Container.DataItem).绝限日%>>
+                <%# ((Case)Container.DataItem).绝限日%>
             </td>
             <td>
-                <%# ((Case)Container.DataItem).客户号 %>>
+                <%# ((Case)Container.DataItem).客户号 %>
             </td>
             <td>
                 <asp:LinkButton ID="lBtnSelect" CommandName="Select" Text="选择" runat="server" />
