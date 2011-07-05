@@ -19,7 +19,7 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
             CurrentTaskNames = "分案";
 
             User CurrentUser = (User)Session["User"];
-            // if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 List<string> tabs = new List<string>();
                 tabs.Add("分案");

@@ -22,7 +22,7 @@ namespace Homework.PatentApplicationSystem.办案员.撰写五书
             //test();
 
             CurrentTaskNames = TaskNames.撰写五书;
-            //if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
 
 

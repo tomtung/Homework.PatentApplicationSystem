@@ -22,9 +22,9 @@ namespace Homework.PatentApplicationSystem.UserControl
         public IEnumerable<string> CaseIDSource { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            User currentUser = (User)Session["User"];
-            //if (!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
+                User currentUser = (User)Session["User"];
                 ViewState["CurrentTaskNames"] = CurrentTaskNames;
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
