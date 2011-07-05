@@ -87,6 +87,9 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
                 @case.二校用户名 = this.lBoxCaseWorker1.SelectedValue;
 
             }
+
+            caseInfoManager.UpdateCase(@case);
+            caseWorkflowManager.ResumeCase(@case, CurrentTaskNames);
         }
 
     }

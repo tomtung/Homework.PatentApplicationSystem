@@ -8,14 +8,20 @@ using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Data;
 using Homework.PatentApplicationSystem.Model.Workflow;
 using Microsoft.Practices.ServiceLocation;
-namespace Homework.PatentApplicationSystem.代理部文员.制作官方格式函
+namespace Homework.PatentApplicationSystem.办案员.定稿五书
 {
     public partial class Default : System.Web.UI.Page
     {
         private string CurrentTaskNames;
+
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            CurrentTaskNames = TaskNames.制作官方格式函;
+            //test();
+
+            CurrentTaskNames = TaskNames.定稿五书;
             //if (!Page.IsPostBack)
             {
 
@@ -25,12 +31,12 @@ namespace Homework.PatentApplicationSystem.代理部文员.制作官方格式函
 
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
-                IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);
+                IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, user);
+                this.CaseFile1.CurrentTaskNames = CurrentTaskNames;
                 this.CaseFile1.CaseIDSource = pendingCaseIds;
 
 
             }
-
         }
     }
 }

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem.代理部主管.代理部内审 {
+namespace Homework.PatentApplicationSystem.代理部文员.制作专利请求书 {
     
     
-    public partial class 代理部内审 {
+    public partial class 制作专利请求书 {
         
         /// <summary>
         /// TabStrip1 control.

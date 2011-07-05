@@ -12,9 +12,11 @@ namespace Homework.PatentApplicationSystem.办案员.原始资料翻译
 {
     public partial class Default : System.Web.UI.Page
     {
+        private string CurrentTaskNames;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            CurrentTaskNames = TaskNames.原始资料翻译;
+            //if (!Page.IsPostBack)
             {
 
 

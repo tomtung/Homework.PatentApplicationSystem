@@ -57,7 +57,7 @@
             </asp:Table>
             <br />
         </asp:View>
-<%--    <asp:View ID="RelatedFilesView" runat="server">
+  <%--  <asp:View ID="RelatedFilesView" runat="server">
             <user:File ID="relatedFiles" runat="server" />
         </asp:View>
         <asp:View ID="CaseMessageView" runat="server">
