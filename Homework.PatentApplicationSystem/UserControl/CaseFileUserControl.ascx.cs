@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Homework.PatentApplicationSystem.Model;
+using Homework.PatentApplicationSystem.Model.Workflow;
 using Homework.PatentApplicationSystem.Model.Data;
 using Microsoft.Practices.ServiceLocation;
 namespace Homework.PatentApplicationSystem.UserControl
@@ -15,7 +16,7 @@ namespace Homework.PatentApplicationSystem.UserControl
     public partial class CaseFileUserControl : System.Web.UI.UserControl
     {
         public IEnumerable<string> CaseIDSource{get; set;}
-        
+        public string CurrentTaskNames { get; set; }
        
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,13 +24,10 @@ namespace Homework.PatentApplicationSystem.UserControl
             {
 
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
-                Cases m_Cases = new Cases();
-                foreach (string caseID in CaseIDSource)
-                {
-                    m_Cases.AddCase(caseInfoManager.GetCaseById(caseID).Value);
-                }
-
-                this.listViewFiles.DataSource = m_Cases;
+                var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
+                User currentUser = (User)Session["User"];
+                this.listViewFiles.DataSource = caseWorkflowManager.GetPendingCaseIds(CurrentTaskNames, currentUser).Select(id => caseInfoManager.GetCaseById(id).Value);
+                
                 this.listViewFiles.DataBind();
 
             }

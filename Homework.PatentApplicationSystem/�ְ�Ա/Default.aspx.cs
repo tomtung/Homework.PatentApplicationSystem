@@ -16,9 +16,11 @@ namespace Homework.PatentApplicationSystem.分案员
         {
             if (!Page.IsPostBack)
             {
+
+                Session["TaskName"] = TaskNames.分案;
                 Case @case = (Case)Session["Case"];
                 User user = (User)Session["User"];
-
+                
                 var caseInfoManager = ServiceLocator.Current.GetInstance<ICaseInfoManager>();
                 var caseWorkflowManager = ServiceLocator.Current.GetInstance<ICaseWorkflowManager>();
                 IEnumerable<string> pendingCaseIds = caseWorkflowManager.GetPendingCaseIds(TaskNames.分案, user);

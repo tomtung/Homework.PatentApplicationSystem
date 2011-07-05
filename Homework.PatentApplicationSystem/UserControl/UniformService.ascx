@@ -10,6 +10,6 @@
             <user:File ID="fileControl1" runat="server"></user:file>
         </asp:View>
         <asp:View ID="ViewFeedBack" runat="server">
-            <user::FeedBack ID="FeedBack1" runat="server" />
+            <user:FeedBack ID="FeedBack1" runat="server" />
         </asp:View>
 </asp:MultiView>
