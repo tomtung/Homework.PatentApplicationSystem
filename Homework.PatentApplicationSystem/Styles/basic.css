@@ -305,8 +305,8 @@ table a:hover {
 .comment textarea {
 	padding:7px 10px 6px 10px;
 	height:15px;
-	width:480px;
-	max-width:480px;
+	width:460px;
+	max-width:460px;
 }
 .comment .mbutton {
 	position:relative;
