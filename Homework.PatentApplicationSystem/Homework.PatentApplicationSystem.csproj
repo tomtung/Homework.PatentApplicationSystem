@@ -68,6 +68,7 @@
     <Content Include="ClientInfoManage\发明人.aspx" />
     <Content Include="ClientInfoManage\客户.aspx" />
     <Content Include="ClientInfoManage\客户联系人.aspx" />
+    <Content Include="ClientInfoManage\申请人.aspx" />
     <Content Include="Styles\basic.css" />
     <Content Include="Styles\Picture\bg.png" />
     <Content Include="Styles\Picture\footer-bg.png" />
@@ -170,6 +171,13 @@
     </Compile>
     <Compile Include="ClientInfoManage\客户联系人.aspx.designer.cs">
       <DependentUpon>客户联系人.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientInfoManage\申请人.aspx.cs">
+      <DependentUpon>申请人.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientInfoManage\申请人.aspx.designer.cs">
+      <DependentUpon>申请人.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
