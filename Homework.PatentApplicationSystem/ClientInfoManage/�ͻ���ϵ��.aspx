@@ -54,7 +54,7 @@
                 <%# ((CustomerContact)Container.DataItem).客户号 %>
             </td>
             <td>
-                <asp:LinkButton ID="lBtnDelete" CommandName="Select"Text="X" runat="server" />
+                <asp:LinkButton ID="lBtnDelete" CommandName="Select" Text="X" runat="server" />
             </td>
 
         </tr>
