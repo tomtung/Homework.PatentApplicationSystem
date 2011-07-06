@@ -2,9 +2,9 @@
  Inherits="Homework.PatentApplicationSystem.UserControl.FileUserControl" %>
  <%@ Import Namespace="Homework.PatentApplicationSystem.Model.Data" %>
 
-<asp:FileUpload ID="FileUpload1" Visible="false" runat="server" /> &nbsp; <asp:Button ID="btnUpload" Text="上传" OnClick="btnUpload_Click"  Visible="false" runat="server" />
+<asp:FileUpload ID="FileUpload1" Visible="false" runat="server" />
+<asp:Button ID="btnUpload" Text="上传" OnClick="btnUpload_Click"  Visible="false" runat="server" />
 
- 
 <asp:ListView ID="listViewFiles" DataKeyNames="FileName" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged"
  OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging">
     <LayoutTemplate>
@@ -40,10 +40,10 @@
                 <%# ((CaseDoc)(Container.DataItem)).FileName  %>
             </td>
               <td>
-                <%# ((CaseDoc)(Container.DataItem)).UploadUserName %>>
+                <%# ((CaseDoc)(Container.DataItem)).UploadUserName %>
             </td>
             <td>
-                <%# ((CaseDoc)(Container.DataItem)).UploadDateTime %>>
+                <%# ((CaseDoc)(Container.DataItem)).UploadDateTime %>
             </td>
    
             <td>
@@ -53,9 +53,11 @@
 
         </tr>
     </ItemTemplate>
+    <EmptyDataTemplate>
+    <td>暂无相关文档。</td>
+    </EmptyDataTemplate>
 </asp:ListView>
-<asp:Button ID="btnAdd" Text="+ 添加" runat="server" onclick="btnAdd_Click" /> &nbsp; 
-
+<button id="btnAdd" runat="server" class="mbutton" onserverclick="btnAdd_Click">+ 添加</button>
 
 
 

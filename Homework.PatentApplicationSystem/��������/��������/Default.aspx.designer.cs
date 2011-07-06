@@ -13,12 +13,15 @@ namespace Homework.PatentApplicationSystem.代理部主管.代理部内审 {
     public partial class Default {
         
         /// <summary>
-        /// CaseFile1 control.
+        /// Master property.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Auto-generated property.
         /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.CaseFileUserControl CaseFile1;
+        public new Homework.PatentApplicationSystem.CaseListMaster Master {
+            get {
+                return ((Homework.PatentApplicationSystem.CaseListMaster)(base.Master));
+            }
+        }
     }
 }

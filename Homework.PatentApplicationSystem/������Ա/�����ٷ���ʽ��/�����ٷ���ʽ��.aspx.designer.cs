@@ -7,72 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Homework.PatentApplicationSystem.代理部文员 {
+namespace Homework.PatentApplicationSystem.代理部文员.制作官方格式函 {
     
     
-    public partial class MainPage {
+    public partial class 制作官方格式函 {
         
         /// <summary>
-        /// TabStrip1 control.
+        /// Master property.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Auto-generated property.
         /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.Tab TabStrip1;
-        
-        /// <summary>
-        /// MultiView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView MultiView1;
-        
-        /// <summary>
-        /// viewcaseinfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewcaseinfo;
-        
-        /// <summary>
-        /// caseInfo1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.CaseInfoUserControl caseInfo1;
-        
-        /// <summary>
-        /// viewrelatedfiles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewrelatedfiles;
-        
-        /// <summary>
-        /// filecontrol1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Homework.PatentApplicationSystem.UserControl.FileUserControl filecontrol1;
-        
-        /// <summary>
-        /// btnOK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOK;
+        public new Homework.PatentApplicationSystem.CaseHandleMaster Master {
+            get {
+                return ((Homework.PatentApplicationSystem.CaseHandleMaster)(base.Master));
+            }
+        }
     }
 }

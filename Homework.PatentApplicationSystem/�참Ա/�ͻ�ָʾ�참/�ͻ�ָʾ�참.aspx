@@ -1,0 +1,2 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandleMaster.master" AutoEventWireup="true" CodeBehind="客户指示办案.aspx.cs" Inherits="Homework.PatentApplicationSystem.办案员.客户指示办案.客户指示办案" %>
+<%@ MasterType TypeName="Homework.PatentApplicationSystem.CaseHandleMaster" %>
