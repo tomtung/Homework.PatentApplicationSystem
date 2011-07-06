@@ -124,6 +124,7 @@
     <Content Include="办案员\客户指示办案\客户指示办案.aspx" />
     <Content Include="办案员\撰写五书\Default.aspx" />
     <Content Include="办案员\撰写五书\撰写五书.aspx" />
+    <Content Include="客户管理.aspx" />
     <Content Include="立案员\Default.aspx" />
     <Content Include="立案员\立案\Default.aspx" />
     <Content Include="质检员\Default.aspx" />
@@ -401,6 +402,13 @@
     </Compile>
     <Compile Include="办案员\撰写五书\撰写五书.aspx.designer.cs">
       <DependentUpon>撰写五书.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="客户管理.aspx.cs">
+      <DependentUpon>客户管理.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="客户管理.aspx.designer.cs">
+      <DependentUpon>客户管理.aspx</DependentUpon>
     </Compile>
     <Compile Include="立案员\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

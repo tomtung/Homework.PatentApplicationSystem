@@ -11,8 +11,8 @@ namespace Homework.PatentApplicationSystem
         public void SetTaskName(string taskName)
         {
             var currentUser = Session["User"] as User;
-            if (currentUser == null || !TaskNames.TasksOf(currentUser.Role).Contains(taskName))
-                Response.Redirect("~/Account/Login.aspx");
+            if (currentUser == null || taskName!="客户管理" && !TaskNames.TasksOf(currentUser.Role).Contains(taskName))
+                Response.Redirect("/");
 
             var tab = FindControl(taskName + "Tab") as HtmlGenericControl;
             if (tab != null)
@@ -54,7 +54,7 @@ namespace Homework.PatentApplicationSystem
         protected void linkBtnExit_Click(object sender, EventArgs e)
         {
             Session.Remove("User");
-            Response.Redirect("~/Account/Login.aspx");
+            Response.Redirect("/");
         }
     }
 }

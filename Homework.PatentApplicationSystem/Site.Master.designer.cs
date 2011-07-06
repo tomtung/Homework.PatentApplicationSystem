@@ -319,6 +319,15 @@ namespace Homework.PatentApplicationSystem {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink9;
         
         /// <summary>
+        /// 客户管理Tab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 客户管理Tab;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
