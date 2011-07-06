@@ -31,7 +31,7 @@
             </tbody>
         </table>
     </LayoutTemplate>
-    <ItemTemplate>s
+    <ItemTemplate>
         <tr>
             <td class="checkbox">
                 <asp:CheckBox ID="cBox1" Checked="false" runat="server" />

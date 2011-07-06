@@ -67,6 +67,9 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="App_Data\test.txt" />
     <Content Include="basic.html" />
+    <Content Include="ClientInfoManage\发明人.aspx" />
+    <Content Include="ClientInfoManage\客户.aspx" />
+    <Content Include="ClientInfoManage\客户联系人.aspx" />
     <Content Include="Images\bg.png" />
     <Content Include="Images\footer-bg.png" />
     <Content Include="Images\footer.png" />
@@ -93,7 +96,6 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Template\Default.aspx" />
-    <Content Include="Test.aspx" />
     <Content Include="Upload\Default.aspx" />
     <Content Include="UserControl\CaseFileUserControl.ascx" />
     <Content Include="UserControl\CaseInfoUserControl.ascx" />
@@ -101,7 +103,6 @@
     <Content Include="UserControl\FeedBackUserControl.ascx" />
     <Content Include="UserControl\FileUserControl.ascx" />
     <Content Include="UserControl\Tab.ascx" />
-    <Content Include="View\WebForm1.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -155,6 +156,27 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClientInfoManage\发明人.aspx.cs">
+      <DependentUpon>发明人.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientInfoManage\发明人.aspx.designer.cs">
+      <DependentUpon>发明人.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientInfoManage\客户.aspx.cs">
+      <DependentUpon>客户.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientInfoManage\客户.aspx.designer.cs">
+      <DependentUpon>客户.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientInfoManage\客户联系人.aspx.cs">
+      <DependentUpon>客户联系人.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientInfoManage\客户联系人.aspx.designer.cs">
+      <DependentUpon>客户联系人.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -186,13 +208,6 @@
     </Compile>
     <Compile Include="Template\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Upload\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -242,13 +257,6 @@
     </Compile>
     <Compile Include="UserControl\Tab.ascx.designer.cs">
       <DependentUpon>Tab.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="View\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="代理部主管\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -511,7 +519,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>25802</DevelopmentServerPort>
+          <DevelopmentServerPort>55097</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

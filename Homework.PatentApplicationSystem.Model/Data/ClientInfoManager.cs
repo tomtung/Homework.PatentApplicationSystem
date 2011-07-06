@@ -115,8 +115,8 @@ namespace Homework.PatentApplicationSystem.Model.Data
             {
                 connection.Open();
                 var customerContacts = new List<CustomerContact>();
-                SqlDataReader reader = connection.Select(CustomerContactTableName,
-                                                         new KeyValuePair<string, object>("客户号", 客户号));
+                SqlDataReader reader = connection.Select(CustomerContactTableName);//To be evil!! -- by myrice
+                                                         //new KeyValuePair<string, object>("客户号", 客户号));
                 using (reader)
                 {
                     while (reader.Read())
