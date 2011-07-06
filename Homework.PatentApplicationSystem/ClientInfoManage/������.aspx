@@ -8,7 +8,7 @@
     <LayoutTemplate>
      
             <thead>
-
+            <tr>
                     <th scope="col">
                         身份证号
                     </th>

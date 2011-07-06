@@ -54,7 +54,7 @@
                 <%# ((CustomerContact)Container.DataItem).客户号 %>
             </td>
             <td>
-                <asp:LinkButton ID="lBtnDelete" CommandName="Select" class="mbutton" Text="X" runat="server" />
+                <asp:LinkButton ID="lBtnDelete" CommandName="Select"Text="X" runat="server" />
             </td>
 
         </tr>
@@ -81,7 +81,7 @@
      </tr>
     </table>
     <br />
-    <asp:Button ID="Button1" runat="server" Text="添加" onclick="Button1_Click" />
+    <asp:Button ID="Button1" runat="server" class="mbutton" Text="添加" onclick="Button1_Click" />
 
     </div>
 </asp:Content>
