@@ -59,16 +59,16 @@
     </asp:ListView>
     <tr>
         <td>
-             <asp:TextBox ID="Uid" runat="server"></asp:TextBox>   
+             <asp:TextBox ID="Uid" Width="120px" runat="server"></asp:TextBox>   
         </td>
         <td>
-             <asp:TextBox ID="Name" runat="server"></asp:TextBox>   
+             <asp:TextBox ID="Name" Width="120px" runat="server"></asp:TextBox>   
         </td>
         <td>
-             <asp:TextBox ID="Tel" runat="server"></asp:TextBox>   
+             <asp:TextBox ID="Tel" Width="120px" runat="server"></asp:TextBox>   
         </td>
         <td>
-             <asp:TextBox ID="Email" runat="server"></asp:TextBox>   
+             <asp:TextBox ID="Email" Width="120px" runat="server"></asp:TextBox>   
         </td>
         <td />
      </tr>
