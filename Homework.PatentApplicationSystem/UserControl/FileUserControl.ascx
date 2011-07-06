@@ -57,7 +57,7 @@
     <td>暂无相关文档。</td>
     </EmptyDataTemplate>
 </asp:ListView>
-<button id="btnAdd" runat="server" class="mbutton" onserverclick="btnAdd_Click">+ 添加</button>
+<button id="btnAdd" runat="server" class="mbutton" onserverclick="btnAdd_Click">+ 添加</button> &nbsp; <button id="btnDelete" runat="server" class="mbutton" onserverclick="btnDelete_Click">- 删除</button>
 
 
 

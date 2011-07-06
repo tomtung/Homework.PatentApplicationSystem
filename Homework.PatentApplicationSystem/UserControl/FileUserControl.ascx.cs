@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Data;
+using System.Web.UI.WebControls;
 using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Data;
 using Microsoft.Practices.ServiceLocation;
@@ -47,10 +49,12 @@ namespace Homework.PatentApplicationSystem.UserControl
 
         protected void listViewFiles_SelectedIndexChanging(object sender, EventArgs e)
         {
+
         }
 
         protected void lbtnDownload_Click(object sender, EventArgs e)
         {
+
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -70,7 +74,7 @@ namespace Homework.PatentApplicationSystem.UserControl
             }
 
 
-            var CurrentUser = (User) Session["User"];
+            var CurrentUser = (User)Session["User"];
             var doc = new CaseDoc
                           {
                               FileName = Guid.NewGuid().ToString(),
@@ -83,6 +87,32 @@ namespace Homework.PatentApplicationSystem.UserControl
             caseDocManager.AddDoc(doc);
             FileUpload1.Visible = false;
             btnUpload.Visible = false;
+        }
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewDataItem item in listViewFiles.Items)
+            {
+                var cBox1 = item.FindControl("cBox1") as CheckBox;
+                if (cBox1.Checked)
+                {
+                    DataRowView rowView = (DataRowView)item.DataItem;
+                    CaseDoc m_Doc = new CaseDoc
+                                {
+                                    案件编号 = rowView["案件编号"].ToString(),
+                                    FileName = rowView["FileName"].ToString(),
+                                    UploadDateTime = Convert.ToDateTime(rowView["UploadDateTime"]),
+                                    UploadUserName = rowView["UploadUserName"].ToString(),
+                                    FilePath = rowView["FilePath"].ToString()
+                                };
+                    //CaseDoc m_Doc = (CaseDoc)item.DataItem;
+                    var caseDocManager = ServiceLocator.Current.GetInstance<ICaseDocManager>();
+                    caseDocManager.RemoveDoc(m_Doc);
+
+                }
+            }
+            var caseId = Session["SelectedCaseID"] as string;
+            listViewFiles.DataSource = ServiceLocator.Current.GetInstance<ICaseDocManager>().GetDocsOf(caseId);
+            listViewFiles.DataBind();
         }
     }
 }

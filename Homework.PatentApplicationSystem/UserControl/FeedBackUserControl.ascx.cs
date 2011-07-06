@@ -26,7 +26,10 @@ namespace Homework.PatentApplicationSystem.UserControl
                               SenderUsername = user.UserName
                           };
             _caseMessageManager.AddMessage(doc);
-            Response.Redirect(Request.Url.ToString());
+            DataListFeedBack.DataSource = _caseMessageManager.GetMessagesOf(caseId);
+            DataListFeedBack.DataBind();
+            commentText.Value = "";
+            //Response.Redirect(Request.Url.ToString());
         }
     }
 }

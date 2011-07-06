@@ -86,6 +86,7 @@
     <Content Include="UserControl\CaseListUserControl.ascx" />
     <Content Include="UserControl\FeedBackUserControl.ascx" />
     <Content Include="UserControl\FileUserControl.ascx" />
+    <Content Include="UserControl\SendMailUserControl.ascx" />
     <Content Include="UserControl\Tab.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -216,6 +217,13 @@
     </Compile>
     <Compile Include="UserControl\FileUserControl.ascx.designer.cs">
       <DependentUpon>FileUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SendMailUserControl.ascx.cs">
+      <DependentUpon>SendMailUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\SendMailUserControl.ascx.designer.cs">
+      <DependentUpon>SendMailUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Tab.ascx.cs">
       <DependentUpon>Tab.ascx</DependentUpon>
