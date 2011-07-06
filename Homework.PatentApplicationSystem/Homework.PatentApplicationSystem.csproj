@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Brettle.Web.NeatUpload">
+      <HintPath>..\lib\Brettle.Web.NeatUpload.dll</HintPath>
+    </Reference>
     <Reference Include="CommonServiceLocator.NinjectAdapter">
       <HintPath>..\lib\CommonServiceLocator.NinjectAdapter.dll</HintPath>
     </Reference>

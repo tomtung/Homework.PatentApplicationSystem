@@ -1,10 +1,14 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FileUserControl.ascx.cs"
  Inherits="Homework.PatentApplicationSystem.UserControl.FileUserControl" %>
- <%@ Import Namespace="Homework.PatentApplicationSystem.Model.Data" %>
+<%@ Register Assembly="Brettle.Web.NeatUpload" Namespace="Brettle.Web.NeatUpload" TagPrefix="Upload" %>
+<%@ Import Namespace="Homework.PatentApplicationSystem.Model.Data" %>
 
-<asp:FileUpload ID="FileUpload1" Visible="false" runat="server" />
+<Upload:ProgressBar ID="ProgressBar" runat='server' />
+<br />
+<Upload:InputFile ID="InputFile" Visible="false"  runat="server" />
 <asp:Button ID="btnUpload" Text="上传" OnClick="btnUpload_Click"  Visible="false" runat="server" />
-
+<br />
+<asp:Label ID="lblErrorMessage" Visible="false" runat="server" />
 <asp:ListView ID="listViewFiles" DataKeyNames="FileName" runat="server" OnSelectedIndexChanged="listViewFiles_SelectedIndexChanged"
  OnSelectedIndexChanging="listViewFiles_SelectedIndexChanging">
     <LayoutTemplate>
@@ -47,10 +51,8 @@
             </td>
    
             <td>
-                 <asp:LinkButton ID="lbtnDownload" Text="下载" CommandName="Select" OnClick = "lbtnDownload_Click" runat="server"></asp:LinkButton>
-                 
+                 <asp:LinkButton ID="lbtnDownload" Text="下载" CommandName="Select" OnClick = "lbtnDownload_Click" runat="server" />
             </td>
-
         </tr>
     </ItemTemplate>
     <EmptyDataTemplate>
@@ -58,6 +60,4 @@
     </EmptyDataTemplate>
 </asp:ListView>
 <button id="btnAdd" runat="server" class="mbutton" onserverclick="btnAdd_Click">+ 添加</button>
-
-
-
+<button id="btnDelete" runat="server" class="mbutton" onserverclick="btnDelete_Click">- 删除</button> 

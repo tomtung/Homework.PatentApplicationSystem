@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Web.UI.WebControls;
 using Homework.PatentApplicationSystem.Model;
 using Homework.PatentApplicationSystem.Model.Data;
 using Microsoft.Practices.ServiceLocation;
@@ -10,39 +12,41 @@ namespace Homework.PatentApplicationSystem.UserControl
 {
     public partial class FileUserControl : System.Web.UI.UserControl
     {
+        private readonly ICaseDocManager _caseDocManager = ServiceLocator.Current.GetInstance<ICaseDocManager>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var caseId = Session["SelectedCaseID"] as string;
-            listViewFiles.DataSource = ServiceLocator.Current.GetInstance<ICaseDocManager>().GetDocsOf(caseId);
-            listViewFiles.DataBind();
+            if (!Page.IsPostBack)
+            {
+
+                listViewFiles.DataSource = _caseDocManager.GetDocsOf(caseId);
+                listViewFiles.DataBind();
+            }
         }
 
         protected void listViewFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string FileName = listViewFiles.SelectedValue.ToString();
-            string filePath = "";
-            IEnumerable<CaseDoc> docs =
-                ServiceLocator.Current.GetInstance<ICaseDocManager>().GetDocsOf(Session["SelectedCaseID"] as string);
-            foreach (CaseDoc doc in docs)
-            {
-                if (doc.FileName == FileName)
-                    filePath = doc.FilePath;
-            }
+            string fileName = listViewFiles.SelectedValue.ToString();
+            var selectedDoc =
+                _caseDocManager.GetDocsOf(Session["SelectedCaseID"] as string)
+                    .Where(doc => doc.FileName == fileName)
+                    .First();
+            SendDownload(fileName, Server.MapPath(selectedDoc.FilePath));
+        }
 
-
-            filePath = Server.MapPath(filePath);
-            var fileInfo = new FileInfo(filePath);
+        private void SendDownload(string fileName, string filePath)
+        {
+            var info = new FileInfo(filePath);
+            long fileSize = info.Length;
             Response.Clear();
-            Response.ClearContent();
-            Response.ClearHeaders();
-            Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
-            Response.AddHeader("Content-Length", fileInfo.Length.ToString());
-            Response.AddHeader("Content-Transfer-Encoding", "binary");
             Response.ContentType = "application/octet-stream";
-            Response.ContentEncoding = Encoding.GetEncoding("gb2312");
-            Response.WriteFile(fileInfo.FullName);
+            Response.AddHeader("Content-Disposition", "attachement;filename=" + fileName);
+            //指定文件大小  
+            Response.AddHeader("Content-Length", fileSize.ToString());
+            Response.WriteFile(filePath, 0, fileSize);
             Response.Flush();
-            Response.End();
+            Response.Close();
         }
 
         protected void listViewFiles_SelectedIndexChanging(object sender, EventArgs e)
@@ -55,34 +59,79 @@ namespace Homework.PatentApplicationSystem.UserControl
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            FileUpload1.Visible = true;
+            InputFile.Visible = true;
             btnUpload.Visible = true;
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            if (FileUpload1.HasFile)
+            if (InputFile.HasFile)
             {
-                if (FileUpload1.PostedFile.ContentLength < 10485760)
+                IEnumerable<CaseDoc> docs = _caseDocManager.GetDocsOf(Session["SelectedCaseID"] as string);
+                bool multiUploadTime = false;
+                foreach (CaseDoc doc in docs)
                 {
-                    FileUpload1.PostedFile.SaveAs(Server.MapPath("~/App_Data/") + FileUpload1.FileName);
+                    if (doc.FileName == InputFile.FileName)
+                    {
+                        lblErrorMessage.Text = "您多次上传了同一文件， 请删除现有文件再上传";
+                        lblErrorMessage.Visible = true;
+                        multiUploadTime = true;
+                    }
+
+                }
+
+                if (!multiUploadTime)
+                {
+                    string saveFilePath = Path.Combine("~/App_Data/", Guid.NewGuid().ToString());
+
+                    InputFile.MoveTo(Server.MapPath(saveFilePath), Brettle.Web.NeatUpload.MoveToOptions.Overwrite);
+                    var CurrentUser = (User)Session["User"];
+                    var m_Doc = new CaseDoc
+                    {
+                        FileName = InputFile.FileName,
+                        UploadDateTime = DateTime.Now,
+                        UploadUserName = CurrentUser.UserName,
+                        FilePath = saveFilePath,
+                        案件编号 = Session["SelectedCaseID"] as string
+                    };
+                    var caseDocManager = _caseDocManager;
+                    caseDocManager.AddDoc(m_Doc);
+                    InputFile.Visible = false;
+                    btnUpload.Visible = false;
+
+                    var caseId = Session["SelectedCaseID"] as string;
+                    listViewFiles.DataSource = _caseDocManager.GetDocsOf(caseId);
+                    listViewFiles.DataBind();
                 }
             }
+        }
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            //foreach (ListViewDataItem item in listViewFiles.Items)
+            //{
+            //    var cBox1 = item.FindControl("cBox1") as CheckBox;
+            //    if (cBox1.Checked)
+            //    {
+            //        string fileName = listViewFiles.DataKeys[item.DataItemIndex].Value.ToString();
+            //        IEnumerable<CaseDoc> docs =
+            //            _caseDocManager.GetDocsOf(Session["SelectedCaseID"] as string);
+            //        var caseDocManager = _caseDocManager;
 
+            //        foreach (CaseDoc m_Doc in docs)
+            //        {
+            //            if (m_Doc.FileName == fileName)
+            //            {
+            //                caseDocManager.RemoveDoc(m_Doc);
+            //                break;
+            //            }
+            //        }
+            //    }
+            //}
 
-            var CurrentUser = (User) Session["User"];
-            var doc = new CaseDoc
-                          {
-                              FileName = Guid.NewGuid().ToString(),
-                              UploadDateTime = DateTime.Now,
-                              UploadUserName = CurrentUser.UserName,
-                              FilePath = "~/App_Data/FileName",
-                              案件编号 = Session["SelectedCaseID"] as string
-                          };
-            var caseDocManager = ServiceLocator.Current.GetInstance<ICaseDocManager>();
-            caseDocManager.AddDoc(doc);
-            FileUpload1.Visible = false;
-            btnUpload.Visible = false;
+            //var caseId = Session["SelectedCaseID"] as string;
+            //listViewFiles.DataSource = _caseDocManager.GetDocsOf(caseId);
+            //listViewFiles.DataBind();
+
         }
     }
 }

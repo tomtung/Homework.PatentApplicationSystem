@@ -13,13 +13,22 @@ namespace Homework.PatentApplicationSystem.UserControl {
     public partial class FileUserControl {
         
         /// <summary>
-        /// FileUpload1 control.
+        /// ProgressBar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::Brettle.Web.NeatUpload.ProgressBar ProgressBar;
+        
+        /// <summary>
+        /// InputFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Brettle.Web.NeatUpload.InputFile InputFile;
         
         /// <summary>
         /// btnUpload control.
@@ -29,6 +38,15 @@ namespace Homework.PatentApplicationSystem.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpload;
+        
+        /// <summary>
+        /// lblErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
         
         /// <summary>
         /// listViewFiles control.
@@ -47,5 +65,14 @@ namespace Homework.PatentApplicationSystem.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnAdd;
+        
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnDelete;
     }
 }
