@@ -72,7 +72,7 @@
      </tr>
     </table>
     <br />
-    <asp:Button ID="Button1" runat="server" Text="添加" onclick="Button1_Click" />
+    <asp:Button ID="Button1" class="mbutton" runat="server" Text="添加" onclick="Button1_Click" />
 
     </div>
 </asp:Content>

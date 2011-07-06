@@ -2,9 +2,9 @@
 <%@ Import Namespace="Homework.PatentApplicationSystem.Model.Data" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
-    <div>
+    <div id="main">
             <table>
-        <asp:ListView ID="ListView1" OnSelectedIndexChanged="ListView1SelectedIndexChanged" OnSelectedIndexChanging="ListView1SelectedIndexChanging" DataKeyNames="客户号" runat="server" >
+        <asp:ListView ID="ListView1" OnSelectedIndexChanged="ListView1SelectedIndexChanged" OnSelectedIndexChanging="ListView1SelectedIndexChanging" DataKeyNames="姓名" runat="server" >
     <LayoutTemplate>
      
             <thead>
@@ -54,7 +54,7 @@
                 <%# ((CustomerContact)Container.DataItem).客户号 %>
             </td>
             <td>
-                <asp:LinkButton ID="lBtnDelete" CommandName="Select" Text="X" runat="server" />
+                <asp:LinkButton ID="lBtnDelete" CommandName="Select" class="mbutton" Text="X" runat="server" />
             </td>
 
         </tr>

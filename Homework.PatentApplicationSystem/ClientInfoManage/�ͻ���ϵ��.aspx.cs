@@ -20,7 +20,7 @@ namespace Homework.PatentApplicationSystem.ClientInfoMange
         protected void ListView1SelectedIndexChanged(object sender, EventArgs e)
         {
             var s = ListView1.SelectedValue.ToString();
-            _clientInfoManager.RemoveCustomerContact(new CustomerContact() {客户号 = s });
+            _clientInfoManager.RemoveCustomerContact(new CustomerContact() { 姓名 = s });
             Response.Redirect(Request.Url.ToString());
         }
         protected void ListView1SelectedIndexChanging(object sender, EventArgs e)
