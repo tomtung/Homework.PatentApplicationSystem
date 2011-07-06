@@ -6,6 +6,9 @@
         <user:Tab ID="TabStrip" OnTabClick="TabStrip_Click" runat="server" />
     </div>
     <asp:MultiView ID="MultiView1" ActiveViewIndex="0" runat="server">
+        <asp:view id="viewcaseinfo" runat="server">
+            <user:caseinfo id="caseInfo1" runat="server" />
+        </asp:view>
         <asp:View ID="ViewDistributeCase" runat="server">
             <asp:Table ID="tblDistributeCaseMain" runat="server">
                 <asp:TableRow>
@@ -38,12 +41,13 @@
                                 <asp:Label ID="lblSRev" Text="二校" runat="server" />
                             </asp:TableCell><asp:TableCell>
                                 <asp:ListBox ID="lBoxCaseWorker3" runat="server" />
-                            </asp:TableCell></asp:TableRow></asp:Table>注意： 翻译、一校和二校必须选择不同办案员</asp:View></asp:MultiView></asp:View><asp:view id="viewcaseinfo" runat="server">
-            <user:caseinfo id="caseInfo1" runat="server" />
-        </asp:view>
+                            </asp:TableCell></asp:TableRow></asp:Table>注意： 翻译、一校和二校必须选择不同办案员</asp:View></asp:MultiView></asp:View>
         <asp:view id="viewrelatedfiles" runat="server">
             <user:file id="filecontrol1" runat="server"></user:file>
         </asp:view>
+        <asp:View runat="server">
+            <user:FeedBack runat="server"/>
+        </asp:View>
     </asp:MultiView>
     <div id="decide">
     <button runat="server" class="lbutton-blue" onserverclick="btnOK_Click">完成</button>

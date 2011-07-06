@@ -77,12 +77,10 @@
     <Content Include="Styles\Picture\nav3-hover.png" />
     <Content Include="Styles\Picture\nav3-selected.png" />
     <Content Include="Styles\Picture\search.png" />
-    <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="UserControl\CaseInfoUserControl.ascx" />
     <Content Include="UserControl\CaseListUserControl.ascx" />
-    <Content Include="UserControl\CaseMessageUserControl.ascx" />
     <Content Include="UserControl\FeedBackUserControl.ascx" />
     <Content Include="UserControl\FileUserControl.ascx" />
     <Content Include="UserControl\Tab.ascx" />
@@ -180,13 +178,6 @@
     </Compile>
     <Compile Include="UserControl\CaseListUserControl.ascx.designer.cs">
       <DependentUpon>CaseListUserControl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\CaseMessageUserControl.ascx.cs">
-      <DependentUpon>CaseMessageUserControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControl\CaseMessageUserControl.ascx.designer.cs">
-      <DependentUpon>CaseMessageUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\FeedBackUserControl.ascx.cs">
       <DependentUpon>FeedBackUserControl.ascx</DependentUpon>

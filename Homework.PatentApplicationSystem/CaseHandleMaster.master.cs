@@ -35,7 +35,13 @@ namespace Homework.PatentApplicationSystem
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
-                TabStrip.DataSource = new[] {"案件信息", "相关文件"};
+            {
+                var caseId = Session["SelectedCaseID"] as string;
+                if (caseId == null)
+                    Response.Redirect("Default.aspx");
+
+                TabStrip.DataSource = new[] {"案件信息", "相关文件", "留言指示"};
+            }
         }
 
         protected void TabStrip_Click(object sender, EventArgs e)

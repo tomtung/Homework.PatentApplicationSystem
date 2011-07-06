@@ -11,6 +11,9 @@
         <asp:view runat="server">
             <user:file runat="server" />
         </asp:view>
+        <asp:View runat="server">
+            <user:FeedBack runat="server"/>
+        </asp:View>
     </asp:MultiView>
     <div id="decide">
         <asp:Panel ID="SingleButtonPanel" runat="server" Visible="true">

@@ -25,7 +25,7 @@ namespace Homework.PatentApplicationSystem.代理部主管.分案
             Master.SetTaskName(TaskNames.分案);
             if (!Page.IsPostBack)
             {
-                TabStrip.DataSource = new[] {"分案", "案件信息", "相关文件"};
+                TabStrip.DataSource = new[] {"案件信息", "分案", "相关文件", "留言指示"};
 
                 if (Session["SelectedCaseID"] == null) return;
                 string selectedCaseId = Session["SelectedCaseID"].ToString();

@@ -9,7 +9,11 @@
         <ItemTemplate>
             <div class="feed">
                 <span class="name">
-                    <%# ((CaseMessage)Container.DataItem).SenderUsername %></span><span class="time"></span>
+                    <%# ((CaseMessage)Container.DataItem).SenderUsername %>
+                </span>
+                <span class="time">
+                    <%# DateTime.Now.ToShortDateString() %>
+                </span>
                 <p>
                     <%# ((CaseMessage)Container.DataItem).Content %></p>
             </div>
@@ -17,7 +21,7 @@
     </asp:ListView>
     <div class="comment">
         <textarea id="commentText" runat="server"></textarea>
-        <button id="Button1" type="button" class="mbutton" runat="server" onserverclick="btnFinish_Click">
+        <button id="Button1" type="button" class="mbutton" runat="server" onserverclick="ButtonOK_Click">
             反馈</button>
     </div>
 </div>
