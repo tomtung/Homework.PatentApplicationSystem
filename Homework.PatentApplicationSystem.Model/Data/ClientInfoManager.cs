@@ -94,7 +94,7 @@ namespace Homework.PatentApplicationSystem.Model.Data
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                connection.Delete(CustomerContactTableName, new KeyValuePair<string, object>("客户号", contact.客户号));
+                connection.Delete(CustomerContactTableName, new KeyValuePair<string, object>("姓名", contact.姓名));
             }
         }
 

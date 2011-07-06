@@ -155,18 +155,21 @@
     </Compile>
     <Compile Include="ClientInfoManage\发明人.aspx.cs">
       <DependentUpon>发明人.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClientInfoManage\发明人.aspx.designer.cs">
       <DependentUpon>发明人.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClientInfoManage\客户.aspx.cs">
       <DependentUpon>客户.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClientInfoManage\客户.aspx.designer.cs">
       <DependentUpon>客户.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClientInfoManage\客户联系人.aspx.cs">
       <DependentUpon>客户联系人.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClientInfoManage\客户联系人.aspx.designer.cs">
       <DependentUpon>客户联系人.aspx</DependentUpon>
