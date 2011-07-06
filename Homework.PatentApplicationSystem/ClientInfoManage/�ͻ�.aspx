@@ -4,11 +4,8 @@
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <div>
         <table>
-        <asp:ListView ID="ListView1" OnSelectedIndexChanged="ListView1SelectedIndexChanged" OnSelectedIndexChanging="ListView1SelectedIndexChanging" DataKeyNames="客户号" runat="server" >
-    <LayoutTemplate>
-     
-            <thead>
-
+                    <thead>
+                    <tr>
                     <th scope="col">
                         客户号
                     </th>
@@ -27,6 +24,10 @@
 
                 </tr>
             </thead>
+        <asp:ListView ID="ListView1" OnSelectedIndexChanged="ListView1SelectedIndexChanged" OnSelectedIndexChanging="ListView1SelectedIndexChanging" DataKeyNames="客户号" runat="server" >
+    <LayoutTemplate>
+     
+
             <tbody>
                 <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
             </tbody>
