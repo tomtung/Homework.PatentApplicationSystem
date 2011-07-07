@@ -66,6 +66,9 @@
                             <asp:HyperLink ID="HyperLink9" Text="官方格式函" NavigateUrl="~/代理部文员/制作官方格式函/Default.aspx" runat="server" />
                         </li>
                     </asp:Panel>
+                        <li id="客户管理Tab" runat="server">
+                            <asp:HyperLink  Text="客户管理" NavigateUrl="/客户管理.aspx" runat="server" />
+                        </li>
                 </ul>
             </div>
         </div>

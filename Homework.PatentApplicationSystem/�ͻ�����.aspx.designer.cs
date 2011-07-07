@@ -10,330 +10,387 @@
 namespace Homework.PatentApplicationSystem {
     
     
-    public partial class SiteMaster {
+    public partial class 客户管理 {
         
         /// <summary>
-        /// lblCurrentUser control.
+        /// TabStrip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentUser;
+        protected global::Homework.PatentApplicationSystem.UserControl.Tab TabStrip;
         
         /// <summary>
-        /// linkBtnExit control.
+        /// MultiView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkBtnExit;
+        protected global::System.Web.UI.WebControls.MultiView MultiView;
         
         /// <summary>
-        /// 立案员Tabs control.
+        /// 客户 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel 立案员Tabs;
+        protected global::System.Web.UI.WebControls.View 客户;
         
         /// <summary>
-        /// 立案Tab control.
+        /// CustomerListView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 立案Tab;
+        protected global::System.Web.UI.WebControls.ListView CustomerListView;
         
         /// <summary>
-        /// 质检员Tabs control.
+        /// CustomerUid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel 质检员Tabs;
+        protected global::System.Web.UI.WebControls.TextBox CustomerUid;
         
         /// <summary>
-        /// 流程部质检Tab control.
+        /// CustomerType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 流程部质检Tab;
+        protected global::System.Web.UI.WebControls.TextBox CustomerType;
         
         /// <summary>
-        /// HyperLink13 control.
+        /// CustomerAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink13;
+        protected global::System.Web.UI.WebControls.TextBox CustomerAddress;
         
         /// <summary>
-        /// 处理提交并确认Tab control.
+        /// CustomerZipCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 处理提交并确认Tab;
+        protected global::System.Web.UI.WebControls.TextBox CustomerZipCode;
         
         /// <summary>
-        /// HyperLink14 control.
+        /// AddCustomerButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink14;
+        protected global::System.Web.UI.WebControls.Button AddCustomerButton;
         
         /// <summary>
-        /// 代理部主管Tabs control.
+        /// 客户联系人 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel 代理部主管Tabs;
+        protected global::System.Web.UI.WebControls.View 客户联系人;
         
         /// <summary>
-        /// 分案Tab control.
+        /// CustomerContactListView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 分案Tab;
+        protected global::System.Web.UI.WebControls.ListView CustomerContactListView;
         
         /// <summary>
-        /// HyperLink10 control.
+        /// CustomerContactName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink10;
+        protected global::System.Web.UI.WebControls.TextBox CustomerContactName;
         
         /// <summary>
-        /// 代理部内审Tab control.
+        /// CustomerContactTel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 代理部内审Tab;
+        protected global::System.Web.UI.WebControls.TextBox CustomerContactTel;
         
         /// <summary>
-        /// HyperLink11 control.
+        /// CustomerContactEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink11;
+        protected global::System.Web.UI.WebControls.TextBox CustomerContactEmail;
         
         /// <summary>
-        /// 办案员Tabs control.
+        /// CustomerContactType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel 办案员Tabs;
+        protected global::System.Web.UI.WebControls.TextBox CustomerContactType;
         
         /// <summary>
-        /// 撰写五书Tab control.
+        /// CustomerContactCustomerID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 撰写五书Tab;
+        protected global::System.Web.UI.WebControls.TextBox CustomerContactCustomerID;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// AddCustomerContactListViewButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Button AddCustomerContactListViewButton;
         
         /// <summary>
-        /// 原始资料翻译Tab control.
+        /// 申请人 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 原始资料翻译Tab;
+        protected global::System.Web.UI.WebControls.View 申请人;
         
         /// <summary>
-        /// HyperLink2 control.
+        /// ApplicantListView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.ListView ApplicantListView;
         
         /// <summary>
-        /// 原始资料翻译一校Tab control.
+        /// 申请人证件号 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 原始资料翻译一校Tab;
+        protected global::System.Web.UI.WebControls.TextBox 申请人证件号;
         
         /// <summary>
-        /// HyperLink3 control.
+        /// 申请人类型 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
+        protected global::System.Web.UI.WebControls.TextBox 申请人类型;
         
         /// <summary>
-        /// 原始资料翻译二校Tab control.
+        /// 申请人中文名 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 原始资料翻译二校Tab;
+        protected global::System.Web.UI.WebControls.TextBox 申请人中文名;
         
         /// <summary>
-        /// HyperLink4 control.
+        /// 申请人英文名 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
+        protected global::System.Web.UI.WebControls.TextBox 申请人英文名;
         
         /// <summary>
-        /// 定稿五书Tab control.
+        /// 申请人简称 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 定稿五书Tab;
+        protected global::System.Web.UI.WebControls.TextBox 申请人简称;
         
         /// <summary>
-        /// HyperLink5 control.
+        /// 申请人国家 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink5;
+        protected global::System.Web.UI.WebControls.TextBox 申请人国家;
         
         /// <summary>
-        /// 客户指示办案Tab control.
+        /// 申请人省 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 客户指示办案Tab;
+        protected global::System.Web.UI.WebControls.TextBox 申请人省;
         
         /// <summary>
-        /// HyperLink6 control.
+        /// 申请人市区县 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink6;
+        protected global::System.Web.UI.WebControls.TextBox 申请人市区县;
         
         /// <summary>
-        /// 官方来函办案Tab control.
+        /// 申请人中国地址 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 官方来函办案Tab;
+        protected global::System.Web.UI.WebControls.TextBox 申请人中国地址;
         
         /// <summary>
-        /// HyperLink7 control.
+        /// 申请人外国地址 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink7;
+        protected global::System.Web.UI.WebControls.TextBox 申请人外国地址;
         
         /// <summary>
-        /// 代理部文员Tabs control.
+        /// 申请人邮编 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel 代理部文员Tabs;
+        protected global::System.Web.UI.WebControls.TextBox 申请人邮编;
         
         /// <summary>
-        /// 制作专利请求书Tab control.
+        /// 申请人电话 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 制作专利请求书Tab;
+        protected global::System.Web.UI.WebControls.TextBox 申请人电话;
         
         /// <summary>
-        /// HyperLink8 control.
+        /// 申请人传真 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink8;
+        protected global::System.Web.UI.WebControls.TextBox 申请人传真;
         
         /// <summary>
-        /// 制作官方格式函Tab control.
+        /// 申请人Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 制作官方格式函Tab;
+        protected global::System.Web.UI.WebControls.TextBox 申请人Email;
         
         /// <summary>
-        /// HyperLink9 control.
+        /// AddApplicantButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink9;
+        protected global::System.Web.UI.WebControls.Button AddApplicantButton;
         
         /// <summary>
-        /// 客户管理Tab control.
+        /// 发明人 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl 客户管理Tab;
+        protected global::System.Web.UI.WebControls.View 发明人;
         
         /// <summary>
-        /// MainContent control.
+        /// InventorListView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.ListView InventorListView;
+        
+        /// <summary>
+        /// InventorUid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox InventorUid;
+        
+        /// <summary>
+        /// InventorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox InventorName;
+        
+        /// <summary>
+        /// InventorTel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox InventorTel;
+        
+        /// <summary>
+        /// InventorEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox InventorEmail;
+        
+        /// <summary>
+        /// AddInventorButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddInventorButton;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Homework.PatentApplicationSystem.SiteMaster Master {
+            get {
+                return ((Homework.PatentApplicationSystem.SiteMaster)(base.Master));
+            }
+        }
     }
 }

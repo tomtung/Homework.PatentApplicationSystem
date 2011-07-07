@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Brettle.Web.NeatUpload">
+      <HintPath>..\lib\Brettle.Web.NeatUpload.dll</HintPath>
+    </Reference>
     <Reference Include="CommonServiceLocator.NinjectAdapter">
       <HintPath>..\lib\CommonServiceLocator.NinjectAdapter.dll</HintPath>
     </Reference>
@@ -65,9 +68,6 @@
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
     <Content Include="basic.html" />
-    <Content Include="ClientInfoManage\发明人.aspx" />
-    <Content Include="ClientInfoManage\客户.aspx" />
-    <Content Include="ClientInfoManage\客户联系人.aspx" />
     <Content Include="Styles\basic.css" />
     <Content Include="Styles\Picture\bg.png" />
     <Content Include="Styles\Picture\footer-bg.png" />
@@ -122,6 +122,7 @@
     <Content Include="办案员\客户指示办案\客户指示办案.aspx" />
     <Content Include="办案员\撰写五书\Default.aspx" />
     <Content Include="办案员\撰写五书\撰写五书.aspx" />
+    <Content Include="客户管理.aspx" />
     <Content Include="立案员\Default.aspx" />
     <Content Include="立案员\立案\Default.aspx" />
     <Content Include="质检员\Default.aspx" />
@@ -150,27 +151,6 @@
     </Compile>
     <Compile Include="CaseListMaster.master.designer.cs">
       <DependentUpon>CaseListMaster.master</DependentUpon>
-    </Compile>
-    <Compile Include="ClientInfoManage\发明人.aspx.cs">
-      <DependentUpon>发明人.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ClientInfoManage\发明人.aspx.designer.cs">
-      <DependentUpon>发明人.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ClientInfoManage\客户.aspx.cs">
-      <DependentUpon>客户.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ClientInfoManage\客户.aspx.designer.cs">
-      <DependentUpon>客户.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ClientInfoManage\客户联系人.aspx.cs">
-      <DependentUpon>客户联系人.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ClientInfoManage\客户联系人.aspx.designer.cs">
-      <DependentUpon>客户联系人.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -406,6 +386,13 @@
     </Compile>
     <Compile Include="办案员\撰写五书\撰写五书.aspx.designer.cs">
       <DependentUpon>撰写五书.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="客户管理.aspx.cs">
+      <DependentUpon>客户管理.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="客户管理.aspx.designer.cs">
+      <DependentUpon>客户管理.aspx</DependentUpon>
     </Compile>
     <Compile Include="立案员\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
